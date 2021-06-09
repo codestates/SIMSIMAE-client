@@ -1,0 +1,46 @@
+:root{
+  /* font */
+  --font-family : 'Noto Sans KR', sans-serif;
+
+  /* font size */
+  --font-size-300: 300;
+  --font-size-400: 400;
+  --font-size-700: 700;
+
+  /* color */
+  --primary-color : #f57c00;
+  --secondary-color : #ffec25;
+  --black-color : #1b1b1b;
+  --white-color : #f5f5f5;
+
+  /*
+  - 제목(좋아하는 관심사..) : 20px
+  - 소제목(이메일...비밀번호) : 17px
+  - 일반 p태그 : 14px
+  */
+}
+
+* {
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+
+/* PC (해상도 1024px)*/
+@media all and (min-width:1024px) { 
+  /*스타일입력*/
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) {
+   /*스타일입력*/
+  }
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+   /*스타일입력*/
+  }
