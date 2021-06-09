@@ -46,57 +46,54 @@ class Signup extends Component {
     return (
       <div>
         <center>
-          <h1>Sign Up</h1>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div>모든 항목은 필수입니다</div>
+          <h1>회원가입</h1>
+          <img src='' />
+          <form className='signForm' onSubmit={(e) => e.preventDefault()}>
+
             <div>
-              <span>이메일</span>
+              <div className='signTitle'>이메일</div>
               <input
                 value={this.state.email}
                 type="email"
                 onChange={this.handleInputValue("email")}
               ></input>
             </div>
+
             <div>
-              <span>비밀번호</span>
+              <div className='signTitle'>비밀번호</div>
               <input
               value={this.state.password}
                 type="password"
                 onChange={this.handleInputValue("password")}
               ></input>
             </div>
+
             <div>
-              <span>이름</span>
+              <div className='signTitle'>이름</div>
               <input
               value={this.state.username}
                 type='text'
                 onChange={this.handleInputValue("username")}
               ></input>
             </div>
+            
             <div>
-              <span>전화번호</span>
+              <div className='signTitle'>전화번호</div>
               <input
               value={this.state.mobile}
                 type='tel'
                 onChange={this.handleInputValue("mobile")}
               ></input>
             </div>
-            <div>
-              <Link to='/login'>이미 아이디가 있으신가요?</Link>
-            </div>
+
             <button
-              className="btn btn-signup"
+              className="signupBtn"
               type='submit'
               onClick={this.handleSignup}
-            >
-              회원가입
-            </button >
-            {/* TODO : 조건에 따라 에러메시지를 표시하세요. */ 
-            this.state.errorMessage === '' ? 
-            <div className="alert-box"></div> : 
-            <div className="alert-box">모든 항목은 필수입니다</div>
-            }
+            >회원가입</button >
+
           </form>
+
         </center>
       </div>
     )

@@ -12,6 +12,7 @@
   --secondary-color : #ffec25;
   --black-color : #1b1b1b;
   --white-color : #f5f5f5;
+  --white-color-light : #ffffff;
 
   /*
   - 제목(좋아하는 관심사..) : 20px
@@ -23,12 +24,43 @@
 * {
   box-sizing: border-box;
 }
+
 body{
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
 }
 
+input{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+
+.signForm {
+  display: flex;
+  flex-direction: column;
+  color: #1b1b1b;
+  font-weight: var(--font-size-700);
+  font-size: 17px;
+  width: 400px;
+}
+
+.signTitle{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.signupBtn {
+  margin-top: 50px;
+  width: 100%;
+  height: 35px;
+  border-radius: 15px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-light);
+}
 
 /* PC (해상도 1024px)*/
 @media all and (min-width:1024px) { 
