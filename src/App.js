@@ -3,7 +3,6 @@ import React from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import './css/App.css';
 
-import Nav from "./components/Nav";
 import LikeForm from './pages/LikeForm'
 import Signup from "./pages/Signup";
 import Main from './pages/Main';

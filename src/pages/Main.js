@@ -32,7 +32,7 @@ class Main extends Component {
           </div>
 
           <div className="footer">
-
+              <p className='copyright'>Copyright 2021. SONGYUIJO inc. all rights reserved.</p>
           </div>
       </div>
     );
