@@ -3,16 +3,16 @@ import { withRouter } from "react-router-dom";
 
 class Mypage extends Component {
   constructor(props){
-      super(props);
-      this.state = {
+    super(props);
+    this.state = {
 
-      }
+    }
   }
   render() {
-      return(
-          <>
-          </>
-      )
+    return(
+      <>
+      </>
+    )
   }
 }
 
