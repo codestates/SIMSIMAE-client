@@ -1,10 +1,12 @@
 import React from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
-import Login from "./pages/Login";
+import Nav from "./components/Nav";
+import LikeForm from './pages/LikeForm'
 import Signup from "./pages/Signup";
+import Main from './pages/Main';
 import Mypage from "./pages/Mypage";
-import Nav from "./pages/Nav";
+
 import axios from "axios";
 
 class App extends React.Component {
@@ -41,19 +43,14 @@ class App extends React.Component {
         <Switch>
           <Route
             exact
-            path='/nav'
+            path='/'
+            component={Main}
             render={() => (
               <Nav />
             )}
           /> 
-          <Route
-            exact
-            path='/login'
-            render={() => (
-              <Login handleResponseSuccess={this.handleResponseSuccess.bind(this)} />
-            )}
-          /> 
           <Route exact path='/signup' render={() => <Signup />} />
+          <Route exact path='/like' render={() => <LikeForm />} />
           <Route
             exact
             path='/mypage'

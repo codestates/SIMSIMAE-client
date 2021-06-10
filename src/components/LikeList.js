@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import Nav from '../components/Nav';
 
-class Main extends Component {
+import { withRouter } from "react-router-dom";
+
+class LikeList extends Component {
   constructor(props){
     super(props);
     this.state = {
-        
+      
     }
   }
 
   render() {
-    return(
+    return (
       <>
-      <Nav />
-      <h1>Main Page</h1>
+        
       </>
     )
   }
+
 }
 
-export default withRouter(Main);
+export default withRouter(LikeList);

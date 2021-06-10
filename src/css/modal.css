@@ -60,9 +60,9 @@ input::placeholder {
   box-sizing: border-box;
 }
 .loginMid {
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .autoLogin {
   cursor: pointer;
@@ -85,12 +85,13 @@ align-items: center;
 }
 
 .socialBox {
-margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .google {
-  background-color: #e57373;
-  color : #ffffff;
+  background-color: #ffffff;
+  color : #e57373;
+  border: 2px solid #e57373;
   height: 40px;
   display: flex;
   align-items: center;
@@ -100,9 +101,11 @@ margin-bottom: 30px;
   border-radius: 50px;
   cursor: pointer;
 }
+
 .googleLogo {
-  width: 25px;
-  height: 25px;
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 .googleText {
@@ -113,7 +116,11 @@ margin-bottom: 30px;
   box-sizing: border-box;
 }
 
-  
+.google:hover{
+  background-color: #e57373;
+  color : #ffffff;
+}
+
 .loginEnd {
   text-align: center;
   font-size: 15px;
@@ -133,5 +140,4 @@ a {
 
 .noUser {
   text-decoration: underline;
-
 }

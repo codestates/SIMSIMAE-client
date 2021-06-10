@@ -1,10 +1,9 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 
-import { Link, withRouter } from "react-router-dom";
-
+import google from '../img/google.png';
 import "../css/modal.css";
-import Signup from "./Signup";
 
 class Login extends Component {
   constructor(props){
@@ -40,10 +39,6 @@ class Login extends Component {
       })
     }
   }; 
-
-  goSignup = () => {
-    <Signup />
-  }
 
   render() {
     const { isOpen, close } = this.props;
@@ -90,7 +85,8 @@ class Login extends Component {
                   <div className="socialBox">
                     <div className="google">
                       <div className="googleText">
-                        Google 계정으로 신규가입
+                        <img src={google} className='googleLogo'></img>
+                          Google 계정으로 신규가입
                       </div>
                     </div>
                   </div>

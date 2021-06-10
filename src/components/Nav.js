@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Login from "./Login";
 
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Nav extends Component {
   constructor(props){
