@@ -1,7 +1,7 @@
 ---
 name: KPT 회고 이슈카드 양식
 about: 'KPT 회고 이슈카드 '
-title: 'SIMSIMAE'
+title: SIMSIMAE
 labels: retrospect
 assignees: ''
 
@@ -24,5 +24,3 @@ assignees: ''
 - [x] Todo 형식으로 작성해주세요.
 - [x] Todo 형식으로 작성해주세요.
 - [x] Todo 형식으로 작성해주세요.
-
-
