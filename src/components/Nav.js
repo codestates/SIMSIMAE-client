@@ -24,7 +24,7 @@ class Nav extends Component {
   render() {
     return (
       <>
-        <button onClick={this.openModal}>로그인</button>
+        <button onClick={this.openModal} className='loginModalBtn' >로그인</button>
         <Login isOpen={this.state.isModalOpen} close={this.closeModal} />
       </>
     )
