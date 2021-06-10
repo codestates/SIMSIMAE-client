@@ -1,4 +1,5 @@
 import React from 'react';
+import Main from "./components/Main";
 import './css/App.css';
 
 class App extends React.Component {
@@ -16,8 +17,9 @@ class App extends React.Component {
     //const { isLogin } = this.state;
 
     return(
-      <div>
-        <h1>Hello World</h1>
+      <div className='App'>
+        <Main
+        />
       </div>
 
     )

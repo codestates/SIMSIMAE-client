@@ -19,7 +19,49 @@
   - 일반 p태그 : 14px
   */
 }
-
+.logo{
+  cursor: pointer;
+}
+.logo_image {
+  position: relative;
+  height: 55px;
+  width: 55px; 
+}
+.loginBtnwrap{
+  width: 20%;
+  right: 0%;
+  position: absolute;
+  float: right;
+}
+.loginBtn{
+  position: relative;
+  cursor: pointer;
+  float: right;
+}
+.header{
+  
+  background-color: orange;
+  position: relative;
+}
+.body{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: static;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+.center-logo{
+  position: static;
+  height: 200px;
+  width: 200px;
+}
+.qrBtn{
+  position: static;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30px;
+  width: 70px;
+}
 * {
   box-sizing: border-box;
 }
