@@ -15,9 +15,7 @@ class LikeForm extends Component {
   // 체크하면 해당 인풋에 값을 넣음.
   // 값을 가진 갯수가 총 5개가 넘으면 넘어가기 금지
   complete = () => {
-    const maxChecked = 5;
-    let totalChecked = 0;
-
+    
 
   }
 
@@ -28,7 +26,7 @@ class LikeForm extends Component {
 
   render() {
     return(
-      <div>
+      <div >
         <center>
           <img className='logo' src={logo}/>
           <p className='likeTitle'>좋아하는 관심사를 골라주세요 (최대 5개까지)</p>
@@ -44,6 +42,44 @@ class LikeForm extends Component {
               <button className='likeCheck'>???</button>
               <button className='likeCheck'>???</button>
               <button className='likeCheck'>???</button>
+            </section>
+            <hr></hr>
+            <span className='optionText'>추가 선택 사항 (건너뛰기 가능) </span>
+            <section className='optionSection'>
+              <div className='genderTitle'>성별</div>
+              <div className='genderOption'>
+                <div className='genderSet'>
+                  <input type='radio' name='gender' className='optionCheck'/>
+                  <span>남성</span>
+                </div>
+                <div className='genderSet'>
+                  <input type='radio' name='gender' className='optionCheck'/>
+                  <span>여성</span>
+                </div>
+              </div>
+              <div className='ageTitle'>나이대</div>
+              <div className='ageOption'>
+                <div className='ageSet'>
+                  <input type='radio' name='age' className='optionCheck'/>
+                  <span>10대</span>
+                </div>
+                <div className='ageSet'>
+                  <input type='radio' name='age' className='optionCheck'/>
+                  <span>20대</span>
+                  </div>
+                <div className='ageSet'>
+                  <input type='radio' name='age' className='optionCheck'/>
+                  <span>30대</span>
+                </div>
+                <div className='ageSet'>
+                  <input type='radio' name='age' className='optionCheck'/>
+                  <span>40대</span>
+                </div>
+                <div className='ageSet'>
+                  <input type='radio' name='age' className='optionCheck'/>
+                  <span>50대 이상</span>
+                </div>
+              </div>
             </section>
            
             <button
