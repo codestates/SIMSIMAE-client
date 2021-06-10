@@ -1,9 +1,7 @@
 
 import React from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import Main from "./components/Main";
 import './css/App.css';
-
 
 import Nav from "./components/Nav";
 import LikeForm from './pages/LikeForm'
@@ -50,9 +48,6 @@ class App extends React.Component {
             exact
             path='/'
             component={Main}
-            render={() => (
-              <Nav />
-            )}
           /> 
           <Route exact path='/signup' render={() => <Signup />} />
           <Route exact path='/likeForm' render={() => <LikeForm />} />

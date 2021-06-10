@@ -20,49 +20,75 @@
   - 일반 p태그 : 14px
   */
 }
-.logo{
-  cursor: pointer;
-}
+
 .logo_image {
-  position: relative;
+  cursor: pointer;
   height: 55px;
   width: 55px; 
+  margin: 8px;
+  margin-left: 12px;
 }
-.loginBtnwrap{
+
+/* .loginBtnwrap{
   width: 20%;
   right: 0%;
   position: absolute;
   float: right;
-}
-.loginBtn{
-  position: relative;
+} */
+
+.loginModalBtn{ 
   cursor: pointer;
-  float: right;
+  height: 20px;
+  width: 70px;
+  height: 30px;
+  margin-right: 20px;
+  border-radius: 15px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-light);
 }
+
+.loginModalBtn:hover {
+  color: var(--black-color);
+  background-color: var(--secondary-color);
+}
+
 .header{
-  
-  background-color: orange;
-  position: relative;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .body{
+  margin-top: 100px;
   padding-top: 100px;
   padding-bottom: 100px;
   position: static;
-  background-color: #f5f5f5;
   text-align: center;
 }
+
 .center-logo{
-  position: static;
   height: 200px;
   width: 200px;
 }
+
 .qrBtn{
-  position: static;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 30px;
-  width: 70px;
+  height: 40px;
+  width: 130px;
+  border-radius: 15px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-light);
 }
+.qrBtn:hover{
+  cursor: pointer;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
 * {
   box-sizing: border-box;
 }
