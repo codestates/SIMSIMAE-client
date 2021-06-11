@@ -20,7 +20,34 @@
   - 일반 p태그 : 14px
   */
 }
-
+.reveal{
+  margin-top: 200px;
+  position: static;
+  text-align: center;
+  height: 60vh;
+}
+.center-qr{
+  height: 200px;
+  width: 200px;
+  display: none;
+}
+.button{
+  
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 130px;
+  border-radius: 15px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-light);
+}
+.button:hover{
+  cursor: pointer;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
 .logo_image {
   cursor: pointer;
   height: 55px;
