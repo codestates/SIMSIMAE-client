@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import logo from '../img/SIMSIMAE-logo.png';
 import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
-import { allCheckTerm } from '../js/term';
 
-import axios from "axios";
+
+import TermCheck from "../components/TermCheck";
 
 class Signup extends Component {
   constructor(props){
@@ -21,13 +21,8 @@ class Signup extends Component {
       isPwdDoubleCk : false,
       isValidName : false,
       isValidPhone : false,
-      allCheck : false,
-      requierCheck1 : false,
-      requierCheck2 : false,
-      optionCheck : false,
     };
 
-    this.handleSignup = this.handleSignup.bind(this);
     this.handleInputEmail = this.handleInputEmail.bind(this);
     this.handleInputPwd = this.handleInputPwd.bind(this);
     this.handleInputName = this.handleInputName.bind(this);
@@ -99,29 +94,7 @@ class Signup extends Component {
     }
   };
   
-  // 회원가입 버튼 클릭 시 서버통신
-  handleSignup = () => {
-
-    const { email, password, username, mobile, 
-      isValidEmail, isValidPassword, isPwdDoubleCk, isValidName, isValidPhone } = this.state;
-
-    if(!isValidEmail || !isValidPassword || !isPwdDoubleCk || !isValidName || !isValidPhone) {
-      this.setState({errorMessage : '모든 항목이 확인되어야 합니다.'})
-      alert('모든항목필수');
-
-    }else{
-      alert('가입성공!')
-      axios.post('http://localhost:80/user/signup',
-      { email, password, username, mobile },
-      {'Content-Type':'application/json', withCredentials: true })
-      .then(res => {
-        console.log('res:::',res)
-        this.props.history.push("/likeForm");
-      })
-    }
-
-  }
-
+  
   
   render(){
     return (
@@ -180,36 +153,20 @@ class Signup extends Component {
               ></input>
             </div>
 
-            <div className='termForm'>
-              <div className='termDiv allCheck'>
-                <input type='checkbox' className='termsCheckbox'
-                checked />
-                <span>전체 선택 및 동의</span>
-              </div>
-              <hr />
+            <TermCheck handleSignup={this.handleSignup}
+              email={this.state.email}
+              password={this.state.password}
+              username={this.state.username}
+              mobile={this.state.mobile}
+              errorMessage={this.state.errorMessage}
+              isValidEmail={this.state.isValidEmail}
+              isValidPassword={this.state.isValidPassword}
+              isPwdDoubleCk={this.state.isPwdDoubleCk}
+              isValidName={this.state.isValidName}
+              isValidPhone={this.state.isValidPhone}
+            />
 
-              <div className='termDiv'>
-                <input type='checkbox' className='termsCheckbox'
-                />
-                <span>SIMSIMAE 이용약관 동의 (필수)</span>
-              </div>
-              <div className='termDiv'>
-                <input type='checkbox' className='termsCheckbox'
-                />
-                <span>개인정보 수집 및 이용 동의 (필수)</span>
-              </div>
-              <div className='termDiv'>
-                <input type='checkbox' className='termsCheckbox'
-                />
-                <span>프로모션 정보 수신 동의 (선택)</span>
-              </div>
-            </div>
-            <button
-              className="signupBtn"
-              type='submit'
-              onClick={this.handleSignup}
-              >회원가입</button >
-          </form>
+            </form>
 
         </center>
       </div>

@@ -21,6 +21,34 @@
   */
 }
 
+/* 기본 속성 (수정금지)*/
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+input{
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  padding: 9px 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #999999;
+  
+}
+
+/* 원준 작업 */
+
 .logo_image {
   cursor: pointer;
   height: 55px;
@@ -93,19 +121,21 @@
   font-size: 12px;
 }
 
-.reveal{
-  margin-top: 200px;
+.qrRender{
   position: static;
   text-align: center;
   height: 60vh;
+  display: none;
+  margin: 0;
 }
+
 .center-qr{
-  height: 200px;
-  width: 200px;
+  display: flex;
+  justify-content: center;
   display: none;
 }
-.button{
-  
+
+.refreshBtn{
   display: none;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -116,36 +146,19 @@
   border: 2px solid var(--primary-color);
   background-color: var(--white-color-light);
 }
-.button:hover{
+.refreshBtn:hover{
   cursor: pointer;
   color: var(--white-color);
   background-color: var(--primary-color);
 }
 
-* {
-  box-sizing: border-box;
+.reBtnDiv {
+  display: flex;
+  justify-content: center;
 }
 
-body{
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-}
 
-input{
-  width: 100%;
-  height: 40px;
-  border-radius: 2px;
-  border: 1px solid #e5e5e5;
-  padding: 9px 12px;
-  outline: none;
-  box-sizing: border-box;
-}
-
-input::placeholder {
-  color: #999999;
-  
-}
+/* 미현 작업 */
 
 .logo {
   margin-top: 70px;
@@ -219,6 +232,11 @@ input::placeholder {
 .pass {
   border : 2px solid green;
 }
+
+
+
+
+/* 반응형 작업 */
 
 /* PC (해상도 1024px)*/
 @media all and (min-width:1024px) { 

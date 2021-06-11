@@ -66,7 +66,7 @@ class LikeForm extends Component {
                 <div className='ageSet'>
                   <input type='radio' name='age' className='optionCheck'/>
                   <span>20대</span>
-                  </div>
+                </div>
                 <div className='ageSet'>
                   <input type='radio' name='age' className='optionCheck'/>
                   <span>30대</span>
@@ -80,6 +80,18 @@ class LikeForm extends Component {
                   <span>50대 이상</span>
                 </div>
               </div>
+              <div className='locationTitle'>지역</div>
+              <div className='locationOption'>
+                <div className='locationSet'>
+                  <input type='radio' name='location' className='optionCheck'/>
+                  <span>국내</span>
+                </div>
+                <div className='locationSet'>
+                  <input type='radio' name='location' className='optionCheck'/>
+                  <span>해외</span>
+                </div>
+              </div>
+              
             </section>
            
             <button
