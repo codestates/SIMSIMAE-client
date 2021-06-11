@@ -184,6 +184,13 @@ input::placeholder {
   justify-content: center;
 }
 
+.warning{
+  border: 2px solid red;
+}
+.pass {
+  border : 2px solid green;
+}
+
 /* PC (해상도 1024px)*/
 @media all and (min-width:1024px) { 
   /*스타일입력*/
