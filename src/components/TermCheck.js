@@ -22,7 +22,7 @@ class TermCheck extends Component {
 
   // 전체 선택 및 동의 버튼
   allCheckHandler = () => {
-    const { allCheck,requierCheck1,requierCheck2,optionCheck } = this.state;
+    const { allCheck } = this.state;
     this.setState({
       allCheck: !allCheck,
     })
@@ -84,7 +84,7 @@ class TermCheck extends Component {
   // 회원가입 버튼 클릭 시 서버통신
   handleSignup = () => {
 
-    const { email, password, username, mobile, errorMessage,
+    const { email, password, username, mobile, 
       isValidEmail, isValidPassword, isPwdDoubleCk, isValidName, isValidPhone } = this.props;
 
     if(!isValidEmail || !isValidPassword || !isPwdDoubleCk || !isValidName || !isValidPhone) {
@@ -107,8 +107,6 @@ class TermCheck extends Component {
     }
 
   }
-
-
 
   render() {
     

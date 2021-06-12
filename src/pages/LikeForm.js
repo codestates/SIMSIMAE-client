@@ -8,10 +8,17 @@ class LikeForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      
+      // 관심사를 배열로 받는게 나은가?
+      collect : [],
+      gender : null,
+      age : null,
+      location : null,
     };
   }
   
+  collectBtn = (e) => {
+    console.log(e.target)
+  }
   // 체크하면 해당 인풋에 값을 넣음.
   // 값을 가진 갯수가 총 5개가 넘으면 넘어가기 금지
   complete = () => {
@@ -32,16 +39,56 @@ class LikeForm extends Component {
           <p className='likeTitle'>좋아하는 관심사를 골라주세요 (최대 5개까지)</p>
           <form className='checkForm'>
             <section className='checkSection'>
-              <button className='likeCheck'>음식</button>
-              <button className='likeCheck'>쇼핑</button>
-              <button className='likeCheck'>IT</button>
-              <button className='likeCheck'>방송</button>
-              <button className='likeCheck'>유머</button>
-              <button className='likeCheck'>동물</button>
-              <button className='likeCheck'>연애</button>
-              <button className='likeCheck'>???</button>
-              <button className='likeCheck'>???</button>
-              <button className='likeCheck'>???</button>
+              <button 
+                className='likeCheck'
+                type='button'
+                onClick={this.collectBtn}
+                >음식</button>
+              <button 
+                className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+              >쇼핑</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >IT</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >방송</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >유머</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >동물</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >연애</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >???</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >???</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                onChange={this.collectBtn}
+                >???</button>
             </section>
             <hr></hr>
             <span className='optionText'>추가 선택 사항 (건너뛰기 가능) </span>

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import MenuTab from '../components/MenuTab';
+import Nav from '../components/Nav';
+import logo from '../img/simsimae_logo.png';
 
 class Mypage extends Component {
   constructor(props){
@@ -11,6 +14,16 @@ class Mypage extends Component {
   render() {
     return(
       <>
+        <div className='header'>
+          <Link to='/'>
+            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+          </Link>
+          <Nav />
+        </div>
+        <MenuTab />
+        <div className="footer">
+          <p className='copyright'>Copyright 2021. SONGYUIJO inc. all rights reserved.</p>
+        </div>
       </>
     )
   }

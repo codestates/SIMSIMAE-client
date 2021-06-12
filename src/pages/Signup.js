@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import logo from '../img/SIMSIMAE-logo.png';
 import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
 
