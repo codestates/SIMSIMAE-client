@@ -1,257 +1,303 @@
 :root{
-  /* font */
-  --font-family : 'Noto Sans KR', sans-serif;
-
-  /* font size */
-  --font-size-300: 300;
-  --font-size-400: 400;
-  --font-size-700: 700;
-
-  /* color */
-  --primary-color : #f57c00;
-  --secondary-color : #ffec25;
-  --black-color : #1b1b1b;
-  --white-color : #f5f5f5;
-  --white-color-light : #ffffff;
-
-  /*
-  - 제목(좋아하는 관심사..) : 20px
-  - 소제목(이메일...비밀번호) : 17px
-  - 일반 p태그 : 14px
-  */
-}
-
-/* 기본 속성 (수정금지)*/
-* {
-  box-sizing: border-box;
-}
-
-body{
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-}
-
-input{
-  width: 100%;
-  height: 40px;
-  border-radius: 2px;
-  border: 1px solid #e5e5e5;
-  padding: 9px 12px;
-  outline: none;
-  box-sizing: border-box;
-}
-
-input::placeholder {
-  color: #999999;
+    /* font */
+    --font-family : 'Noto Sans KR', sans-serif;
   
-}
-
-/* 원준 작업 */
-
-.logo_image {
-  cursor: pointer;
-  height: 55px;
-  width: 55px; 
-  margin: 8px;
-  margin-left: 12px;
-}
-
-/* .loginBtnwrap{
-  width: 20%;
-  right: 0%;
-  position: absolute;
-  float: right;
-} */
-
-.loginModalBtn{ 
-  cursor: pointer;
-  height: 20px;
-  width: 70px;
-  height: 30px;
-  margin-right: 20px;
-  border-radius: 15px;
-  color: var(--primary-color);
-  border: 3px solid var(--secondary-color);
-  background-color: var(--white-color-light);
-}
-
-.loginModalBtn:hover {
-  color: var(--black-color);
-  background-color: var(--secondary-color);
-}
-
-.header{
-  background-color: var(--primary-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.body{
-  margin-top: 200px;
-  position: static;
-  text-align: center;
-  height: 60vh;
-}
-
-.center-logo{
-  height: 200px;
-  width: 200px;
-}
-
-.qrBtn{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 40px;
-  width: 130px;
-  border-radius: 15px;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  background-color: var(--white-color-light);
-}
-.qrBtn:hover{
-  cursor: pointer;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-}
-
-.copyright{
-  color: #999999;
-  font-size: 12px;
-}
-
-.qrRender{
-  position: static;
-  text-align: center;
-  height: 60vh;
-  display: none;
-  margin: 0;
-}
-
-.center-qr{
-  display: flex;
-  justify-content: center;
-  display: none;
-}
-
-.refreshBtn{
-  display: none;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 40px;
-  width: 130px;
-  border-radius: 15px;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  background-color: var(--white-color-light);
-}
-.refreshBtn:hover{
-  cursor: pointer;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-}
-
-.reBtnDiv {
-  display: flex;
-  justify-content: center;
-}
-
-
-/* 미현 작업 */
-
-.logo {
-  margin-top: 70px;
-  width: 100px;
-}
-
-.signForm {
-  display: flex;
-  flex-direction: column;
-  color: #1b1b1b;
-  font-weight: var(--font-size-700);
-  font-size: 17px;
-  width: 400px;
-}
-
-.signTitle{
-  display: flex;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
-
-.signupBtn {
-  cursor: pointer;
-  margin-top: 30px;
-  width: 100%;
-  height: 40px;
-  border-radius: 15px;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  background-color: var(--white-color-light);
-  margin-bottom: 100px;
-}
-.signupBtn:hover,
-.loginBtn:hover {
-  color: var(--white-color);
-  background-color: var(--primary-color);
-}
-
-.termForm {
-  color: #1b1b1b;
-  font-weight: var(--font-size-400);
-  font-size: 15px;
-}
-
-.termsCheckbox{
-  margin-right: 10px;
-  width: 20px;
-}
-
-.termDiv {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  height: 35px;
-}
-
-.allCheck{
-  margin-top: 20px;
-  font-weight: var(--font-size-700);
-  font-size: 17px;
-}
-
-.footer{
-  display: flex;
-  justify-content: center;
-}
-
-.warning{
-  border: 2px solid red;
-}
-.pass {
-  border : 2px solid green;
-}
-
-
-
-
-/* 반응형 작업 */
-
-/* PC (해상도 1024px)*/
-@media all and (min-width:1024px) { 
-  /*스타일입력*/
-}
-
-/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
-@media all and (min-width:768px) and (max-width:1023px) {
-   /*스타일입력*/
+    /* font size */
+    --font-size-300: 300;
+    --font-size-400: 400;
+    --font-size-700: 700;
+  
+    /* color */
+    --primary-color : #f57c00;
+    --secondary-color : #ffec25;
+    --black-color : #1b1b1b;
+    --white-color : #f5f5f5;
+    --white-color-light : #ffffff;
+  
+    /*
+    - 제목(좋아하는 관심사..) : 20px
+    - 소제목(이메일...비밀번호) : 17px
+    - 일반 p태그 : 14px
+    */
   }
-
-/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
-@media all and (max-width:767px) {
-   /*스타일입력*/
+  
+  /* 기본 속성 (수정금지)*/
+  * {
+    box-sizing: border-box;
   }
+  
+  body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+  }
+  
+  input{
+    width: 100%;
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  input::placeholder {
+    color: #999999;
+    
+  }
+  
+  /* 원준 작업 */
+  input[type=checkbox]{
 
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
 
+label {
+
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 70px;
+    height: 35px;
+    background: grey;
+    display: block;
+    border-radius: 50px;
+    position: relative;
+}
+
+label:after {
+
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+
+    background: #e78636;
+
+}
+
+input:checked + label:after {
+
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+
+    width: 100px;
+}
+  
+  .logo_image {
+    cursor: pointer;
+    height: 55px;
+    width: 55px; 
+    margin: 8px;
+    margin-left: 12px;
+  }
+  
+  /* .loginBtnwrap{
+    width: 20%;
+    right: 0%;
+    position: absolute;
+    float: right;
+  } */
+  
+  .loginModalBtn{ 
+    cursor: pointer;
+    height: 20px;
+    width: 70px;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    background-color: var(--white-color-light);
+  }
+  
+  .loginModalBtn:hover {
+    color: var(--black-color);
+    background-color: var(--secondary-color);
+  }
+  
+  .header{
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .body{
+    margin-top: 200px;
+    position: static;
+    text-align: center;
+    height: 60vh;
+  }
+  
+  .center-logo{
+    height: 200px;
+    width: 200px;
+  }
+  
+  .qrBtn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+  }
+  .qrBtn:hover{
+    cursor: pointer;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .copyright{
+    color: #999999;
+    font-size: 12px;
+  }
+  
+  .qrRender{
+    position: static;
+    text-align: center;
+    height: 60vh;
+    display: none;
+    margin: 0;
+  }
+  
+  .center-qr{
+    display: flex;
+    justify-content: center;
+    display: none;
+  }
+  
+  .refreshBtn{
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+  }
+  .refreshBtn:hover{
+    cursor: pointer;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .reBtnDiv {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  /* 미현 작업 */
+  
+  .logo {
+    margin-top: 70px;
+    width: 100px;
+  }
+  
+  .signForm {
+    display: flex;
+    flex-direction: column;
+    color: #1b1b1b;
+    font-weight: var(--font-size-700);
+    font-size: 17px;
+    width: 400px;
+  }
+  
+  .signTitle{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  .signupBtn {
+    cursor: pointer;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+    margin-bottom: 100px;
+  }
+  .signupBtn:hover,
+  .loginBtn:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .termForm {
+    color: #1b1b1b;
+    font-weight: var(--font-size-400);
+    font-size: 15px;
+  }
+  
+  .termsCheckbox{
+    margin-right: 10px;
+    width: 20px;
+  }
+  
+  .termDiv {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+  }
+  
+  .allCheck{
+    margin-top: 20px;
+    font-weight: var(--font-size-700);
+    font-size: 17px;
+  }
+  
+  .footer{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .warning{
+    border: 2px solid red;
+  }
+  .pass {
+    border : 2px solid green;
+  }
+  
+  
+  
+  
+  /* 반응형 작업 */
+  
+  /* PC (해상도 1024px)*/
+  @media all and (min-width:1024px) { 
+    /*스타일입력*/
+  }
+  
+  /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+  @media all and (min-width:768px) and (max-width:1023px) {
+     /*스타일입력*/
+    }
+  
+  /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+  @media all and (max-width:767px) {
+     /*스타일입력*/
+    }
   
