@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import Nav from '../components/Nav';
 import logo from '../img/simsimae_logo.png';
 import qr from '../img/simsimae_qr.png';
@@ -23,10 +23,10 @@ class Main extends Component {
   };
 
   revealQr(){
-    $(".body").css('display', 'none');
+    $(".logoRender").css('display', 'none');
     $(".center-qr").css('display', 'block');
-    $(".button").css('display', 'block');
-    
+    $(".refreshBtn").css('display', 'block');
+    $(".qrRender").css('display','block');
   }
 
     
@@ -36,23 +36,28 @@ class Main extends Component {
     return (
       <div>
           <div className='header'>
-            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+            <Link to='/'>
+              <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+            </Link>
             <Nav />
           </div>
           <div className="body">
-              {/* <div>
-                  <label class="switch">
-                      <input type="checkbox">
-                      <span class="slider round"></span>
-                      </input>
-                  </label>
-              </div> */}
+            <div className='logoRender'>
               <div><img className='center-logo' src={logo} alt=""></img></div>
               <div><button onClick={this.revealQr} className = "qrBtn">Click!</button></div>
-          </div>
-          <div className="reveal">
-              <div><img className='center-qr' src={qr} alt=""></img></div>
-              <div><button onClick={this.qrRequestHandler} className="button">🔄</button></div>
+            </div>
+            <div className="qrRender">
+              <div className='center-qr'>
+                <a href='http://www.naver.com' target='_blank'>
+                  <img src={qr} alt="" />
+                </a>
+                </div>
+              <div className='reBtnDiv'>
+                <button onClick={this.qrRequestHandler} className="refreshBtn">
+                  <i class="fas fa-sync-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="footer">

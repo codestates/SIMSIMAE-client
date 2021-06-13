@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Login from "./Login";
 
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Nav extends Component {
   constructor(props){
@@ -24,6 +24,7 @@ class Nav extends Component {
   render() {
     return (
       <>
+        <Link to='/mypage'>mypage</Link>
         <button onClick={this.openModal} className='loginModalBtn' >로그인</button>
         <Login isOpen={this.state.isModalOpen} close={this.closeModal} />
       </>
