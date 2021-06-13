@@ -111,6 +111,7 @@
 }
 
 .disablelForm{
+  display: flex;
   flex-direction: column;
   width: 35vw;
   justify-content: center;
@@ -190,5 +191,30 @@
   margin-bottom: 60px;
 }
 .interestSection{
+  display: flex;
   justify-content: center;
+}
+
+.likeQRDiv{
+  margin-top: 60px;
+  margin-bottom: 80px;
+  justify-content: center;
+  display: flex;
+}
+
+.likeQRTitle{
+  margin-bottom: 60px;
+}
+
+.qrDiv{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.likeQR{
+  width: 130px;
+}
+.qrRemoveBtn{
+  height: 30px;
 }

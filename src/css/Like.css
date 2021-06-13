@@ -136,4 +136,14 @@
   margin-right: 30px;
   display: flex;
   align-items: center;
+  display: flex;
+  align-items: center;
+}
+.leftDiv{
+  display: flex;
+  flex-direction: column;
+}
+.rightDiv{
+  display: flex;
+  flex-direction: column;
 }

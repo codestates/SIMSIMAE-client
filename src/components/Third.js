@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import LikeQR from '../components/LikeQR';
 
 class Third extends Component {
   constructor(props){
@@ -11,7 +12,9 @@ class Third extends Component {
   render() {
     return(
       <>
-        <div>Hello p3</div>
+        <div className='tabForm'>
+          <LikeQR />
+        </div>
       </>
     )
   }

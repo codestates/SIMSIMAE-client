@@ -15,6 +15,7 @@ class Interest extends Component {
           <form className='disablelForm'>
             <h2 className='interestTitle'>나의 관심사</h2>
             <section className='interestSection'>
+              <div className='leftDiv'>
               <button 
                 className='likeCheck'
                 type='button'
@@ -40,31 +41,34 @@ class Interest extends Component {
                 type='button'
                 onChange={this.collectBtn}
                 >유머</button>
-              <button 
-              className='likeCheck'
+              </div>
+              <div className='rightDiv'>
+                <button 
+                className='likeCheck'
                 type='button'
                 onChange={this.collectBtn}
                 >동물</button>
-              <button 
-              className='likeCheck'
+                <button 
+                className='likeCheck'
                 type='button'
                 onChange={this.collectBtn}
                 >연애</button>
-              <button 
-              className='likeCheck'
+                <button 
+                className='likeCheck'
                 type='button'
                 onChange={this.collectBtn}
                 >???</button>
-              <button 
-              className='likeCheck'
+                <button 
+                className='likeCheck'
                 type='button'
                 onChange={this.collectBtn}
                 >???</button>
-              <button 
-              className='likeCheck'
+                <button 
+                className='likeCheck'
                 type='button'
                 onChange={this.collectBtn}
                 >???</button>
+              </div>
             </section>
           </form>
         </div>
