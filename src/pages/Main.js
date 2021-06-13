@@ -40,13 +40,8 @@ class Main extends Component {
             <Nav />
           </div>
           <div className="body">
-              {/* <div>
-                  <label class="switch">
-                      <input type="checkbox">
-                      <span class="slider round"></span>
-                      </input>
-                  </label>
-              </div> */}
+              <input className='toggle-input' type="checkbox" id="switch" />
+              <label for="switch"></label>
               <div><img className='center-logo' src={logo} alt=""></img></div>
               <div><button onClick={this.revealQr} className = "qrBtn">Click!</button></div>
           </div>
