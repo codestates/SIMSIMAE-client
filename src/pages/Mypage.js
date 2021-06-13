@@ -22,6 +22,9 @@ class Mypage extends Component {
           </Link>
           <Nav />
         </div>
+        <center>
+          <img className='logo' src={logo}/>
+        </center>
         <MenuTab userinfo={this.props.userinfo}/>
         <div className="footer">
           <p className='copyright'>Copyright 2021. SONGYUIJO inc. all rights reserved.</p>

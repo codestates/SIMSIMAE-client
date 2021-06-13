@@ -6,7 +6,7 @@
 .tabs{
   display: flex;
   padding: 0;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .tabs:hover {
@@ -118,7 +118,7 @@
 }
 
 .accountDiv{
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 80px;
   display: flex;
   justify-content: center;
@@ -179,4 +179,16 @@
   width: 25px;
   margin-right: 20px;
   margin-left: 30px;
+}
+.interestDiv{
+  margin-top: 60px;
+  margin-bottom: 80px;
+  justify-content: center;
+  display: flex;
+}
+.interestTitle{
+  margin-bottom: 60px;
+}
+.interestSection{
+  justify-content: center;
 }

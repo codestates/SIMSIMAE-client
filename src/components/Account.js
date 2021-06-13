@@ -16,7 +16,6 @@ class Account extends Component{
         <div className='accountDiv'>
           <form className='disablelForm'>
           <h2 className='accountTitle'>계정 설정</h2>
-
             <div className='accountUl'>
               <div className='accountEmailLi'>
                 <input disabled

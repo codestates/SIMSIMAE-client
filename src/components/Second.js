@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Interest from '../components/Interest';
 
 class Second extends Component {
   constructor(props){
@@ -11,7 +12,9 @@ class Second extends Component {
   render() {
     return(
       <>
-        <div>Hello p2</div>
+        <div className='tabForm'>
+          <Interest />
+        </div>
       </>
     )
   }
