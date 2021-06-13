@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
+import Account from '../components/Account';
+
 class First extends Component {
   constructor(props){
     super(props);
     this.state = {
-
+      
     }
   }
   render() {
     return(
       <>
-        <div>Hello p1</div>
+        <div className='tabForm'>
+          <Account />
+        </div>
       </>
     )
   }

@@ -1,19 +1,24 @@
 import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 import First from '../components/First'
 import Second from '../components/Second'
 import Third from '../components/Third'
 
-import '../css/tap.css';
 
-const obj = {
-  0: <First />,
-  1: <Second />,
-  2: <Third />,
-}
 
-export default class MenuTab extends Component {
-  state = {
-    activeTab: 0,
+
+class MenuTab extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      activeTab: 0,
+      update: false,
+      obj : {
+        0: <First userinfo={this.props.serinfo}/>,
+        1: <Second />,
+        2: <Third />,
+      }
+    }
   }
 
   clickHandler = (id) => {
@@ -21,6 +26,12 @@ export default class MenuTab extends Component {
       activeTab: id,
     })
   };
+
+  updateActivation = () => {
+    this.setState({
+      update: !this.state.update
+    })
+  }
 
   render() {
     return (
@@ -43,9 +54,22 @@ export default class MenuTab extends Component {
           </div>
         </div>
         <div className="contents">
-          {obj[this.state.activeTab]}
+          {this.state.obj[this.state.activeTab]}
+        </div>
+        <div className='update'>
+          <button type='submit' 
+          className={this.state.update === true ? 'updateBtn' : 'updateBtnAlone'}
+          onClick={this.updateActivation}>
+            {this.state.update === true ? '취소' : '수정'}
+            </button>
+          <button 
+          className={this.state.update === true ? 'cpBtn' : 'cpBtnNone'}
+          onClick={this.updateActivation} >
+            완료</button>
         </div>
       </div>
     );
   }
 }
+
+export default withRouter(MenuTab);

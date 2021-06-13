@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import Nav from '../components/Nav';
 import logo from '../img/simsimae_logo.png';
 import qr from '../img/simsimae_qr.png';
@@ -36,7 +36,9 @@ class Main extends Component {
     return (
       <div>
           <div className='header'>
-            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+            <Link to='/'>
+              <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+            </Link>
             <Nav />
           </div>
           <div className="body">

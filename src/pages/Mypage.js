@@ -4,6 +4,8 @@ import MenuTab from '../components/MenuTab';
 import Nav from '../components/Nav';
 import logo from '../img/simsimae_logo.png';
 
+import '../css/tap.css';
+
 class Mypage extends Component {
   constructor(props){
     super(props);
@@ -20,7 +22,7 @@ class Mypage extends Component {
           </Link>
           <Nav />
         </div>
-        <MenuTab />
+        <MenuTab userinfo={this.props.userinfo}/>
         <div className="footer">
           <p className='copyright'>Copyright 2021. SONGYUIJO inc. all rights reserved.</p>
         </div>
