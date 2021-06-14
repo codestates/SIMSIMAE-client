@@ -84,7 +84,7 @@ class TermCheck extends Component {
   // 회원가입 버튼 클릭 시 서버통신
   handleSignup = () => {
 
-    const { email, password, username, mobile, 
+    const { email, password, name, phone, 
       isValidEmail, isValidPassword, isPwdDoubleCk, isValidName, isValidPhone } = this.props;
 
     if(!isValidEmail || !isValidPassword || !isPwdDoubleCk || !isValidName || !isValidPhone) {
@@ -98,7 +98,7 @@ class TermCheck extends Component {
     }else{
       alert('가입성공!')
       axios.post('http://13.209.10.136/user/signup',
-      { email, password, username, mobile },
+      { email, password, name, phone },
       {'Content-Type':'application/json', withCredentials: true })
       .then(res => {
         console.log('res:::',res)
