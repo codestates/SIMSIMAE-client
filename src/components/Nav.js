@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Login from "./Login";
+import { GoogleLogout } from 'react-google-login';
 
 import { Link, withRouter } from "react-router-dom";
 
@@ -11,6 +12,7 @@ class Nav extends Component {
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   openModal = () => {
@@ -21,13 +23,23 @@ class Nav extends Component {
     this.setState({ isModalOpen: false });
   };
 
+  logout = (res) => {
+    console.log('로그아웃성공:::',res)
+  }
+
   render() {
     return (
       <>
         <Link to='/mypage'>mypage</Link>
-        <button onClick={this.openModal} className='loginModalBtn' >로그인</button>
-        <Login isOpen={this.state.isModalOpen} close={this.closeModal} />
-      </>
+          <button onClick={() => this.openModal()} className='loginModalBtn' >로그인</button>
+          <Login isOpen={this.state.isModalOpen} close={this.closeModal} />
+
+          <GoogleLogout
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            buttonText="Logout"
+            onLogoutSuccess={this.logout}
+          />
+        </>
     )
   }
 

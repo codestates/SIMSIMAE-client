@@ -8,11 +8,11 @@ import axios from 'axios';
 import NoneUserQr from "../components/NoneUserQr";
 
 
+
 class Main extends Component {
   constructor(props){
     super(props);
-    this.revealQr = this.revealQr.bind(this);
-    this.qrRequestHandler = this.qrRequestHandler.bind(this)
+
     this.state = {
       email: '',
       password: '',
@@ -21,7 +21,9 @@ class Main extends Component {
       qrImg: null
 
     }
-
+    this.revealQr = this.revealQr.bind(this);
+    this.qrRequestHandler = this.qrRequestHandler.bind(this);
+    
   }
 
   qrRequestHandler = () => {
@@ -40,9 +42,6 @@ class Main extends Component {
     this.qrRequestHandler()
   }
 
-    
- 
-
   render() {
     return (
       <div>
@@ -53,10 +52,12 @@ class Main extends Component {
             <Nav />
           </div>
           <div className="body">
+
             <div className='toggle-div'>
               <input className='toggle-input' type="checkbox" id="switch" />
               <label className='toggle-label'for="switch"></label>
             </div>
+
             <div className='logoRender'>
               <div><img className='center-logo' src={logo} alt=""></img></div>
               <div><button onClick={() => this.revealQr()} className = "qrBtn">Click!</button></div>
@@ -69,8 +70,10 @@ class Main extends Component {
                 
                 </div>
               <div className='reBtnDiv'>
+
                 <button onClick={() => this.qrRequestHandler()} className="refreshBtn">
                   <i class="fas fa-sync-alt"></i>
+
                 </button>
               </div>
             </div>

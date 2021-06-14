@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import axios from 'axios';
+import { GoogleLogin } from 'react-google-login';
 
-import google from '../img/google.png';
+import axios from 'axios';
 import "../css/modal.css";
 
 class Login extends Component {
@@ -15,6 +15,10 @@ class Login extends Component {
       errorMessage: ""
     }
     this.loginHandler = this.loginHandler.bind(this);
+    this.loginClickHandler = this.loginClickHandler.bind(this);
+    this.HandlegGoogleSignUp = this.HandlegGoogleSignUp.bind(this);
+   this.responseFail = this.responseFail.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
 
   }
 
@@ -40,6 +44,22 @@ class Login extends Component {
     }
   }; 
 
+  HandlegGoogleSignUp = () => {
+
+  }
+
+
+  // Google Login
+  responseGoogle = (res) => {
+    console.log('성공:::',res)
+  }
+
+  // Login Fail
+  responseFail = (err) => {
+      console.error('에러:::',err);
+  }
+
+  
   render() {
     const { isOpen, close } = this.props;
 
@@ -48,12 +68,12 @@ class Login extends Component {
         {isOpen ? (  
       
           <div className="modal">
-            <div onClick={close}>
+            <div onClick={() => close()}>
               <div className="loginModal">
-                <span className="close" onClick={close}>
+                <span className="close" onClick={() => close()}>
                   &times;
                 </span>
-                <h1 className="modalContents" onClick={isOpen}>
+                <h1 className="modalContents" >
                   로그인
 
                   <input
@@ -79,18 +99,15 @@ class Login extends Component {
                   <button className="loginBtn" onClick={this.loginClickHandler}>
                     로그인
                   </button>
-                  {this.state.errorMessage === '' ? <div className="alert-box"></div> :
-                   <div className="alert-box">이메일과 비밀번호를 입력하세요</div>}
                   
-                  <div className="socialBox">
-                    <div className="google">
-                      <div className="googleText">
-                        <img src={google} className='googleLogo'></img>
-                          Google 계정으로 신규가입
-                      </div>
-                    </div>
-                  </div>
-
+                  <GoogleLogin
+                    className='google'
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                    buttonText="Login"
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseFail}
+                    cookiePolicy={'single_host_origin'}
+                  />
                   <div className="loginEnd">
                     <Link to='/signup'>일반 회원가입</Link>
                   </div>

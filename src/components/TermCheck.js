@@ -13,7 +13,7 @@ class TermCheck extends Component {
       optionCheck : false,
     }
 
-    this.handleSignup = this.handleSignup.bind(this);
+    this.handleNextBtn = this.handleNextBtn.bind(this);
     this.allCheckHandler = this.allCheckHandler.bind(this);
     this.check1Handler = this.check1Handler.bind(this);
     this.check2Handler = this.check2Handler.bind(this);
@@ -81,30 +81,10 @@ class TermCheck extends Component {
     }
   }
 
-  // 회원가입 버튼 클릭 시 서버통신
-  handleSignup = () => {
-
-    const { email, password, name, phone, 
-      isValidEmail, isValidPassword, isPwdDoubleCk, isValidName, isValidPhone } = this.props;
-
-    if(!isValidEmail || !isValidPassword || !isPwdDoubleCk || !isValidName || !isValidPhone) {
-      this.setState({errorMessage : '모든 항목이 확인되어야 합니다.'})
-      alert('모든항목필수');
-
-    }else if(this.state.requierCheck1 === false || this.state.requierCheck2 === false){
-      this.setState({errorMessage : '필수 약관 동의 '})
-      alert('필수 약관 확인해주세요');
-
-    }else{
-      alert('가입성공!')
-      axios.post('http://13.209.10.136/user/signup',
-      { email, password, name, phone },
-      {'Content-Type':'application/json', withCredentials: true })
-      .then(res => {
-        console.log('res:::',res)
-        this.props.history.push("/likeForm");
-      })
-    }
+  
+  handleNextBtn = () => {
+    this.props.history.push("/likeForm");
+    
 
   }
 
@@ -147,7 +127,7 @@ class TermCheck extends Component {
       <button
         className="signupBtn"
         type='submit'
-        onClick={this.handleSignup}
+        onClick={this.handleNextBtn}
         >다음</button >
     </>
     )
