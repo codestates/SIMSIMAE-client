@@ -148,7 +148,7 @@ class TermCheck extends Component {
         className="signupBtn"
         type='submit'
         onClick={this.handleSignup}
-        >회원가입</button >
+        >다음</button >
     </>
     )
   }
