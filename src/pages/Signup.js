@@ -13,8 +13,8 @@ class Signup extends Component {
       email: "",
       password: "",
       passwordCheck: "",
-      username: "",
-      mobile: "",
+      name: "",
+      phone: "",
       errorMessage: "",
       isValidEmail : false,
       isValidPassword : false,
@@ -136,28 +136,28 @@ class Signup extends Component {
             <div>
               <div className='signTitle'>이름</div>
               <input className={this.state.isValidName === false ? '' : 'pass'}
-                value={this.state.username}
+                value={this.state.name}
                 type='text'
                 placeholder="이름"
-                onChange={this.handleInputName("username")}
+                onChange={this.handleInputName("name")}
               ></input>
             </div>
             
             <div>
               <div className='signTitle'>전화번호</div>
               <input className={this.state.isValidPhone === false ? '' : 'pass'}
-                value={this.state.mobile}
+                value={this.state.phone}
                 type='tel'
                 placeholder="'-' 를 제외한 숫자만 입력"
-                onChange={this.handleInputPhone("mobile")}
+                onChange={this.handleInputPhone("phone")}
               ></input>
             </div>
 
             <TermCheck handleSignup={this.handleSignup}
               email={this.state.email}
               password={this.state.password}
-              username={this.state.username}
-              mobile={this.state.mobile}
+              username={this.state.name}
+              mobile={this.state.phone}
               errorMessage={this.state.errorMessage}
               isValidEmail={this.state.isValidEmail}
               isValidPassword={this.state.isValidPassword}
