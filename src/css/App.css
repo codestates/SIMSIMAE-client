@@ -54,9 +54,12 @@
     width: 0;
     visibility: hidden;
 }
-
+.toggle-div{
+   position: relative;
+   padding-left: 40em;
+}
 .toggle-label {
-
+    
     cursor: pointer;
     text-indent: -9999px;
     width: 70px;
