@@ -48,14 +48,14 @@
   }
   
   /* 원준 작업 */
-  input[type=checkbox]{
+  .toggle-input{
 
     height: 0;
     width: 0;
     visibility: hidden;
 }
 
-label {
+.toggle-label {
 
     cursor: pointer;
     text-indent: -9999px;
@@ -67,7 +67,7 @@ label {
     position: relative;
 }
 
-label:after {
+.toggle-label:after {
 
     content: '';
     position: absolute;
@@ -80,19 +80,19 @@ label:after {
     transition: 0.3s;
 }
 
-input:checked + label {
+.toggle-input:checked + .toggle-label{
 
     background: #e78636;
 
 }
 
-input:checked + label:after {
+.toggle-input:checked + .toggle-label:after {
 
     left: calc(100% - 5px);
     transform: translateX(-100%);
 }
 
-label:active:after {
+.toggle-label:active:after {
 
     width: 100px;
 }

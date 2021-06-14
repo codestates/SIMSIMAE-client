@@ -43,7 +43,7 @@ class Main extends Component {
           </div>
           <div className="body">
               <input className='toggle-input' type="checkbox" id="switch" />
-              <label for="switch"></label>
+              <label className='toggle-label'for="switch"></label>
             <div className='logoRender'>
               <div><img className='center-logo' src={logo} alt=""></img></div>
               <div><button onClick={this.revealQr} className = "qrBtn">Click!</button></div>
