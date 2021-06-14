@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import logo from '../img/SIMSIMAE-logo.png';
 import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
@@ -7,55 +7,44 @@ import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
 import TermCheck from "../components/TermCheck";
 import axios from "axios";
 
-class Signup extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      email: "",
-      emailCheck: false,
-      password: "",
-      passwordCheck: "",
-      name: "",
-      phone: "",
-      errorMessage: "",
-      isValidEmail : false,
-      isValidPassword : false,
-      isPwdDoubleCk : false,
-      isValidName : false,
-      isValidPhone : false,
-    };
+const Signup = () => {
 
-    this.handleInputEmail = this.handleInputEmail.bind(this);
-    this.handleInputPwd = this.handleInputPwd.bind(this);
-    this.handleInputName = this.handleInputName.bind(this);
-    this.handleInputPwdCh = this.handleInputPwdCh.bind(this);
-    this.handleInputPhone = this.handleInputPhone.bind(this);
-  }
+  const [email , setEmail ] = useState('');
+  const [emailCheck , setEmailCheck ] = useState(false);
+  const [password , setPassword ] = useState('');
+  const [passwordCheck , setPasswordCheck ] = useState('');
+  const [name , setName ] = useState('');
+  const [phone , setPhone ] = useState('');
+  const [errorMessage , setErrorMessage ] = useState('');
+  const [isValidEmail , setIsValidEmail ] = useState(false);
+  const [isValidPassword , setIsValidPassword ] = useState(false);
+  const [isPwdDoubleCk , setIsPwdDoubleCk ] = useState(false);
+  const [isValidName , setIsValidName ] = useState(false);
+  const [isValidPhone , setIsValidPhone ] = useState(false);
   
   // 이메일 값 바뀔때마다 유효성 검사
-  handleInputEmail = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
+  const handleInputEmail = (e) => {
+    setEmail(e.target.value)
     if (!isEmail(e.target.value)) { 
-      this.setState({ isValidEmail: false });
+      setIsValidEmail(false);
     } else if(e.target.value === ''){
-      this.setState({ isValidEmail: false });
+      setIsValidEmail(false);
     } else { // 이메일 형식 통과 했을때
-      this.setState({ isValidEmail: true });
+      setIsValidEmail(true);
     }
   };
 
   // 이메일 중복체크
-  emailDCEvent = (currentEmail) => {
-    const { isValidEmail } = this.state;
+  const emailDCEvent = (email) => {
     // 이메일이 유효성 검사를 통과하면
     if(isValidEmail === true) { 
       axios.post('http://13.209.10.136/user/conflictemail',
-      {currentEmail},
+      {email},
       {'Content-Type':'application/json', withCredentials: true })
       .then(res => {
         alert('사용가능한 이메일 입니다.')
         console.log('중복체크 res:::',res)
-        this.setState({emailCheck:true})
+        setEmailCheck(true)
       }).catch(err => {
         alert('이미 존재하는 이메일 입니다.')
         console.log('에러:::',err)
@@ -67,141 +56,119 @@ class Signup extends Component {
   }
 
   // 비밀번호 값 바뀔때마다 유효성 검사
-  handleInputPwd = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
+  const handleInputPwd = (e) => {
+    setPassword(e.target.value)
      // 비밀번호 형식 안맞을 때
      if (!isPassword(e.target.value)) { 
-      this.setState({ isValidPassword: false });
+      setIsValidPassword(false);
     } else { // 비밀번호 형식 통과 했을때
-      this.setState({ isValidPassword: true });
+      setIsValidPassword(true);
     }
   };
   
    // 비밀번호체크값 바뀔때마다 비밀번호와 일치하는지 검사
-  handleInputPwdCh = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
-    const { password } = this.state;
+  const handleInputPwdCh = (e) => {
+    setPasswordCheck(e.target.value);
     if (password.length < 1 || e.target.value.length < 1) {
-      this.setState({
-        isPwdDoubleCk: false,
-      });
+      setIsPwdDoubleCk(false);
       // 비밀번호가 같다면 일치
     }else if (password === e.target.value) {
-      this.setState({
-        isPwdDoubleCk: true,
-      });
+      setIsPwdDoubleCk(true);
       // 비밀번호가 같지 않다면 불일치
     } else {
-      this.setState({
-        isPwdDoubleCk: false,
-      });
+      setIsPwdDoubleCk(false);
     }
   };
   
   // 이름 값 바뀔때마다 유효성검사
-  handleInputName = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
+  const handleInputName = (e) => {
+    setName(e.target.value)
     if (!isName(e.target.value)) { 
-      this.setState({ isValidName: false });
+      setIsValidName(false);
     } else { // 이름 형식 통과 했을때
-      this.setState({ isValidName: true });
+      setIsValidName(true);
     }
   };
 
   // 모바일 값 바뀔때마다 유효성검사
-  handleInputPhone = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
+  const handleInputPhone = (e) => {
+    setPhone(e.target.value);
     if (!isPhone(e.target.value)) { 
-      this.setState({ isValidPhone: false });
+      setIsValidPhone(false);
     } else { // 전화번호 형식 통과 했을때
-      this.setState({ isValidPhone: true });
+      setIsValidPhone(true);
     }
   };
-  
 
-  
-  
-  render(){
-    return (
-      <div>
-        <center>
-          <img className='logo' src={logo}/>
-          <form className='signForm' onSubmit={(e) => e.preventDefault()}>
+  return (
+    <div>
+      <center>
+        <img className='logo' src={logo}/>
+        <form className='signForm' onSubmit={(e) => e.preventDefault()}>
 
-            <div>
-              <div className='signTitle'>이메일</div>
-              <div className='emailBox'>
-                <input className={this.state.isValidEmail===false ? '' : 'pass'}
-                  value={this.state.email}
-                  type="email"
-                  placeholder="ex) simsimae@love.com"
-                  onChange={this.handleInputEmail("email")}
-                ></input>
-                <button className='emailDoubleCheck'
-                  onClick={() => this.emailDCEvent(this.state.email)}
-                >중복확인</button>
-              </div>
-            </div>
-
-            <div>
-              <div className='signTitle'>비밀번호</div>
-              <input className={this.state.isValidPassword===false ? '' : 'pass'}
-              value={this.state.password}
-                type="password"
-                placeholder="영문,숫자 조합 6~10자"
-                onChange={this.handleInputPwd("password")}
+          <div>
+            <div className='signTitle'>이메일</div>
+            <div className='emailBox'>
+              <input className={isValidEmail === false ? '' : 'pass'}
+                value={email}
+                type="email"
+                placeholder="ex) simsimae@love.com"
+                onChange={(e) => handleInputEmail(e)}
               ></input>
+              <button className='emailDoubleCheck'
+                onClick={() => emailDCEvent(email)}
+              >중복확인</button>
             </div>
+          </div>
 
-            <div>
-              <div className='signTitle'>비밀번호 재확인</div>
-              <input className={this.state.isPwdDoubleCk === false ? '' : 'pass'}
-                value={this.state.passwordCheck}
-                type="password"
-                placeholder="비밀번호 재입력"
-                onChange={this.handleInputPwdCh("passwordCheck")}
-              ></input>
-            </div>
+          <div>
+            <div className='signTitle'>비밀번호</div>
+            <input className={isValidPassword ===false ? '' : 'pass'}
+            value={password}
+              type="password"
+              placeholder="영문,숫자 조합 6~10자"
+              onChange={(e) => handleInputPwd(e)}
+            ></input>
+          </div>
 
-            <div>
-              <div className='signTitle'>이름</div>
-              <input className={this.state.isValidName === false ? '' : 'pass'}
-                value={this.state.name}
-                type='text'
-                placeholder="이름"
-                onChange={this.handleInputName("name")}
-              ></input>
-            </div>
-            
-            <div>
-              <div className='signTitle'>전화번호</div>
-              <input className={this.state.isValidPhone === false ? '' : 'pass'}
-                value={this.state.phone}
-                type='tel'
-                placeholder="'-' 를 제외한 숫자만 입력"
-                onChange={this.handleInputPhone("phone")}
-              ></input>
-            </div>
+          <div>
+            <div className='signTitle'>비밀번호 재확인</div>
+            <input className={isPwdDoubleCk === false ? '' : 'pass'}
+              value={passwordCheck}
+              type="password"
+              placeholder="비밀번호 재입력"
+              onChange={(e) => handleInputPwdCh(e)}
+            ></input>
+          </div>
 
-            <TermCheck 
-              email={this.state.email}
-              password={this.state.password}
-              name={this.state.name}
-              phone={this.state.phone}
-              errorMessage={this.state.errorMessage}
-              isValidEmail={this.state.isValidEmail}
-              isValidPassword={this.state.isValidPassword}
-              isPwdDoubleCk={this.state.isPwdDoubleCk}
-              isValidName={this.state.isValidName}
-              isValidPhone={this.state.isValidPhone}
-            />
+          <div>
+            <div className='signTitle'>이름</div>
+            <input className={isValidName === false ? '' : 'pass'}
+              value={name}
+              type='text'
+              placeholder="이름"
+              onChange={(e) => handleInputName(e)}
+            ></input>
+          </div>
+          
+          <div>
+            <div className='signTitle'>전화번호</div>
+            <input className={isValidPhone === false ? '' : 'pass'}
+              value={phone}
+              type='tel'
+              placeholder="'-' 를 제외한 숫자만 입력"
+              onChange={(e) => handleInputPhone(e)}
+            ></input>
+          </div>
 
-            </form>
+          <TermCheck />
 
-        </center>
-      </div>
-    )
-  }
+          </form>
+
+      </center>
+    </div>
+  )
 }
+
 
 export default withRouter(Signup);
