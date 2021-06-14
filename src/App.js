@@ -1,12 +1,13 @@
 
 import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
+
 import './css/App.css';
 
-import LikeForm from './pages/LikeForm'
 import Signup from "./pages/Signup";
 import Main from './pages/Main';
 import Mypage from "./pages/Mypage";
+import LikeForm from "./pages/LikeForm";
 
 class App extends React.Component {
   constructor(props){
@@ -45,7 +46,7 @@ class App extends React.Component {
             exact
             path='/'
             component={Main}
-            render={() => <Main isLogin={isLogin}/>}
+            render={() => <Main isLogin={isLogin} />}
           /> 
           <Route exact path='/signup' render={() => <Signup />} />
           <Route exact path='/likeForm' render={() => <LikeForm />} />

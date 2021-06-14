@@ -281,8 +281,22 @@
     border : 2px solid green;
   }
   
-  
-  
+  .emailDoubleCheck{
+    margin-left: 5px;
+    width: 80px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+  .emailBox{
+    display: flex;
+  }
+  .emailDoubleCheck:hover{
+    cursor: pointer;
+    background-color: #f57c00;
+    color: #ffffff;
+    border: 1px solid #f57c00;
+  }
   
   /* 반응형 작업 */
   

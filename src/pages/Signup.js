@@ -5,12 +5,14 @@ import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
 
 
 import TermCheck from "../components/TermCheck";
+import axios from "axios";
 
 class Signup extends Component {
   constructor(props){
     super(props);
     this.state = {
       email: "",
+      emailCheck: false,
       password: "",
       passwordCheck: "",
       name: "",
@@ -41,6 +43,28 @@ class Signup extends Component {
       this.setState({ isValidEmail: true });
     }
   };
+
+  // 이메일 중복체크
+  emailDCEvent = (currentEmail) => {
+    const { isValidEmail } = this.state;
+    // 이메일이 유효성 검사를 통과하면
+    if(isValidEmail === true) { 
+      axios.post('http://13.209.10.136/user/conflictemail',
+      {currentEmail},
+      {'Content-Type':'application/json', withCredentials: true })
+      .then(res => {
+        alert('사용가능한 이메일 입니다.')
+        console.log('중복체크 res:::',res)
+        this.setState({emailCheck:true})
+      }).catch(err => {
+        alert('이미 존재하는 이메일 입니다.')
+        console.log('에러:::',err)
+      })
+    }else {
+      alert('사용할 이메일을 입력해주세요.')
+      console.log('잉?')
+    }
+  }
 
   // 비밀번호 값 바뀔때마다 유효성 검사
   handleInputPwd = (key) => (e) => {
@@ -94,6 +118,7 @@ class Signup extends Component {
     }
   };
   
+
   
   
   render(){
@@ -105,12 +130,17 @@ class Signup extends Component {
 
             <div>
               <div className='signTitle'>이메일</div>
-              <input className={this.state.isValidEmail===false ? '' : 'pass'}
-                value={this.state.email}
-                type="email"
-                placeholder="ex) simsimae@love.com"
-                onChange={this.handleInputEmail("email")}
-              ></input>
+              <div className='emailBox'>
+                <input className={this.state.isValidEmail===false ? '' : 'pass'}
+                  value={this.state.email}
+                  type="email"
+                  placeholder="ex) simsimae@love.com"
+                  onChange={this.handleInputEmail("email")}
+                ></input>
+                <button className='emailDoubleCheck'
+                  onClick={() => this.emailDCEvent(this.state.email)}
+                >중복확인</button>
+              </div>
             </div>
 
             <div>
@@ -153,7 +183,7 @@ class Signup extends Component {
               ></input>
             </div>
 
-            <TermCheck handleSignup={this.handleSignup}
+            <TermCheck 
               email={this.state.email}
               password={this.state.password}
               name={this.state.name}
