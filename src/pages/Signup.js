@@ -156,8 +156,8 @@ class Signup extends Component {
             <TermCheck handleSignup={this.handleSignup}
               email={this.state.email}
               password={this.state.password}
-              username={this.state.name}
-              mobile={this.state.phone}
+              name={this.state.name}
+              phone={this.state.phone}
               errorMessage={this.state.errorMessage}
               isValidEmail={this.state.isValidEmail}
               isValidPassword={this.state.isValidPassword}
