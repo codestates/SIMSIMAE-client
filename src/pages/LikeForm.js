@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import '../css/Like.css';
+import axios from 'axios';
 
 import logo from '../img/SIMSIMAE-logo.png';
 class LikeForm extends Component {
@@ -9,7 +10,7 @@ class LikeForm extends Component {
     super(props);
     this.state = {
       // 관심사를 배열로 받는게 나은가?
-      collect : [],
+      favorit : [],
       gender : null,
       age : null,
       location : null,
@@ -19,17 +20,32 @@ class LikeForm extends Component {
   collectBtn = (e) => {
     console.log(e.target)
   }
-  // 체크하면 해당 인풋에 값을 넣음.
-  // 값을 가진 갯수가 총 5개가 넘으면 넘어가기 금지
-  complete = () => {
-    
+  
+  // 회원가입 버튼 클릭 시 서버통신
+  handleSignup = () => {
+    const { email, password, name, phone, 
+      isValidEmail, isValidPassword, isPwdDoubleCk, isValidName, isValidPhone } = this.props;
+
+    if(!isValidEmail || !isValidPassword || !isPwdDoubleCk || !isValidName || !isValidPhone) {
+      this.setState({errorMessage : '모든 항목이 확인되어야 합니다.'})
+      alert('모든항목필수');
+
+    }else if(this.state.requierCheck1 === false || this.state.requierCheck2 === false){
+      this.setState({errorMessage : '필수 약관 동의 '})
+      alert('필수 약관 확인해주세요');
+
+    }else{
+      alert('가입성공!')
+      axios.post('http://13.209.10.136/user/signup',
+      { email, password, name, phone },
+      {'Content-Type':'application/json', withCredentials: true })
+      .then(res => {
+        console.log('완료res:::',res)
+        this.props.history.push("/");
+      })
+    }
 
   }
-
-  skip = () => {
-
-  }
-
 
   render() {
     return(
@@ -91,7 +107,6 @@ class LikeForm extends Component {
                 >???</button>
             </section>
             <hr></hr>
-            <span className='optionText'>추가 선택 사항 (건너뛰기 가능) </span>
             <section className='optionSection'>
               <div className='genderTitle'>성별</div>
               <div className='genderOption'>
@@ -142,14 +157,9 @@ class LikeForm extends Component {
             </section>
            
             <button
-                className="skipBtn"
-                type='button'
-                onClick={this.skip}
-                >건너뛰기</button >
-            <button
                 className="completeBtn"
                 type='submit'
-                onClick={this.complete}
+                onClick={this.handleSignup}
                 >완료</button >
           </form>
         </center>

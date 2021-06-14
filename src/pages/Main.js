@@ -5,17 +5,18 @@ import logo from '../img/simsimae_logo.png';
 import qr from '../img/simsimae_qr.png';
 import $ from "jquery";
 
+
 class Main extends Component {
   constructor(props){
     super(props);
-    this.revealQr = this.revealQr.bind(this);
-    this.qrRequestHandler = this.qrRequestHandler.bind(this);
     this.state = {
       email: '',
       password: '',
       click: false
     }
-
+    this.revealQr = this.revealQr.bind(this);
+    this.qrRequestHandler = this.qrRequestHandler.bind(this);
+    
   }
 
   qrRequestHandler() {
@@ -29,9 +30,6 @@ class Main extends Component {
     $(".qrRender").css('display','block');
   }
 
-    
- 
-
   render() {
     return (
       <div>
@@ -42,8 +40,10 @@ class Main extends Component {
             <Nav />
           </div>
           <div className="body">
+
+           
               <input className='toggle-input' type="checkbox" id="switch" />
-              <label className='toggle-label'for="switch"></label>
+              <label className='toggle-label' htmlFor="switch"></label>
             <div className='logoRender'>
               <div><img className='center-logo' src={logo} alt=""></img></div>
               <div><button onClick={this.revealQr} className = "qrBtn">Click!</button></div>
@@ -56,7 +56,7 @@ class Main extends Component {
                 </div>
               <div className='reBtnDiv'>
                 <button onClick={this.qrRequestHandler} className="refreshBtn">
-                  <i class="fas fa-sync-alt"></i>
+                  <i className="fas fa-sync-alt"></i>
                 </button>
               </div>
             </div>
