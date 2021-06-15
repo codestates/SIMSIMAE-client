@@ -5,11 +5,13 @@ import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
 import "../css/modal.css";
 
+
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
-
-
-  // Google Login
-  const responseGoogle = (res) => {
+  
+  const [isGoogleLogin, setIsGoogleLogin] = useState(false);
+   // Google Login
+   const responseGoogle = (res) => {
+    setIsGoogleLogin(true);
     console.log('성공:::',res)
   }
 
@@ -27,7 +29,6 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
           <div>
             <div className="loginModal">
               <span className="close" onClick={() => close()}>
-                &times;
               </span>
               <h1 className="modalContents" >
                 로그인
@@ -70,8 +71,8 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                 </div>
 
                 {errorMessage === '' ? <div className="alert-box"></div> :
-                  <div className="alert-box">이메일과 비밀번호를 입력하세요</div>}
-              
+                  <div className="alert-box">이메일과 비밀번호를 입력하세요</div>
+                  }
               </h1>
             </div>
           </div>

@@ -113,6 +113,21 @@
     position: absolute;
     float: right;
   } */
+  .logoutBtn{
+    cursor: pointer;
+    height: 20px;
+    width: 70px;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    background-color: var(--white-color-light);
+  }
+  .logoutBtn:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
   
   .loginModalBtn{ 
     cursor: pointer;

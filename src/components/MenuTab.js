@@ -29,7 +29,7 @@ const MenuTab = ({serinfo}) => {
         <div 
         className={activeTab === 0 ? 'currentTab' : 'one'} 
         onClick={() => clickHandler(0)}>
-          <p>계정 설정</p>
+          <p>내 계정</p>
         </div>
         <div 
         className={activeTab === 1 ? 'currentTab' : 'two'} 
