@@ -4,8 +4,9 @@ import { withRouter, Link } from "react-router-dom";
 import Account from '../components/Account.js';
 import Interest from '../components/Interest.js';
 import LikeQR from '../components/LikeQR.js';
+import '../css/tap.css';
 
-const MenuTab = ({serinfo}) => {
+const MenuTab = ({userinfo}) => {
   const [activeTab , setActiveTab ] = useState(0);
   const [update , setUpdate ] = useState(false);
   
@@ -18,7 +19,7 @@ const MenuTab = ({serinfo}) => {
   }
   
   const obj = ({
-    0: <Account userinfo={serinfo}/>,
+    0: <Account userinfo={userinfo}/>,
     1: <Interest updateActivation={updateActivation} update={update} />,
     2: <LikeQR />,
   });

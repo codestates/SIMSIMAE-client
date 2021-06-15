@@ -6,24 +6,12 @@ import './css/App.css';
 
 import Signup from "./pages/Signup";
 import Main from './pages/Main';
-import Mypage from "./pages/Mypage";
 
 const App = () => {
-
   return (
     <Switch>
-      <Route
-        exact
-        path='/'
-        component={Main}
-        render={() => <Main />}
-      />
+      <Route exact path='/' component={Main} render={() => <Main />} />
       <Route exact path='/signup' render={() => <Signup />} />
-      <Route
-        exact
-        path='/mypage'
-        render={() => <Mypage />}
-      />
     </Switch>
   );
 }
