@@ -57,22 +57,12 @@ const LikeForm = (props) => {
               className='likeCheck'
               type='button'
               onChange={collectBtn}
-            >쇼핑</button>
+            >스포츠</button>
             <button 
             className='likeCheck'
               type='button'
               onChange={collectBtn}
-              >IT</button>
-            <button 
-            className='likeCheck'
-              type='button'
-              onChange={collectBtn}
-              >방송</button>
-            <button 
-            className='likeCheck'
-              type='button'
-              onChange={collectBtn}
-              >유머</button>
+              >여행</button>
             <button 
             className='likeCheck'
               type='button'
@@ -82,22 +72,32 @@ const LikeForm = (props) => {
             className='likeCheck'
               type='button'
               onChange={collectBtn}
+              >쇼핑</button>
+            <button 
+            className='likeCheck'
+              type='button'
+              onChange={collectBtn}
+              >게임</button>
+            <button 
+            className='likeCheck'
+              type='button'
+              onChange={collectBtn}
+              >방송</button>
+            <button 
+            className='likeCheck'
+              type='button'
+              onChange={collectBtn}
+              >건강</button>
+            <button 
+            className='likeCheck'
+              type='button'
+              onChange={collectBtn}
               >연애</button>
             <button 
             className='likeCheck'
               type='button'
               onChange={collectBtn}
-              >???</button>
-            <button 
-            className='likeCheck'
-              type='button'
-              onChange={collectBtn}
-              >???</button>
-            <button 
-            className='likeCheck'
-              type='button'
-              onChange={collectBtn}
-              >???</button>
+              >IT</button>
           </section>
           <hr></hr>
           <section className='optionSection'>

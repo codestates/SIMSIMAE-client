@@ -135,11 +135,11 @@
 .accountEmailLi{
   margin-bottom: 15px;
 }
-.accountPwdLi{
-  margin-bottom: 15px;
+.accountPhoneLi{
+  margin-bottom: 50px;
 }
 .accountNameLi{
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 }
 
 .accountGenderLi{
@@ -216,6 +216,7 @@
 .likeQR{
   width: 130px;
 }
+
 .qrRemoveBtn{
   height: 30px;
 }

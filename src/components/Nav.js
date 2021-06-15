@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import Login from "./Login";
 import { GoogleLogout } from 'react-google-login';
-
 import { withRouter, useHistory } from "react-router-dom";
+import axios from 'axios';
 
-const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler}) => { 
-  const [isLogin, setIsLogin] = useState(false);
-  const [isModalOpen , setisModalOpen] = useState(false);
-  // 모달 열기
-  const openModal = () => {
-    setisModalOpen(true);
-  };
-  // 모달 닫기
-  const closeModal = () => {
-    setisModalOpen(false);
-  };
+const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler,openModal, isModalOpen, closeModal, handleResponseSuccess}) => { 
+  
   const logOut = () => {
     setIsLogin(false)
     moveMainpage();
@@ -30,6 +21,7 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler}) =
   //마이페이지로 이동
   let history = useHistory();
   const moveMypage = () => {
+    handleResponseSuccess()
     history.push("/mypage");
   }
 
@@ -58,5 +50,5 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler}) =
     </>
   )
 }
-
+ 
 export default withRouter(Nav);
