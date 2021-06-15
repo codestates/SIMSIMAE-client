@@ -92,33 +92,7 @@ const Main = () => {
     setisModalOpen(false);
   };
 
-   // login 후 회원정보 받아오기
-   const handleResponseSuccess = () => {
-    console.log('handleResponseSuccess실행')
-    axios.get('http://13.209.10.136/user/info')
-     .then(res => {
-       console.log('user 정보 받아오기 성공!!!')
-       setUserinfo(res.data);
-     }).catch(err => console.log(err));
-   }
-
-    // 일반 로그인 버튼 클릭 시 로그인
-  let history = useHistory();
-  const loginClickHandler = () => {
-    if(email ===''|| password ===''){
-      setErrorMessage('이메일과 비밀번호를 입력하세요')
-    }else{
-      axios.post('http://13.209.10.136/user/login',
-      { email, password } ,
-      {'Content-Type':'application/json', withCredentials: true }
-      ).then(res => {
-        console.log('로그인성공!!!',res)
-        setIsLogin(true);
-        handleResponseSuccess();
-        history.push("/loginMain");
-      }) 
-    }
-  }; 
+   
   return (
     <div>
       <div className='header'>
@@ -130,10 +104,22 @@ const Main = () => {
             <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
           </Link>
         }
-          <Nav emailHandler={emailHandler} 
-            passwordHandler={passwordHandler} 
-            loginClickHandler={loginClickHandler} 
-            errorMessage={errorMessage}/>
+          <Nav 
+        isModalOpen={isModalOpen}
+        openModal={openModal}
+        closeModal={closeModal}
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        isGoogleLogin={isGoogleLogin}
+        setIsGoogleLogin={setIsGoogleLogin}
+        setUserinfo={setUserinfo}
+        accessToken={token}
+        errorMessage={errorMessage}
+        emailHandler={emailHandler} 
+        passwordHandler={passwordHandler} 
+        loginClickHandler={loginClickHandler}
+        handleResponseSuccess={handleResponseSuccess}
+        />
       </div>
 
       { isLogin ? 
