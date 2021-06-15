@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 
 const Account = () => {
  
+  // 만약 로그인이 구글 로그인이라면 아래 메소드
+  
   return(
     <>
       <div className='tabForm'>
@@ -10,23 +12,23 @@ const Account = () => {
           <form className='disablelForm'>
           <h2 className='accountTitle'>내 계정</h2>
             <div className='accountUl'>
+              <div className='accountNameLi'>
+                <input disabled
+                  className='disName'
+                  type="text" name="val" 
+                  value='초미미' />
+              </div>
               <div className='accountEmailLi'>
                 <input disabled
                   className='disEmail'
                   type="email" name="val" 
                   value='chomimi@test.com' />
               </div>
-              <div className='accountPwdLi'>
+              <div className='accountPhoneLi'>
                 <input disabled
                   className='disPassword'
-                  type="password" name="val" 
-                  value='qlalf1234' />
-              </div>
-              <div className='accountNameLi'>
-                <input disabled
-                  className='disName'
-                  type="text" name="val" 
-                  value='초미미' />
+                  type="tel" name="val" 
+                  value='01000000000' />
               </div>
 
               <hr className='endLine' />
