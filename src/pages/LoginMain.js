@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
-import MenuTab from '../components/MenuTab';
+
 import Nav from '../components/Nav';
 import logo from '../img/simsimae_logo.png';
 
-import '../css/tap.css';
 
-const Mypage = () => {
+const LoginMain = () => {
   
   return(
     <>
@@ -16,10 +15,11 @@ const Mypage = () => {
         </Link>
         <Nav />
       </div>
-      <center>
-        <img className='logo' src={logo}/>
-      </center>
-      <MenuTab />
+
+      <div className="body">
+        <h1>로그인했땅!</h1>
+      </div>
+
       <div className="footer">
         <p className='copyright'>Copyright 2021. SONGYUIJO inc. all rights reserved.</p>
       </div>
@@ -27,5 +27,4 @@ const Mypage = () => {
   )
 }
 
-
-export default withRouter(Mypage);
+export default withRouter(LoginMain);

@@ -1,21 +1,14 @@
-import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 
-
-class Account extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      
-    }
-  }
-
-  render() {
-    return(
-      <>
+const Account = () => {
+ 
+  return(
+    <>
+      <div className='tabForm'>
         <div className='accountDiv'>
           <form className='disablelForm'>
-          <h2 className='accountTitle'>계정 설정</h2>
+          <h2 className='accountTitle'>내 계정</h2>
             <div className='accountUl'>
               <div className='accountEmailLi'>
                 <input disabled
@@ -59,20 +52,21 @@ class Account extends Component{
                   value='해외' /><p>해외</p>
               </div>
               <div className='accountAgeLi'>
-                <select disabled className='ageSelect'>
-                     <option>10대</option>
-                     <option selected>20대</option>
-                     <option>30대</option>
-                     <option>40대</option>
-                     <option>50대 이상</option>
+                <select disabled className='ageSelect' value='20'>
+                  <option value='10'>10대</option>
+                  <option value='20'>20대</option>
+                  <option value='30'>30대</option>
+                  <option value='40'>40대</option>
+                  <option value='50'>50대 이상</option>
                 </select>
               </div>
             </div>
           </form>
         </div>
-      </>
-    )
-  }
-
+      </div>
+    </>
+  )
+  
 }
+
 export default withRouter(Account);

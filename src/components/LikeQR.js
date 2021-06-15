@@ -1,17 +1,12 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import qr from '../img/simsimae_qr.png'
 
-class LikeQR extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
+const LikeQR = () => {
 
-    }
-  }
-  render() {
-    return(
-      <>
+  return(
+    <>
+      <div className='tabForm'>
         <div className='likeQRDiv'>
           <form className='disablelForm'>
             <h2 className='likeQRTitle'>나의 Like 모음</h2>
@@ -26,8 +21,10 @@ class LikeQR extends Component {
             </div>
           </form>
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
+
 }
+
 export default withRouter(LikeQR);

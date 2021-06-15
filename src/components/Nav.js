@@ -1,36 +1,48 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Login from "./Login";
+import { GoogleLogout } from 'react-google-login';
 
-import { Link, withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 
-class Nav extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isModalOpen : false
-    }
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler}) => { 
+
+  const [isModalOpen , setisModalOpen] = useState(false);
+  // 모달 열기
+  const openModal = () => {
+    setisModalOpen(true);
+  };
+  // 모달 닫기
+  const closeModal = () => {
+    setisModalOpen(false);
+  };
+  // 구글로그아웃
+  const googleLogout = () => {
+    console.log('로그아웃성공:::')
+  }
+  //마이페이지로 이동
+  let history = useHistory();
+  const moveMypage = () => {
+    history.push("/mypage");
   }
 
-  openModal = () => {
-    this.setState({ isModalOpen: true });
-  };
+  return (
+    <>
+      <button onClick={() => moveMypage()} className='loginModalBtn' >mypage</button>
+      <button onClick={() => openModal()} className='loginModalBtn' >로그인</button>
+      <Login isOpen={isModalOpen} 
+      close={closeModal} 
+      emailHandler={emailHandler} 
+      passwordHandler={passwordHandler} 
+      loginClickHandler={loginClickHandler}
+      errorMessage={errorMessage} />
 
-  closeModal = () => {
-    this.setState({ isModalOpen: false });
-  };
-
-  render() {
-    return (
-      <>
-        <Link to='/mypage'>mypage</Link>
-        <button onClick={this.openModal} className='loginModalBtn' >로그인</button>
-        <Login isOpen={this.state.isModalOpen} close={this.closeModal} />
-      </>
-    )
-  }
-
+      <GoogleLogout
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+        buttonText="Logout"
+        onLogoutSuccess={googleLogout}
+      />
+    </>
+  )
 }
 
 export default withRouter(Nav);
