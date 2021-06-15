@@ -156,6 +156,7 @@ const LikeForm = (props) => {
               >완료</button >
         </form>
       </center>
+      
     </div>
   )
 }
