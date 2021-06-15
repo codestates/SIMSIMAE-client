@@ -5,12 +5,8 @@ import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
 import "../css/modal.css";
 
-const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
-
-<<<<<<< HEAD
-  const [isGoogleLogin, setIsGoogleLogin] = useState(false);
-=======
->>>>>>> 14c8d9efc0949d91209fae78b87f28d7537475bf
+const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler, isGoogleLogin, setIsGoogleLogin}) => {
+   
   // Google Login
   const responseGoogle = (res) => {
     setIsGoogleLogin(true);
