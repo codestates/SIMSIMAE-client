@@ -4,7 +4,6 @@ import MenuTab from '../components/MenuTab';
 import logo from '../img/simsimae_logo.png';
 
 import '../css/tap.css';
-import LoginMain from "../components/LoginMain";
 
 const Mypage = () => {
 

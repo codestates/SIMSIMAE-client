@@ -92,20 +92,28 @@ const Main = () => {
     setisModalOpen(false);
   };
 
+   
   return (
     <div>
       <div className='header'>
-        <Link to='/'>
-          <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-        </Link>
-
-        <Nav 
-        accessToken={token}
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
+        { isLogin ? 
+          <Link to='/loginMain'>
+            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+          </Link> :
+          <Link to='/'>
+            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+          </Link>
+        }
+          <Nav 
         isModalOpen={isModalOpen}
         openModal={openModal}
         closeModal={closeModal}
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        isGoogleLogin={isGoogleLogin}
+        setIsGoogleLogin={setIsGoogleLogin}
+        setUserinfo={setUserinfo}
+        accessToken={token}
         errorMessage={errorMessage}
         emailHandler={emailHandler} 
         passwordHandler={passwordHandler} 
