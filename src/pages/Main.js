@@ -21,7 +21,7 @@ const Main = () => {
   const [toggleOn, setToggleOn ] = useState();
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
-  
+  const [userQrImg, setUserQrImg ] = useState(null);
   // 이메일 상태값 변경
   function emailHandler(e) {
     setEmail(e.target.value);
@@ -75,17 +75,14 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
-  // 토글 스테이트 핸들러
-  const toggleStatus = () => {
-    if(isLogin || isGoogleLogin){
-      $(".toggle-div").css('display', 'block');
-      if(toggleOn === false) {
-        //비회원로그인 qr
-      }else if(toggleOn === true) {
-        //회원로그인 qr
-      }
-    }
+  const userQrRequestHander = () => {
+    return axios.get('http://13.209.10.136/url/userurl')
+    .then((res) => {
+      setUserQrImg(res.data)
+    })
   }
+  // 토글 스테이트 핸들러
+  
   // qr다시 받기 핸들러
   const revealQr = () => {
     $(".logoRender").css('display', 'none');
