@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link, withRouter, useHistory } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { GoogleLogin } from 'react-google-login';
 
-import axios from 'axios';
 import "../css/modal.css";
 
 
@@ -28,7 +27,7 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
         <div className="modal">
           <div>
             <div className="loginModal">
-              <span className="close" onClick={() => close()}>
+              <span className="close" onClick={() => close()}>&times;
               </span>
               <h1 className="modalContents" >
                 로그인
