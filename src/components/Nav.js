@@ -5,7 +5,9 @@ import { withRouter, useHistory , Link} from "react-router-dom";
 import axios from 'axios';
 import Mypage from '../pages/Mypage';
 
-const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, openModal, isModalOpen, closeModal, handleResponseSuccess, isLogin, setIsLogin, isGoogleLogin, setIsGoogleLogin, setUserinfo, accessToken}) => { 
+const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler,
+  openModal, isModalOpen, closeModal, handleResponseSuccess
+  , accessToken, setIsLogin, setUserinfo, setIsGoogleLogin, isLogin, isGoogleLogin}) => { 
   
   const logOut = () => {
     axios.post('http://13.209.10.136/user/logout', 
@@ -16,10 +18,9 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, op
       setIsLogin(false);
       moveMainpage();
       setUserinfo(null);
-    })
-    
-    
+    })    
   }
+
   let history = useHistory();
   const moveMainpage = () => {
     history.push("/")
@@ -44,18 +45,20 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, op
       <>
         <button onClick={() => moveMypage()} className='loginModalBtn' >mypage</button>
         <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button>
-      </>:
+        </>
+      :
         <button onClick={() => openModal()} className='loginModalBtn' >로그인</button>
-        }
-        {/* <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button> : 
-          isGoogleLogin ?
-             
-            <GoogleLogout
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Logout"
-              onLogoutSuccess={googleLogout}
-            /> :<button onClick={() => openModal()} className='loginModalBtn' >로그인</button>
-      } */}
+      }
+        
+      {/* <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button> 
+      isGoogleLogin ?
+          
+        <GoogleLogout
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          buttonText="Logout"
+          onLogoutSuccess={googleLogout}
+        /> :<button onClick={() => openModal()} className='loginModalBtn' >로그인</button> */}
+      
       
         <Login isOpen={isModalOpen} 
         close={closeModal} 
