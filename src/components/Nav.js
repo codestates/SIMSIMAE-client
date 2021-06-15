@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Login from "./Login";
 import { GoogleLogout } from 'react-google-login';
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter, useHistory , Link} from "react-router-dom";
 import axios from 'axios';
+import Mypage from '../pages/Mypage';
 
 const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, openModal, isModalOpen, closeModal, handleResponseSuccess, isLogin, setIsLogin, isGoogleLogin, setIsGoogleLogin, setUserinfo, accessToken}) => { 
   
@@ -19,6 +20,7 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, op
     
     
   }
+  let history = useHistory();
   const moveMainpage = () => {
     history.push("/")
   }
@@ -28,16 +30,24 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, op
     console.log('로그아웃성공:::')
   }
   //마이페이지로 이동
-  let history = useHistory();
+  let his = useHistory();
   const moveMypage = () => {
     handleResponseSuccess()
-    history.push("/mypage");
+    his.push('/mypage')
+    
   }
 
   return (
-    <><button onClick={() => moveMypage()} className='loginModalBtn' >mypage</button>
+    <>
+    
     {isLogin ? 
-        <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button> : 
+      <>
+        <button onClick={() => moveMypage()} className='loginModalBtn' >mypage</button>
+        <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button>
+      </>:
+        <button onClick={() => openModal()} className='loginModalBtn' >로그인</button>
+        }
+        {/* <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button> : 
           isGoogleLogin ?
              
             <GoogleLogout
@@ -45,7 +55,7 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, op
               buttonText="Logout"
               onLogoutSuccess={googleLogout}
             /> :<button onClick={() => openModal()} className='loginModalBtn' >로그인</button>
-      }
+      } */}
       
         <Login isOpen={isModalOpen} 
         close={closeModal} 
@@ -55,9 +65,6 @@ const Nav = ({errorMessage, emailHandler, passwordHandler, loginClickHandler, op
         passwordHandler={passwordHandler} 
         loginClickHandler={loginClickHandler}
         errorMessage={errorMessage} />
-        
-      
-      
 
     </>
   )

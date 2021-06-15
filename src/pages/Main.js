@@ -15,7 +15,6 @@ const Main = () => {
   const [password , setPassword ] = useState('');
   const [token , setToken ] = useState('Bearer ');
   const [errorMessage , setErrorMessage ] = useState('');
-
   const [toggleOn, setToggleOn ] = useState();
   const [isLogin , setIsLogin ] = useState(false);
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
@@ -65,6 +64,7 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
+  // 토글 스테이트 핸들러
   const toggleStatus = () => {
     if(isLogin || isGoogleLogin){
       $(".toggle-div").css('display', 'block');
@@ -120,6 +120,7 @@ const Main = () => {
         loginClickHandler={loginClickHandler}
         handleResponseSuccess={handleResponseSuccess}
         />
+
       </div>
 
       { isLogin ? 
