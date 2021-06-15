@@ -7,7 +7,6 @@ import "../css/modal.css";
 
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
 
-
   // Google Login
   const responseGoogle = (res) => {
     console.log('성공:::',res)

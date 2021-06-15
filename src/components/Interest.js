@@ -17,25 +17,33 @@ const Interest = ({updateActivation, update }) => {
               <button 
                 className='likeCheck'
                 type='button'
+              >스포츠</button>
+              <button 
+              className='likeCheck'
+                type='button'
+                >여행</button>
+              <button 
+                className='likeCheck'
+                type='button'
+                >동물</button>
+              <button 
+              className='likeCheck'
+              type='button'
               >쇼핑</button>
-              <button 
-              className='likeCheck'
-                type='button'
-                >IT</button>
-              <button 
-              className='likeCheck'
-                type='button'
-                >방송</button>
-              <button 
-              className='likeCheck'
-                type='button'
-                >유머</button>
               </div>
               <div className='rightDiv'>
                 <button 
                 className='likeCheck'
                 type='button'
-                >동물</button>
+                >게임</button>
+                <button 
+                className='likeCheck'
+                type='button'
+                >방송</button>
+                <button 
+                className='likeCheck'
+                type='button'
+                >건강</button>
                 <button 
                 className='likeCheck'
                 type='button'
@@ -43,15 +51,7 @@ const Interest = ({updateActivation, update }) => {
                 <button 
                 className='likeCheck'
                 type='button'
-                >???</button>
-                <button 
-                className='likeCheck'
-                type='button'
-                >???</button>
-                <button 
-                className='likeCheck'
-                type='button'
-                >???</button>
+                >IT</button>
               </div>
             </section>
             <div className='update'>
