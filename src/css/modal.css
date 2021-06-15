@@ -110,3 +110,11 @@ a {
 .noUser {
   text-decoration: underline;
 }
+
+.alert-box{
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  color: red;
+}

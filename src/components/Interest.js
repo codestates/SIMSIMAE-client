@@ -1,16 +1,10 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 
-class Interest extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-
-    }
-  }
-  render() {
-    return(
-      <>
+const Interest = ({updateActivation, update }) => {
+  return(
+    <>
+      <div className='tabForm'>
         <div className='interestDiv'>
           <form className='disablelForm'>
             <h2 className='interestTitle'>나의 관심사</h2>
@@ -19,64 +13,64 @@ class Interest extends Component {
               <button 
                 className='likeCheck'
                 type='button'
-                onClick={this.collectBtn}
                 >음식</button>
               <button 
                 className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
               >쇼핑</button>
               <button 
               className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >IT</button>
               <button 
               className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >방송</button>
               <button 
               className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >유머</button>
               </div>
               <div className='rightDiv'>
                 <button 
                 className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >동물</button>
                 <button 
                 className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >연애</button>
                 <button 
                 className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >???</button>
                 <button 
                 className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >???</button>
                 <button 
                 className='likeCheck'
                 type='button'
-                onChange={this.collectBtn}
                 >???</button>
               </div>
             </section>
+            <div className='update'>
+              <button type='button' 
+                className={update === true ? 'updateBtn' : 'updateBtnAlone'}
+                onClick={() => updateActivation()}>
+                {update === true ? '취소' : '수정'}
+                </button>
+              <button type='submit' 
+                className={update === true ? 'cpBtn' : 'cpBtnNone'}
+                onClick={() => updateActivation()} >
+                완료</button>
+            </div>
           </form>
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
 
 }
 
-
-export default withRouter(Interest)
+export default withRouter(Interest);

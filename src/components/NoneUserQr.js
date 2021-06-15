@@ -1,44 +1,30 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 
 import "../css/App.css";
 
-class NoneUserQr extends Component {
-  constructor(props){
-    super(props);
+const NoneUserQr = () => {
 
-    this.state = {
-      email: "",
-      password: "",
-      errorMessage: "",
-      isLogin: false
-    }
-    //this.loginHandler = this.loginHandler.bind(this);
-    this.qrRequestHandler = this.qrRequestHandler.bind(this);
+  const [email , setEmail ] = useState('');
+  const [password , setPassword ] = useState('');
+  const [errorMessage , setErrorMessage ] = useState('');
+  const [isLogin , setIsLogin ] = useState(false);
 
-  }
-
-
-
-  qrRequestHandler = () => {
+  const qrRequestHandler = () => {
     axios.get('http://13.209.10.136/url')
-        .then((res) => {
-            return res.data;
-        })
-        
-        
+    .then((res) => {
+      return res.data;
+    })
   }; 
 
-  render() {
-
-    return (
-      <>
-        {this.qrRequestHandler()}
-      </>
-    );
-  }
-  
+  return (
+    <>
+      {qrRequestHandler}
+    </>
+  );
 }
+  
+
 
 export default withRouter(NoneUserQr);
