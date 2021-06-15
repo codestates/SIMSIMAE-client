@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import { withRouter, Link  } from "react-router-dom";
+import React, { useState,  } from "react";
+import { withRouter, useHistory  } from "react-router-dom";
+import LikeForm  from "./LikeForm";
 
-const TermCheck = () => {
+const TermCheck = (props) => {
+  let history = useHistory();
   const [allCheck , setAllcheck] = useState(false);
   const [requierCheck1 , setRequierCheck1] = useState(false);
   const [requierCheck2 , setRequierCheck2] = useState(false);
   const [optionCheck , setOptionCheck] = useState(false);
-    
+  const [errorMessage , setErrorMessage] = useState(null);
+  
+
   // 전체 선택 및 동의 버튼
-  const allCheckHandler = () => {
+  const allCheckHandler = (props) => {
     setAllcheck(!allCheck)
     // 체크하면 전체 선택 및 해제가 되어야한다.
     if(allCheck){
@@ -48,10 +52,21 @@ const TermCheck = () => {
   
   const handleNextBtn = () => {
     //this.props.history.push("/likeForm");
+    if(!props.isValidEmail || !props.isValidPassword || !props.isPwdDoubleCk || !props.isValidName || !props.isValidPhone ) {
+      setErrorMessage('모든 항목이 확인되어야 합니다.')
+      alert('모든항목필수');
+    } else if(!props.emailCheck) {
+      alert('이메일 중복확인 해주세요')
+    }else if(requierCheck1 === false || requierCheck2 === false){
+      setErrorMessage('모든 항목이 확인되어야 합니다.')
+      alert('필수 약관 확인해주세요');
+    } else {
+      props.nextStep()
+    }
   }
   
   return(
-    <>
+      <>
       <div className='termForm'>
       <div className='termDiv allCheck'>
         <input type='checkbox' className='termsCheckbox'
@@ -84,15 +99,14 @@ const TermCheck = () => {
         <span>프로모션 정보 수신 동의 (선택)</span>
       </div>
     </div>
-    <Link to='/likeForm'>
       <button
         className="signupBtn"
         type='submit'
         onClick={() => handleNextBtn()}
         >다음</button >
-    </Link>
     </>
   )
+
 }
 
 export default withRouter(TermCheck);

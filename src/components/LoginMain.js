@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg}) => {
   const [toggleOn, setToggleOn ] = useState(true);
