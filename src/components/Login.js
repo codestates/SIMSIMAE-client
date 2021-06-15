@@ -7,9 +7,10 @@ import "../css/modal.css";
 
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
 
-
+  const [isGoogleLogin, setIsGoogleLogin] = useState(false);
   // Google Login
   const responseGoogle = (res) => {
+    setIsGoogleLogin(true);
     console.log('성공:::',res)
   }
 
@@ -71,7 +72,6 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
 
                 {errorMessage === '' ? <div className="alert-box"></div> :
                   <div className="alert-box">이메일과 비밀번호를 입력하세요</div>}
-              
               </h1>
             </div>
           </div>

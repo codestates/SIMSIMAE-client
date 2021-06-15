@@ -4,7 +4,8 @@ import Nav from '../components/Nav';
 import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
-import NoneUserQr from "../components/NoneUserQr";
+import LoginMain from '../pages/LoginMain'
+//import NoneUserQr from "../components/NoneUserQr";
 
 const Main = () => {
 
@@ -12,7 +13,9 @@ const Main = () => {
   const [password , setPassword ] = useState('');
   const [errorMessage , setErrorMessage ] = useState('');
   const [qrImg , setQrImg ] = useState(null);
+  const [toggleOn, setToggleOn ] = useState();
   const [isLogin , setIsLogin ] = useState(false);
+  const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [userinfo , setUserinfo] = useState(null);
 
   const emailHandler = (e) => {
@@ -27,6 +30,16 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
+  const toggleStatus = () => {
+    if(isLogin || isGoogleLogin){
+      $(".toggle-div").css('display', 'block');
+      if(toggleOn === false) {
+        //비회원로그인 qr
+      }else if(toggleOn === true) {
+        //회원로그인 qr
+      }
+    }
+  }
   const revealQr = () => {
     $(".logoRender").css('display', 'none');
     $(".center-qr").css('display', 'block');
@@ -59,7 +72,7 @@ const Main = () => {
         setIsLogin(true);
         handleResponseSuccess();
         history.push("/loginMain");
-      })
+      }) 
     }
   }; 
   return (
@@ -74,9 +87,9 @@ const Main = () => {
           </Link>
         }
           <Nav emailHandler={emailHandler} 
-          passwordHandler={passwordHandler} 
-          loginClickHandler={loginClickHandler} 
-          errorMessage={errorMessage}/>
+            passwordHandler={passwordHandler} 
+            loginClickHandler={loginClickHandler} 
+            errorMessage={errorMessage}/>
       </div>
       <div className="body">
         <div className='toggle-div'>
