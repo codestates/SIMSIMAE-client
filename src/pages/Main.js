@@ -15,13 +15,12 @@ const Main = () => {
   const [password , setPassword ] = useState('');
   const [token , setToken ] = useState('Bearer ');
   const [errorMessage , setErrorMessage ] = useState('');
-  const [toggleOn, setToggleOn ] = useState();
   const [isLogin , setIsLogin ] = useState(false);
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [userinfo , setUserinfo] = useState(null);
   const [isModalOpen , setisModalOpen] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
-  
+  const [userQrImg, setUserQrImg ] = useState(null);
   // 이메일 상태값 변경
   function emailHandler(e) {
     setEmail(e.target.value);
@@ -65,17 +64,14 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
-  // 토글 스테이트 핸들러
-  const toggleStatus = () => {
-    if(isLogin || isGoogleLogin){
-      $(".toggle-div").css('display', 'block');
-      if(toggleOn === false) {
-        //비회원로그인 qr
-      }else if(toggleOn === true) {
-        //회원로그인 qr
-      }
-    }
+  const userQrRequestHander = () => {
+    return axios.get('http://13.209.10.136/url/userurl')
+    .then((res) => {
+      setUserQrImg(res.data)
+    })
   }
+  // 토글 스테이트 핸들러
+  
   // qr다시 받기 핸들러
   const revealQr = () => {
     $(".logoRender").css('display', 'none');
@@ -122,14 +118,17 @@ const Main = () => {
 
       { isLogin ? 
       <Link to='/'>
-        <LoginMain closeModal={closeModal} handleResponseSuccess={handleResponseSuccess}/> 
+        <LoginMain 
+          closeModal={closeModal} 
+          handleResponseSuccess={handleResponseSuccess}
+          qrImg={qrImg} 
+          qrRequestHandler={qrRequestHandler}
+          userQrRequestHander={userQrRequestHander}
+          userQrImg={userQrImg}
+        /> 
       </Link>
         :
         <div className="body">
-          <div className='toggle-div'>
-              <input className='toggle-input' type="checkbox" id="switch" />
-              <label className='toggle-label'htmlFor="switch"></label>
-            </div>
             <div className='logoRender'>
               <div><img className='center-logo' src={logo} alt=""></img></div>
               <div><button onClick={() => revealQr()} className = "qrBtn">Click!</button></div>
