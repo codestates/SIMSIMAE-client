@@ -4,8 +4,10 @@ import Nav from '../components/Nav';
 import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
+
 import NoneUserQr from "../components/NoneUserQr";
 import LoginMain from '../components/LoginMain';
+
 
 const Main = () => {
   
@@ -13,7 +15,10 @@ const Main = () => {
   const [password , setPassword ] = useState('');
   const [token , setToken ] = useState('Bearer ');
   const [errorMessage , setErrorMessage ] = useState('');
+
+  const [toggleOn, setToggleOn ] = useState();
   const [isLogin , setIsLogin ] = useState(false);
+  const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [userinfo , setUserinfo] = useState(null);
   const [isModalOpen , setisModalOpen] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
@@ -60,6 +65,16 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
+  const toggleStatus = () => {
+    if(isLogin || isGoogleLogin){
+      $(".toggle-div").css('display', 'block');
+      if(toggleOn === false) {
+        //비회원로그인 qr
+      }else if(toggleOn === true) {
+        //회원로그인 qr
+      }
+    }
+  }
   // qr다시 받기 핸들러
   const revealQr = () => {
     $(".logoRender").css('display', 'none');
@@ -77,25 +92,48 @@ const Main = () => {
     setisModalOpen(false);
   };
 
+   // login 후 회원정보 받아오기
+   const handleResponseSuccess = () => {
+    console.log('handleResponseSuccess실행')
+    axios.get('http://13.209.10.136/user/info')
+     .then(res => {
+       console.log('user 정보 받아오기 성공!!!')
+       setUserinfo(res.data);
+     }).catch(err => console.log(err));
+   }
+
+    // 일반 로그인 버튼 클릭 시 로그인
+  let history = useHistory();
+  const loginClickHandler = () => {
+    if(email ===''|| password ===''){
+      setErrorMessage('이메일과 비밀번호를 입력하세요')
+    }else{
+      axios.post('http://13.209.10.136/user/login',
+      { email, password } ,
+      {'Content-Type':'application/json', withCredentials: true }
+      ).then(res => {
+        console.log('로그인성공!!!',res)
+        setIsLogin(true);
+        handleResponseSuccess();
+        history.push("/loginMain");
+      }) 
+    }
+  }; 
   return (
     <div>
       <div className='header'>
-      
-        <Link to='/'>
-          <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-        </Link>
-      
-        <Nav 
-        isModalOpen={isModalOpen}
-        openModal={openModal}
-        closeModal={closeModal}
-        errorMessage={errorMessage}
-        emailHandler={emailHandler} 
-        passwordHandler={passwordHandler} 
-        loginClickHandler={loginClickHandler}
-        handleResponseSuccess={handleResponseSuccess}
-        />
-
+        { isLogin ? 
+          <Link to='/loginMain'>
+            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+          </Link> :
+          <Link to='/'>
+            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+          </Link>
+        }
+          <Nav emailHandler={emailHandler} 
+            passwordHandler={passwordHandler} 
+            loginClickHandler={loginClickHandler} 
+            errorMessage={errorMessage}/>
       </div>
 
       { isLogin ? 
