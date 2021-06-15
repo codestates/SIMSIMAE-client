@@ -7,7 +7,6 @@ import './css/App.css';
 import Signup from "./pages/Signup";
 import Main from './pages/Main';
 import Mypage from "./pages/Mypage";
-import LikeForm from "./pages/LikeForm";
 
 const App = () => {
 
@@ -20,7 +19,6 @@ const App = () => {
         render={() => <Main />}
       />
       <Route exact path='/signup' render={() => <Signup />} />
-      <Route exact path='/likeForm' render={() => <LikeForm />} />
       <Route
         exact
         path='/mypage'
