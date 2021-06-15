@@ -41,6 +41,7 @@ const Main = () => {
       setUserinfo(res.data);
     }).catch(err => console.log(err));
   }
+  
   // 일반 로그인 버튼 클릭 시 로그인
   function loginClickHandler() {
     if(email ===''|| password ===''){
@@ -96,29 +97,25 @@ const Main = () => {
   return (
     <div>
       <div className='header'>
-        { isLogin ? 
-          <Link to='/loginMain'>
-            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-          </Link> :
-          <Link to='/'>
-            <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-          </Link>
-        }
-          <Nav 
-        isModalOpen={isModalOpen}
-        openModal={openModal}
-        closeModal={closeModal}
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-        isGoogleLogin={isGoogleLogin}
-        setIsGoogleLogin={setIsGoogleLogin}
-        setUserinfo={setUserinfo}
-        accessToken={token}
-        errorMessage={errorMessage}
-        emailHandler={emailHandler} 
-        passwordHandler={passwordHandler} 
-        loginClickHandler={loginClickHandler}
-        handleResponseSuccess={handleResponseSuccess}
+        <Link to='/'>
+          <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
+        </Link> 
+    
+        <Nav 
+          isModalOpen={isModalOpen}
+          openModal={openModal}
+          closeModal={closeModal}
+          isLogin={isLogin}
+          setIsLogin={setIsLogin}
+          isGoogleLogin={isGoogleLogin}
+          setIsGoogleLogin={setIsGoogleLogin}
+          setUserinfo={setUserinfo}
+          accessToken={token}
+          errorMessage={errorMessage}
+          emailHandler={emailHandler} 
+          passwordHandler={passwordHandler} 
+          loginClickHandler={loginClickHandler}
+          handleResponseSuccess={handleResponseSuccess}
         />
 
       </div>
