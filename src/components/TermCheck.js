@@ -98,7 +98,7 @@ class TermCheck extends Component {
     }else{
       alert('가입성공!')
       axios.post('http://13.209.10.136/user/signup',
-      { email, password, name, phone },
+      { email, password, name, phone},
       {'Content-Type':'application/json', withCredentials: true })
       .then(res => {
         console.log('res:::',res)
