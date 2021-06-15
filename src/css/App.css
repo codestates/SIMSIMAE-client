@@ -49,18 +49,16 @@
   
   /* 원준 작업 */
   .toggle-input{
-
     height: 0;
     width: 0;
     visibility: hidden;
 }
 .toggle-div{
     z-index: 0;
-   position: relative;
-   padding-left: 40em;
+    position: relative;
+    padding-left: 40em;
 }
 .toggle-label {
-    
     cursor: pointer;
     text-indent: -9999px;
     width: 70px;
