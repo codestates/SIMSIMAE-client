@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import FavoriteCheck from "./FavoriteCheck";
+import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
+import {useLocation} from "react-router";
 
 
 const LikeForm = (props) => {
+  
+
+  const uselocation = useLocation();
+  const { email , password, name, phone } = uselocation.state;  
+
+  // console.log('폼', uselocation.state.email)
 
   const [gender , setGender ] = useState(null);
   const [age , setAge ] = useState(null);
@@ -41,7 +48,6 @@ const LikeForm = (props) => {
   console.log('location', location)
   // 회원가입 버튼 클릭 시 서버통신
   const handleSignup = () => {
-    const {email, password, name, phone} = props;
     console.log('email, password, name, phone', email, password, name, phone)
 
       axios.post('http://13.209.10.136/user/signup',

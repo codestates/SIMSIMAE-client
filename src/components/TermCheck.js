@@ -1,6 +1,6 @@
 import React, { useState,  } from "react";
 import { withRouter, useHistory  } from "react-router-dom";
-import LikeForm  from "./LikeForm";
+
 
 const TermCheck = (props) => {
   let history = useHistory();

@@ -1,18 +1,36 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Switch, Route, Link, withRouter, useHistory } from "react-router-dom";
 import { GoogleLogin } from 'react-google-login';
+import Signup from '../pages/Signup'
+import LikeForm from "../pages/LikeForm";
 
 import "../css/modal.css";
 
 
+
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
   
+
+  const [googleuseremail, setGoogleuseremail ] = useState('');
+  const [googleusername, setGoogleusername ] = useState('');
+  const [googleaccesstoken, setGoogleaccesstoken ] = useState('');
+
   const [isGoogleLogin, setIsGoogleLogin] = useState(false);
+  const [movePage, setMovePage ] = useState(false);
+
+  let history = useHistory();
+
    // Google Login
    const responseGoogle = (res) => {
     setIsGoogleLogin(true);
     console.log('성공:::',res)
+    setGoogleuseremail(res.profileObj.email)
+    setGoogleusername(res.profileObj.email)
+    setGoogleaccesstoken(res.accessToken)
+    setMovePage(true)
   }
+
+
 
   // Login Fail
   const responseFail = (err) => {
@@ -20,9 +38,18 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
   }
   
   return (
-    
-    <>
-      {isOpen ? (  
+    <> 
+    { movePage ? 
+      <>
+      {history.push({
+        pathname : '/likeform',
+        state : { email : googleuseremail, name : googleusername }
+      })}
+     
+      </>
+       : 
+      <>
+       {isOpen ? (  
     
         <div className="modal">
           <div>
@@ -76,8 +103,9 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
             </div>
           </div>
         </div>
-      ) : null}
-    </>
+      ) : null} 
+      </>
+  } </>
   );
 }
   
