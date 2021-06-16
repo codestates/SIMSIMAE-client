@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { withRouter,Link  } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Nav from '../components/Nav';
+import LoginMain from '../components/LoginMain'
 import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
-import LoginMain from '../components/LoginMain';
 import Mypage from "../components/Mypage";
-import Ddabong from "../components/Ddabong"
 
 const Main = () => {
   
@@ -128,10 +127,6 @@ const Main = () => {
       { 
         !isLogin && !openMypage ?  // 로그인 안했고, 마이페이지 버튼도 안눌렀을때
         <div className="body">
-          {/* <div className='toggle-div'>
-            <input className='toggle-input' type="checkbox" id="switch" />
-            <label className='toggle-label'htmlFor="switch"></label>
-          </div> */}
           <div className='logoRender'>
            <div><img className='center-logo' src={logo} alt="" /></div>
             <button onClick={() => revealQr()} className = "qrBtn">Click!</button>
@@ -150,6 +145,7 @@ const Main = () => {
         </div>
         : isLogin && !openMypage ?
          <>
+         
           <LoginMain 
             closeModal={closeModal}
             qrImg={qrImg}
