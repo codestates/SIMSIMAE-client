@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 
-const Account = () => {
+const Account = ({ userinfo }) => {
  
-  // 만약 로그인이 구글 로그인이라면 아래 메소드
-  
   return(
     <>
+    {console.log('userinfo::::',userinfo)}
       <div className='tabForm'>
         <div className='accountDiv'>
           <form className='disablelForm'>
@@ -16,19 +15,19 @@ const Account = () => {
                 <input disabled
                   className='disName'
                   type="text" name="val" 
-                  value='초미미' />
+                  value={userinfo.name} />
               </div>
               <div className='accountEmailLi'>
                 <input disabled
                   className='disEmail'
                   type="email" name="val" 
-                  value='chomimi@test.com' />
+                  value={userinfo.email} />
               </div>
               <div className='accountPhoneLi'>
                 <input disabled
                   className='disPassword'
                   type="tel" name="val" 
-                  value='01000000000' />
+                  value={userinfo.phone} />
               </div>
 
               <hr className='endLine' />
@@ -37,12 +36,13 @@ const Account = () => {
                 <input disabled
                   className='disGenderMale'
                   type="radio" name="gender" 
-                  value='남성' /><p>남성</p>
+                  value='M' /><p>남성</p>
                 <input disabled checked
                   className='disGenderFemale'
                   type="radio" name="gender" 
-                  value='여성' /><p>여성</p>
+                  value='F' /><p>여성</p>
               </div>
+
               <div className='accountLocationLi'>
                 <input disabled checked
                   className='domestic'
@@ -53,6 +53,7 @@ const Account = () => {
                   type="radio" name="location" 
                   value='해외' /><p>해외</p>
               </div>
+
               <div className='accountAgeLi'>
                 <select disabled className='ageSelect' value='20'>
                   <option value='10'>10대</option>
@@ -62,6 +63,7 @@ const Account = () => {
                   <option value='50'>50대 이상</option>
                 </select>
               </div>
+              
             </div>
           </form>
         </div>

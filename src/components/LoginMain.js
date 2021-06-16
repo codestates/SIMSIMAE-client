@@ -11,6 +11,8 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
     }
   }
 
+  
+
   closeModal()
   return(
     

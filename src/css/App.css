@@ -51,7 +51,7 @@
   .toggle-input{
     height: 0;
     width: 0;
-    visibility: hidden;
+    
 }
 .toggle-div{
     z-index: 0;
@@ -289,6 +289,7 @@
   .footer{
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
   

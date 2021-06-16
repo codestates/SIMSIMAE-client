@@ -6,6 +6,7 @@ import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
 
 import TermCheck from "../components/TermCheck";
 import axios from "axios";
+import LikeForm from "../components/LikeForm";
 
 const Signup = () => {
 
@@ -21,7 +22,8 @@ const Signup = () => {
   const [isPwdDoubleCk , setIsPwdDoubleCk ] = useState(false);
   const [isValidName , setIsValidName ] = useState(false);
   const [isValidPhone , setIsValidPhone ] = useState(false);
-  
+  const [nextValidChk, setNextValid] = useState(false)
+
   // 이메일 값 바뀔때마다 유효성 검사
   const handleInputEmail = (e) => {
     setEmail(e.target.value)
@@ -48,6 +50,7 @@ const Signup = () => {
       }).catch(err => {
         alert('이미 존재하는 이메일 입니다.')
         console.log('에러:::',err)
+        setEmailCheck(false)
       })
     }else {
       alert('사용할 이메일을 입력해주세요.')
@@ -100,7 +103,16 @@ const Signup = () => {
     }
   };
 
+  //termCheck 다음 버튼 누를 때 상태 업데이트
+  const nextStep = () => {
+    setNextValid(true)
+  }
+
   return (
+    <>
+    {nextValidChk ? 
+      <LikeForm email={email} password={password} name={name} phone={phone}/>
+    :
     <div>
       <center>
         <img className='logo' src={logo}/>
@@ -161,13 +173,16 @@ const Signup = () => {
             ></input>
           </div>
 
-          <TermCheck />
+            <TermCheck isValidEmail={isValidEmail} isValidPassword={isValidPassword} isPwdDoubleCk={isPwdDoubleCk} isValidName={isValidName} isValidPhone={isValidPhone} nextStep={nextStep} emailCheck={emailCheck}/>
 
           </form>
 
       </center>
     </div>
+    }
+   </>
   )
+  
 }
 
 
