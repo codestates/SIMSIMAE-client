@@ -6,6 +6,7 @@ import $ from "jquery";
 import axios from 'axios';
 import LoginMain from '../components/LoginMain';
 import Mypage from "../components/Mypage";
+import Ddabong from "../components/Ddabong"
 
 const Main = () => {
   
@@ -48,6 +49,7 @@ const Main = () => {
         console.log(res.data.data)
         setAccessToken(`Bearer ${acTokenPath}`);
         setIsLogin(true);
+        qrRequestHandler();
       })
     }
   }
@@ -57,12 +59,12 @@ const Main = () => {
     axios.get('http://13.209.10.136/user/info',
     { headers : {authorization: accessToken , withCredentials: true}})
     .then(res => {
-      console.log('user 정보 받아오기 성공!!!',res)
+      console.log('user 정보 받아오기 성공!!!', res)
       if(res.status !== 200) {
         const message = 'access token 만료. refresh token 이용바람';
         return setErrorMessage(message)
       }
-      const getData = res.data.userInfo;
+      const getData = res.data;
       setUserinfo(getData);
       // 마이페이지로 이동
       setOpenMypage(true)
@@ -75,8 +77,9 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
-  const userQrRequestHander = () => {
-    return axios.get('http://13.209.10.136/url/userurl')
+  const userQrRequestHandler = () => {
+    return axios.get('http://13.209.10.136/url/userurl', 
+    { headers : {authorization: accessToken , withCredentials: true}})
     .then((res) => {
       setUserQrImg(res.data)
     })
@@ -90,6 +93,7 @@ const Main = () => {
     $(".refreshBtn").css('display', 'block');
     $(".qrRender").css('display','block');
     qrRequestHandler()
+    userQrRequestHandler()
   }
   // 모달 열기
   const openModal = () => {
@@ -104,7 +108,8 @@ const Main = () => {
   return (
     <div>
       <div className='header'>
-        <Nav 
+        <Nav
+          setUserinfo={setUserinfo}
           openMypage={openMypage}
           isModalOpen={isModalOpen}
           openModal={openModal}
@@ -120,14 +125,22 @@ const Main = () => {
           loginClickHandler={loginClickHandler}
           handleResponseSuccess={handleResponseSuccess}
           />
-        </div>  
+        </div>
+        <div className='invisible-div'>
+          <Ddabong 
+            userinfo={userinfo}
+            setUserinfo={setUserinfo}
+            accessToken={accessToken}
+            
+          />
+        </div>
       { 
         !isLogin && !openMypage ?  // 로그인 안했고, 마이페이지 버튼도 안눌렀을때
         <div className="body">
-          <div className='toggle-div'>
+          {/* <div className='toggle-div'>
             <input className='toggle-input' type="checkbox" id="switch" />
             <label className='toggle-label'htmlFor="switch"></label>
-          </div>
+          </div> */}
           <div className='logoRender'>
             <div><img className='center-logo' src={logo} alt=""></img></div>
             <div><button onClick={() => revealQr()} className = "qrBtn">Click!</button></div>
@@ -144,8 +157,21 @@ const Main = () => {
             </button>
           </div>
         </div>
-        : isLogin && !openMypage ? 
-        <LoginMain closeModal={closeModal} /> 
+        : isLogin && !openMypage ?
+         <>
+          <LoginMain 
+            closeModal={closeModal}
+            qrImg={qrImg}
+            setQrImg={setQrImg}
+            userQrImg={userQrImg}
+            qrRequestHandler={qrRequestHandler}
+            userQrRequestHandler={userQrRequestHandler}
+            setUserQrImg={setUserQrImg}
+            accessToken={accessToken}
+            userinfo={userinfo}
+            setUserinfo={setUserinfo}
+           /> 
+         </>
         : 
          <Mypage userinfo={userinfo} /> 
       }

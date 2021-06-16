@@ -8,6 +8,7 @@ import logo from '../img/simsimae_logo.png';
 const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandler, loginClickHandler,
   openModal, isModalOpen, closeModal, accessToken, setIsLogin, setIsGoogleLogin, isLogin, isGoogleLogin, handleResponseSuccess}) => { 
 
+  let history = useHistory();
   const logOut = () => {
     axios.post('http://13.209.10.136/user/logout', 
       { accessToken } ,
@@ -15,15 +16,12 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
     ).then((res) => {
       console.log('로그아웃성공:::')
       setIsLogin(false);
-      moveMainpage();
       setUserinfo(null);
+      history.push("/")
     })    
   }
 
-  let history = useHistory();
-  const moveMainpage = () => {
-    history.push("/")
-  }
+
   // 구글로그아웃
   const googleLogout = () => {
     setIsGoogleLogin(false);
@@ -36,25 +34,18 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
       {
       !isLogin && !openMypage ?  
       <>
-        <Link to='/'>
-          <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-        </Link> 
+        <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
         <button onClick={() => openModal()} className='loginModalBtn' >로그인</button>
       </>
       : isLogin && !openMypage ? 
       <>
-        <Link to='/'>
-          <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-        </Link> 
+        <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
         <button onClick={() => handleResponseSuccess()} className='loginModalBtn' >mypage</button>
         <button onClick={() => logOut()} className='loginModalBtn' >로그아웃</button>
       </>
       : 
       <>
-        <Link to='/'>
-          <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
-        </Link> 
-        <button onClick={() => logOut()} className='loginModalBtn' >로그아웃</button>
+        <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" />
       </>
       }
       

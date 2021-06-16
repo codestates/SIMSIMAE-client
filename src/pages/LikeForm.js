@@ -3,8 +3,12 @@ import { withRouter } from "react-router-dom";
 import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
+<<<<<<< HEAD:src/pages/LikeForm.js
 import {useLocation} from "react-router";
 
+=======
+import logo from '../img/SIMSIMAE-logo.png';
+>>>>>>> d19ca8e518ea79a675c25549c904a4e0972c7723:src/components/LikeForm.js
 
 const LikeForm = (props) => {
   
@@ -64,6 +68,9 @@ const LikeForm = (props) => {
   return(
     <div >
       <center>
+        <img className='logo' src={logo}/>
+        <p className='likeTitle'>좋아하는 관심사를 골라주세요</p>
+        <form className='favoriteCheckForm'>
         <FavoriteCheck checkedItemHandler={checkedItemHandler}/>
           <hr></hr>
           <section className='optionSection'>
@@ -112,15 +119,13 @@ const LikeForm = (props) => {
                 <span>해외</span>
               </div>
             </div>
-            
           </section>
-          
           <button
-              className="completeBtn"
-              type='submit'
-              onClick={handleSignup}
+            className="completeBtn"
+            type='submit'
+            onClick={handleSignup}
           >완료</button>
-        
+          </form>
       </center>
       
     </div>
