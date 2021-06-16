@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { withRouter,Link  } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Nav from '../components/Nav';
+import LoginMain from '../components/LoginMain'
 import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
-import LoginMain from '../components/LoginMain';
 import Mypage from "../components/Mypage";
-import Ddabong from "../components/Ddabong"
 
 const Main = () => {
   
@@ -22,7 +21,7 @@ const Main = () => {
   const [toggleOn, setToggleOn ] = useState();
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
-  const [userQrImg, setUserQrImg ] = useState(null);
+  
   // 이메일 상태값 변경
   function emailHandler(e) {
     setEmail(e.target.value);
@@ -31,6 +30,13 @@ const Main = () => {
   function passwordHandler(e) {
     setPassword(e.target.value);
   };
+  // qr요청 핸들러
+  const qrRequestHandler = () => {
+    return axios.get('http://13.209.10.136/url')
+    .then((res) => {
+      setQrImg(res.data)
+    })
+  }; 
   // 일반 로그인 버튼 클릭 시 로그인
   const loginClickHandler = () => {
     if(email ===''|| password ===''){
@@ -70,21 +76,6 @@ const Main = () => {
       setOpenMypage(true)
     }).catch(err => console.log(err));
   }
-  // qr요청 핸들러
-  const qrRequestHandler = () => {
-    return axios.get('http://www.simsimae-server.site/url')
-    .then((res) => {
-      setQrImg(res.data)
-    })
-  }; 
-  const userQrRequestHandler = () => {
-    return axios.get('http://www.simsimae-server.site/url/userurl', 
-    { headers : {authorization: accessToken , withCredentials: true}})
-    .then((res) => {
-      setUserQrImg(res.data)
-    })
-  }
-  // 토글 스테이트 핸들러
   
   // qr다시 받기 핸들러
   const revealQr = () => {
@@ -93,7 +84,6 @@ const Main = () => {
     $(".refreshBtn").css('display', 'block');
     $(".qrRender").css('display','block');
     qrRequestHandler()
-    userQrRequestHandler()
   }
   // 모달 열기
   const openModal = () => {
@@ -126,22 +116,18 @@ const Main = () => {
           handleResponseSuccess={handleResponseSuccess}
           />
         </div>
-        <div className='invisible-div'>
+        {/* <div className='invisible-div'>
           <Ddabong 
             
             
           />
-        </div>
+        </div> */}
       { 
         !isLogin && !openMypage ?  // 로그인 안했고, 마이페이지 버튼도 안눌렀을때
         <div className="body">
-          {/* <div className='toggle-div'>
-            <input className='toggle-input' type="checkbox" id="switch" />
-            <label className='toggle-label'htmlFor="switch"></label>
-          </div> */}
           <div className='logoRender'>
-            <div><img className='center-logo' src={logo} alt=""></img></div>
-            <div><button onClick={() => revealQr()} className = "qrBtn">Click!</button></div>
+           <div><img className='center-logo' src={logo} alt="" /></div>
+            <button onClick={() => revealQr()} className = "qrBtn">Click!</button>
           </div>
           <div className="qrRender">
             <div className='center-qr'>
@@ -157,17 +143,16 @@ const Main = () => {
         </div>
         : isLogin && !openMypage ?
          <>
+         
           <LoginMain 
             closeModal={closeModal}
             qrImg={qrImg}
             setQrImg={setQrImg}
-            userQrImg={userQrImg}
             qrRequestHandler={qrRequestHandler}
-            userQrRequestHandler={userQrRequestHandler}
-            setUserQrImg={setUserQrImg}
             accessToken={accessToken}
             userinfo={userinfo}
             setUserinfo={setUserinfo}
+            setErrorMessage={setErrorMessage}
            /> 
          </>
         : 
