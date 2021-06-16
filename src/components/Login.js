@@ -18,27 +18,37 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
 
   let history = useHistory();
 
-   // Google Login
-   const responseGoogle = (res) => {
-    setIsGoogleLogin(true);
-    console.log('성공:::',res)
-    setGoogleuseremail(res.profileObj.email)
-    setGoogleusername(res.profileObj.email)
-    setGoogleaccesstoken(res.accessToken)
-    completeGooleLogin()  
-    setMovePage(true);
+  const likeFormMovePage = () => {
+    if(movePage) {
+      history.push({
+      pathname : '/likeform',
+      state : {email: googleuseremail, name: googleusername}
+      })
+    }
   }
 
+   // Google Login
+   const responseGoogle = (res) => {
 
+    console.log('성공:::',res)
+    setGoogleuseremail(res.profileObj.email)
+    setGoogleusername(res.profileObj.name)
+    setGoogleaccesstoken(res.accessToken)
+    completeGooleLogin(res.profileObj.email)  
+    setMovePage(true);
+  }
    //google login success 수정중 
 
-   const completeGooleLogin = () => {
-
+   const completeGooleLogin = (e) => {
+    console.log('웨않되?')
+    console.log('email?',e)
     axios.post('http://www.simsimae-server.site/user/googlelogin',
-    { email : googleuseremail },
+    { email : e },
     {'Content-Type':'application/json', withCredentials: true })
     .then(res => {
      console.log('테스트',res)
+    }).then(res => {
+      setIsGoogleLogin(true);
     })
   }
 
@@ -47,14 +57,12 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
     console.error('에러:::',err);
   }
 
+
   return (
     <> 
     { movePage ? 
       <>
-      { history.push({
-         pathname : '/likeform',
-         state : {email: googleuseremail, name: googleusername}
-       })}
+      
       </>
        : 
       <>
@@ -98,6 +106,7 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                   onSuccess={responseGoogle}
                   onFailure={responseFail}
                   cookiePolicy={'single_host_origin'}
+                  onClick={() => likeFormMovePage()}
                 />
 
                 <div className="loginEnd">
