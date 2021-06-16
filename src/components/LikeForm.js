@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import FavoriteCheck from "./FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
-
+import logo from '../img/SIMSIMAE-logo.png';
 
 const LikeForm = (props) => {
 
@@ -58,6 +58,9 @@ const LikeForm = (props) => {
   return(
     <div >
       <center>
+        <img className='logo' src={logo}/>
+        <p className='likeTitle'>좋아하는 관심사를 골라주세요</p>
+        <form className='favoriteCheckForm'>
         <FavoriteCheck checkedItemHandler={checkedItemHandler}/>
           <hr></hr>
           <section className='optionSection'>
@@ -106,15 +109,13 @@ const LikeForm = (props) => {
                 <span>해외</span>
               </div>
             </div>
-            
           </section>
-          
           <button
-              className="completeBtn"
-              type='submit'
-              onClick={handleSignup}
+            className="completeBtn"
+            type='submit'
+            onClick={handleSignup}
           >완료</button>
-        
+          </form>
       </center>
     </div>
   )

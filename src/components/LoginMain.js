@@ -3,6 +3,7 @@ import { withRouter, useHistory } from "react-router-dom";
 import "../css/App.css";
 import Ddabong from "../components/Ddabong"
 
+
 const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg, setUserQrImg, userinfo, setUserinfo, accessToken}) => {
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
@@ -17,8 +18,7 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
       setToggleOn(true);
     }
   }
-  
-  
+
 
   closeModal()
   return(

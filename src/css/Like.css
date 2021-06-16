@@ -40,21 +40,29 @@
   background-color: var(--primary-color);
 }
 
-.checkSection{
+.checkSection1{
   display: flex;
-  flex-wrap: wrap;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.checkSection2{
   margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+}
+.interDiv{
+  padding: 10px;
+  align-items: center;
 }
 
 .checkForm{
   color: #1b1b1b;
   font-size: 17px;
-  width: 800px;
 }
 
 .likeCheck{
-  width: 150px;
-  height: 40px;
+  display: flex;
+  width: 30px;
   margin: 5px;
   margin-bottom: 10px;
   border-radius: 15px;
@@ -80,6 +88,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 30px;
+  justify-content: center;
 }
 
 .optionText{
@@ -146,4 +155,13 @@
 .rightDiv{
   display: flex;
   flex-direction: column;
+}
+
+.favoriteCheckForm{
+  color: #1b1b1b;
+  font-size: 17px;
+}
+.favoriteCheckDiv{
+  padding-left: 20px;
+  padding-right: 20px;
 }
