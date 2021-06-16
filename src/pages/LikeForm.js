@@ -4,10 +4,10 @@ import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
 import logo from '../img/SIMSIMAE-logo.png';
-import {useLocation} from "react-router";
+import { useLocation, useHistory } from "react-router";
 
 const LikeForm = (props) => {
-
+  let history = useHistory();
   const uselocation = useLocation();
   const { email , password, name, phone } = uselocation.state;  
   console.log('email, password, name, phone', email, password, name, phone)
@@ -53,6 +53,7 @@ const LikeForm = (props) => {
     .then(res => {
       alert('가입성공!')
       console.log('완료res:::',res)
+      return history.push('/')
     })
     
   }
