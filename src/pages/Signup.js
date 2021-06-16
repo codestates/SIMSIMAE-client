@@ -44,7 +44,7 @@ const Signup = () => {
   const emailDCEvent = (email) => {
     // 이메일이 유효성 검사를 통과하면
     if(isValidEmail === true) { 
-      axios.post('http://13.209.10.136/user/conflictemail',
+      axios.post('http://www.simsimae-server.site/user/conflictemail',
       {email},
       {'Content-Type':'application/json', withCredentials: true })
       .then(res => {
@@ -116,11 +116,11 @@ const Signup = () => {
     <>
     {nextValidChk ?
       <> 
-       { history.push({
+      { history.push({
          pathname : '/likeform',
          state : {email :email, password :password, name:name, phone:phone}
        })}
-
+       
       </>
     :
     <div>

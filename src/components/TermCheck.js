@@ -10,7 +10,6 @@ const TermCheck = (props) => {
   const [optionCheck , setOptionCheck] = useState(false);
   const [errorMessage , setErrorMessage] = useState(null);
   
-
   // 전체 선택 및 동의 버튼
   const allCheckHandler = (props) => {
     setAllcheck(!allCheck)

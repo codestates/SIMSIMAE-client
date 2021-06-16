@@ -10,10 +10,11 @@ import dislike_btn_filled from '../img/dislike_btn_filled.png';
 import axios from 'axios';
 import { get } from "jquery";
 
-const Ddabong = ({accessToken}) => {
+const Ddabong = ({userinfo, setUserinfo, accessToken}) => {
     const [isUserLike, setIsUserLike ] = useState(false);
     const [isUserDislike, setIsUserDislike ] = useState(false);
-    const [userinfo, setUserinfo] = useState(null);
+    let userId;
+    let url;
     
     
     const userClickLikeBtn = () => {
@@ -25,7 +26,6 @@ const Ddabong = ({accessToken}) => {
 
             }
             setIsUserLike(true);
-            getUserInfo();
             sendToLikeQr();
             
         //이미 like 버튼이 눌려있으면
@@ -58,25 +58,24 @@ const Ddabong = ({accessToken}) => {
             .then(res => {
                 console.log('user 정보 받아오기 성공!!!', res)
                 const data = res.data;
-                setUserinfo(data)
-                console.log(userinfo)
-                
+                userId = data.userInfo.id;
+                url = data.likeUrl;
+                console.log
                 
         })
     }
     
     const sendToLikeQr = () => {
-            const url = "http://naver.com";
-            const userId = userinfo.userInfo.id;
-            axios.post('http://13.209.10.136/url/like',
-                        {userId:{userId}, url:{url}},
+        
+        
+        getUserInfo();
+        return axios.post('http://13.209.10.136/url/like', 
+                        {userId, url},
                         { 'Content-Type':'application/json', withCredentials: true }
                     ).then((res) => {
                         console.log('관심QR에 저장했습니다!')
                     }).catch((err) => console.log(err))
-            
-    }
-        
+        }
             
     
             
