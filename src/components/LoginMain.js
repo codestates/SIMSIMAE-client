@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "../css/App.css";
 import Ddabong from "../components/Ddabong"
-
-import axios from 'axios';
+import axios from "axios";
 
 const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken}) => {
   const [toggleOn, setToggleOn ] = useState(false);
@@ -12,6 +11,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
   const [isUserLike, setIsUserLike ] = useState(false);
   const [isUserDislike, setIsUserDislike ] = useState(false);
   const [thisUrl , setThisUrl] = useState('')
+  const [user, setUser] = useState([]);
 
 
   // 유저용 관심사 qr 얻어오기 핸들러 
@@ -64,7 +64,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     let url = userQrImg;
     let userId = userinfo.userInfo.id;
     console.log('#@@@userinfo.userInfo.id::',userId);
-    axios.post('http://13.209.10.136/url/dislike',
+    axios.post('http://www.simsimae-server.site/url/dislike',
     {userId, url},
     { withCredentials: true }
     ).then((res) => {

@@ -42,7 +42,7 @@ const Main = () => {
     if(email ===''|| password ===''){
       setErrorMessage('이메일과 비밀번호를 입력하세요')
     }else{
-      axios.post('http://13.209.10.136/user/login',
+      axios.post('http://www.simsimae-server.site/user/login',
       { email, password } ,
       {'Content-Type':'application/json', withCredentials: true }
       ).then((res) => {
@@ -62,7 +62,7 @@ const Main = () => {
   // login 후 회원정보 받아오기
   const handleResponseSuccess = () => {
     console.log(accessToken)
-    axios.get('http://13.209.10.136/user/info',
+    axios.get('http://www.simsimae-server.site/user/info',
     { headers : {authorization: accessToken , withCredentials: true}})
     .then(res => {
       console.log('user 정보 받아오기 성공!!!', res)
@@ -118,9 +118,7 @@ const Main = () => {
         </div>
         {/* <div className='invisible-div'>
           <Ddabong 
-            userinfo={userinfo}
-            setUserinfo={setUserinfo}
-            accessToken={accessToken}
+            
             
           />
         </div> */}
