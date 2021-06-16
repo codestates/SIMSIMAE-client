@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "../css/App.css";
+import Ddabong from "../components/Ddabong"
 
-const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg, setUserQrImg}) => {
+const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg, setUserQrImg, userinfo, setUserinfo, accessToken}) => {
   const [toggleOn, setToggleOn ] = useState(false);
+  const [isRefreshed, setIsRefreshed] = useState(false);
+
+  const userClickRefreshBtn = () => {
+    setIsRefreshed(true);
+  }
   const toggleStatus = () => {
     if(toggleOn === true) {
       setToggleOn(false);
@@ -11,7 +17,7 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
       setToggleOn(true);
     }
   }
-
+  
   
 
   closeModal()
@@ -22,25 +28,38 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
               <input className='toggle-input' type="checkbox" id="switch"/>
               <label className='toggle-label'htmlFor="switch" onClick={() => {toggleStatus()}}></label>
           </div>
+          <div className="user-qrRender">
+          
             {toggleOn ? 
             //토글 켜진 QR
             <>
-              <div className="user-qrRender">
-                <div className='user-center-qr'>
-                  <img src={userQrImg} alt=''/>
-                  <a href='http://www.naver.com' target='_blank'>
-                  </a>
-                </div>
+                
+                  {isRefreshed ? 
+                    <>
+                      <img src={userQrImg} alt=''/>
+                      <div>
+                        <Ddabong/>
+                      </div>
+                    </> : 
+                    <>
+                      <div className='user-center-qr'>
+                        <img src={qrImg} alt=''/>
+                          <a href='qrImg' target='_blank'>
+                          </a>
+                      </div>
+                    </> }
+                  
                 <div className='user-reBtnDiv'>
-                  <button onClick={() => userQrRequestHandler()} className="user-refreshBtn">
+                  <button onClick={() => {
+                  userClickRefreshBtn(); userQrRequestHandler();}} className="user-refreshBtn">
                     <i className="fas fa-sync-alt"></i>
                   </button>
                 </div>
-              </div>
+              
               </>: 
           //토글 꺼진 QR
           <>
-              <div className="user-qrRender">
+              
               <div className='user-center-qr'>
                 <img src={qrImg} alt=''/>
                 <a href='http://www.naver.com' target='_blank'>
@@ -51,10 +70,11 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
                 <i className="fas fa-sync-alt"></i>
                 </button>
               </div>
-            </div>
+            
             </>
             }
             
+            </div>
         </div>
     
   )

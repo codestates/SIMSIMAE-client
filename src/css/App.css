@@ -48,6 +48,11 @@
   }
   
   /* 원준 작업 */
+
+  .invisible-div{
+    display: none;
+  }
+  
   .toggle-input{
     height: 0;
     width: 0;
