@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { withRouter } from "react-router-dom";
 
 const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg}) => {
@@ -10,8 +10,6 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
       setToggleOn(true);
     }
   }
-
-  
 
   closeModal()
   return(

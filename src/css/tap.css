@@ -1,6 +1,7 @@
 .wrapper{
   margin-left: 40px;
   margin-right: 40px;
+  justify-content: center;
 }
 
 .tabs{
@@ -112,6 +113,7 @@
 }
 
 .disablelForm{
+  text-align: center;
   display: flex;
   flex-direction: column;
   width: 35vw;
@@ -218,5 +220,23 @@
 }
 
 .qrRemoveBtn{
+  cursor: pointer; 
   height: 30px;
+  border-radius: 15px;
+  color: var(--white-color-light);
+  background-color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  margin-bottom: 40px;
+}
+
+.qrRemoveBtn:hover{
+  color: var(--primary-color);
+  background-color: var(--white-color-light);
+}
+
+.domainName{
+  overflow: hidden;
+}
+.noneQrDiv{
+  display: none;
 }

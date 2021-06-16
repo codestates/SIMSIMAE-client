@@ -62,7 +62,7 @@ const Main = () => {
         const message = 'access token 만료. refresh token 이용바람';
         return setErrorMessage(message)
       }
-      const getData = res.data.userInfo;
+      const getData = res.data;
       setUserinfo(getData);
       // 마이페이지로 이동
       setOpenMypage(true)
@@ -104,7 +104,8 @@ const Main = () => {
   return (
     <div>
       <div className='header'>
-        <Nav 
+        <Nav
+          setUserinfo={setUserinfo}
           openMypage={openMypage}
           isModalOpen={isModalOpen}
           openModal={openModal}
