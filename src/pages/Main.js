@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import Nav from '../components/Nav';
-import LoginMain from '../components/LoginMain'
+import LoginMain from './LoginMain'
 import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
@@ -143,7 +143,6 @@ const Main = () => {
         </div>
         : isLogin && !openMypage ?
          <>
-         
           <LoginMain 
             closeModal={closeModal}
             qrImg={qrImg}
