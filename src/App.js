@@ -6,7 +6,7 @@ import './css/App.css';
 
 import Signup from "./pages/Signup";
 import Main from './pages/Main';
-import LikeForm from './pages/LikeForm';
+import LikeForm from "./pages/LikeForm";
 
 const App = () => {
   return (

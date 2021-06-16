@@ -6,10 +6,7 @@ import LikeForm from "../pages/LikeForm";
 
 import "../css/modal.css";
 
-
-
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
-  
 
   const [googleuseremail, setGoogleuseremail ] = useState('');
   const [googleusername, setGoogleusername ] = useState('');
@@ -29,28 +26,24 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
     setGoogleaccesstoken(res.accessToken)
     setMovePage(true)
   }
-
-
-
-  // Login Fail
+// Login Fail
   const responseFail = (err) => {
     console.error('에러:::',err);
   }
-  
+
   return (
     <> 
     { movePage ? 
       <>
-      {history.push({
-        pathname : '/likeform',
-        state : { email : googleuseremail, name : googleusername }
-      })}
-     
+      { history.push({
+         pathname : '/likeform',
+         state : {email: googleuseremail, name: googleusername}
+       })}
       </>
        : 
       <>
-       {isOpen ? (  
-    
+       {isOpen ? (
+
         <div className="modal">
           <div>
             <div className="loginModal">
@@ -58,7 +51,6 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
               </span>
               <h1 className="modalContents" >
                 로그인
-
                 <input
                   name="email"
                   className="loginId"
@@ -82,7 +74,7 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                 <button className="loginBtn" onClick={() => loginClickHandler()}>
                   로그인
                 </button>
-                
+
                 <GoogleLogin
                   className='google'
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -108,6 +100,6 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
   } </>
   );
 }
-  
+
 
 export default withRouter(Login);

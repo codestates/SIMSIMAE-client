@@ -12,7 +12,7 @@ const LikeForm = (props) => {
   const { email , password, name, phone } = uselocation.state;  
   
 
-  console.log('폼', uselocation.state.email)
+  console.log('폼', uselocation.state.emnpail)
 
   const [gender , setGender ] = useState(null);
   const [age , setAge ] = useState(null);

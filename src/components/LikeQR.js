@@ -13,7 +13,7 @@ const LikeQR = ({userinfo}) => {
     let id = userinfo.userInfo.id
     console.log(typeof id)
     console.log(typeof url)
-    axios.post('http://13.209.10.136/user/updatelikeqr',
+    axios.post('http://www.simsimae-server.site/user/updatelikeqr',
     { url, id },
     {header : {withCredentials: true }})
     .then(res => {
