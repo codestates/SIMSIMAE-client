@@ -55,7 +55,7 @@ const Ddabong = ({userinfo, setUserinfo, accessToken}) => {
     
     const sendToLikeQr = () => {
         console.log(userinfo);
-        axios.post('http://13.209.10.136/url/like', 
+        axios.post('http://www.simsimae-server.site/url/like', 
             
             { 'Content-Type':'application/json', withCredentials: true }
         ).then((res) => {

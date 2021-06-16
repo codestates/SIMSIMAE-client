@@ -24,7 +24,7 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
   }
 
   const requestUserInfo = () => {
-    axios.get('http://13.209.10.136/user/info',
+    axios.get('http://www.simsimae-server.site/user/info',
         { headers : {authorization: accessToken , withCredentials: true}
         })
         .then(res => {

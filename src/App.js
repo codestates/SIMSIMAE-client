@@ -13,7 +13,7 @@ const App = () => {
     <Switch>
       <Route exact path='/' component={Main} render={() => <Main />} />
       <Route exact path='/signup' render={() => <Signup />} />
-      <Route exact path='/likeform' render={() => {<LikeForm />}} />
+      <Route exact path='/likeform' render={() => <LikeForm />} />
     </Switch>
   );
 }

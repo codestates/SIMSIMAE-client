@@ -12,7 +12,7 @@ const NoneUserQr = () => {
   const [isLogin , setIsLogin ] = useState(false);
 
   const qrRequestHandler = () => {
-    axios.get('http://13.209.10.136/url')
+    axios.get('http://www.simsimae-server.site/url')
     .then((res) => {
       return res.data;
     })

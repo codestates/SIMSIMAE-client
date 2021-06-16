@@ -35,11 +35,10 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
     <> 
     { movePage ? 
       <>
-      {history.push({
-        pathname : '/likeform',
-        state : { email : googleuseremail, name : googleusername }
-      })}
-
+      { history.push({
+         pathname : '/likeform',
+         state : {email: googleuseremail, name: googleusername}
+       })}
       </>
        : 
       <>
