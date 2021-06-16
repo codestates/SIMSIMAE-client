@@ -10,11 +10,11 @@ const LikeQR = ({userinfo}) => {
   // 삭제 버튼 눌렀을 때 
   const handleQrRemove = (e) => {
     let url = e.target.value;
-    let id = userinfo.userInfo.id
-    console.log(typeof id)
+    let userId = userinfo.userInfo.id
+    console.log(typeof userId)
     console.log(typeof url)
     axios.post('http://13.209.10.136/user/updatelikeqr',
-    { url, id },
+    { url, userId },
     {header : {withCredentials: true }})
     .then(res => {
       if(res.status === 200) {

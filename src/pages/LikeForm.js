@@ -3,12 +3,8 @@ import { withRouter } from "react-router-dom";
 import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
-<<<<<<< HEAD:src/pages/LikeForm.js
 import {useLocation} from "react-router";
-
-=======
 import logo from '../img/SIMSIMAE-logo.png';
->>>>>>> d19ca8e518ea79a675c25549c904a4e0972c7723:src/components/LikeForm.js
 
 const LikeForm = (props) => {
   
