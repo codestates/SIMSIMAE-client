@@ -364,13 +364,18 @@
   margin-left: 20px;
   font-size: 50px;
 }
-.likeBtn:hover{
+.clickLikeBtn{
+  cursor: pointer;
+  font-size: 50px;
+  margin-right: 20px;
   color: #e78636;
 }
-.dislikeBtn:hover{
+.clickDislikeBtn{
+  font-size: 50px;
+  margin-left: 20px;
+  font-size: 50px;
   color: #e78636;
 }
-
 
   /* 반응형 작업 */
   

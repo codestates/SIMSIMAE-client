@@ -40,7 +40,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       }
       const getData = res.data;
       setUserinfo(getData);
-      //setIsUserLike(true);
+     
     }).catch(err => console.log(err))
   }
   // like 누른 url 서버로 보내기 
@@ -55,7 +55,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     { withCredentials: true }
     ).then((res) => {
       console.log('관심QR에 저장했습니다!')
-      userQrRequestHandler()
+      setIsUserLike(!isUserLike);
     }).catch((err) => console.log(err))
   }  
 
@@ -69,7 +69,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     { withCredentials: true }
     ).then((res) => {
       console.log('관심없는 QR에 저장했습니다!')
-      userQrRequestHandler()
+      setIsUserDislike(!isUserDislike);
     }).catch((err) => console.log(err))
   }
 
@@ -112,11 +112,12 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       //토글 켜진 QR
       <div>
         <div className="user-qrRender">
+          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요!</p>
           <a href='http://www.naver.com' target='_blank'>
             <img src={`https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=${userQrImg}`} alt=''/>
           </a>
           <div>
-            <Ddabong likeSelect={likeSelect} dislikeSelect={dislikeSelect} />
+            <Ddabong isUserLike={isUserLike} isUserDislike={isUserDislike} likeSelect={likeSelect} dislikeSelect={dislikeSelect} />
           </div>
         </div>
         <button onClick={() => userQrRequestHandler()} className="user-refreshBtn"></button>
