@@ -31,9 +31,9 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
                   <a href='http://www.naver.com' target='_blank'>
                   </a>
                 </div>
-                <div className='reBtnDiv'>
-                  <button onClick={() => userQrRequestHandler()} className="refreshBtn">
-                  <i className="fas fa-sync-alt"></i>
+                <div className='user-reBtnDiv'>
+                  <button onClick={() => userQrRequestHandler()} className="user-refreshBtn">
+                    <i className="fas fa-sync-alt"></i>
                   </button>
                 </div>
               </div>
@@ -46,8 +46,8 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
                 <a href='http://www.naver.com' target='_blank'>
                 </a>
               </div>
-              <div className='reBtnDiv'>
-                <button onClick={() => qrRequestHandler()} className="refreshBtn">
+              <div className='user-reBtnDiv'>
+                <button onClick={() => qrRequestHandler()} className="user-refreshBtn">
                 <i className="fas fa-sync-alt"></i>
                 </button>
               </div>

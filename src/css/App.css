@@ -200,6 +200,27 @@
     display: none;
   }
   
+  .user-refreshBtn{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+  }
+  .user-refreshBtn:hover{
+    cursor: pointer;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .user-reBtnDiv {
+    display: flex;
+    justify-content: center;
+  }
   .refreshBtn{
     display: none;
     margin-top: 20px;

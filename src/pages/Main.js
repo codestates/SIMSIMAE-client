@@ -76,7 +76,7 @@ const Main = () => {
     })
   }; 
   const userQrRequestHandler = () => {
-    return axios.get('http://13.209.10.136/url/userurl')
+    return axios.get('http://13.209.10.136/url/userurl', { headers : {authorization: accessToken , withCredentials: true}})
     .then((res) => {
       setUserQrImg(res.data)
     })
@@ -90,6 +90,7 @@ const Main = () => {
     $(".refreshBtn").css('display', 'block');
     $(".qrRender").css('display','block');
     qrRequestHandler()
+    userQrRequestHandler()
   }
   // 모달 열기
   const openModal = () => {
@@ -124,10 +125,10 @@ const Main = () => {
       { 
         !isLogin && !openMypage ?  // 로그인 안했고, 마이페이지 버튼도 안눌렀을때
         <div className="body">
-          <div className='toggle-div'>
+          {/* <div className='toggle-div'>
             <input className='toggle-input' type="checkbox" id="switch" />
             <label className='toggle-label'htmlFor="switch"></label>
-          </div>
+          </div> */}
           <div className='logoRender'>
             <div><img className='center-logo' src={logo} alt=""></img></div>
             <div><button onClick={() => revealQr()} className = "qrBtn">Click!</button></div>
@@ -144,8 +145,19 @@ const Main = () => {
             </button>
           </div>
         </div>
-        : isLogin && !openMypage ? 
-        <LoginMain closeModal={closeModal} /> 
+        : isLogin && !openMypage ?
+         <>
+          <LoginMain 
+            closeModal={closeModal}
+            qrImg={qrImg}
+            setQrImg={setQrImg}
+            userQrImg={userQrImg}
+            qrRequestHandler={qrRequestHandler}
+            userQrRequestHandler={userQrRequestHandler}
+            setUserQrImg={setUserQrImg}
+            accessToken={accessToken}
+           /> 
+         </>
         : 
          <Mypage userinfo={userinfo} /> 
       }
