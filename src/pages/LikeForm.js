@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter , useHistory } from "react-router-dom";
 import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
@@ -16,6 +16,8 @@ const LikeForm = (props) => {
   const [age , setAge ] = useState(null);
   const [userlocation , setLocation ] = useState(null);
   const [checkedItems, setCheckedItems] = useState(new Set([]));
+
+  let history = useHistory();
 
   const checkedItemHandler = (value, isChecked) => {
     if (isChecked) {
@@ -53,6 +55,8 @@ const LikeForm = (props) => {
     .then(res => {
       alert('가입성공!')
       console.log('완료res:::',res)
+    }).then(res =>{
+      history.push('/')
     })
     
   }

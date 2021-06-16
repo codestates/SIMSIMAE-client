@@ -3,6 +3,7 @@ import { Switch, Route, Link, withRouter, useHistory } from "react-router-dom";
 import { GoogleLogin } from 'react-google-login';
 import Signup from '../pages/Signup'
 import LikeForm from "../pages/LikeForm";
+import axios from 'axios';
 
 import "../css/modal.css";
 
@@ -24,8 +25,23 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
     setGoogleuseremail(res.profileObj.email)
     setGoogleusername(res.profileObj.email)
     setGoogleaccesstoken(res.accessToken)
-    setMovePage(true)
+    completeGooleLogin()  
+    setMovePage(true);
   }
+
+
+   //google login success 수정중 
+
+   const completeGooleLogin = () => {
+
+    axios.post('http://www.simsimae-server.site/user/googlelogin',
+    { email : googleuseremail },
+    {'Content-Type':'application/json', withCredentials: true })
+    .then(res => {
+     console.log('테스트',res)
+    })
+  }
+
 // Login Fail
   const responseFail = (err) => {
     console.error('에러:::',err);
