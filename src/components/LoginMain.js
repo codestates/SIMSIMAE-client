@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+import React, {useState} from "react";
+import { withRouter } from "react-router-dom";
+=======
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "../css/App.css";
 import Ddabong from "../components/Ddabong"
+>>>>>>> d19ca8e518ea79a675c25549c904a4e0972c7723
 
 
 const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg, setUserQrImg, userinfo, setUserinfo, accessToken}) => {
