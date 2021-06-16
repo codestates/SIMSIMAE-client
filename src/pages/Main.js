@@ -64,7 +64,7 @@ const Main = () => {
       setQrImg(res.data)
     })
   }; 
-  const userQrRequestHander = () => {
+  const userQrRequestHandler = () => {
     return axios.get('http://13.209.10.136/url/userurl')
     .then((res) => {
       setUserQrImg(res.data)
@@ -117,16 +117,20 @@ const Main = () => {
       </div>
 
       { isLogin ? 
-      <Link to='/'>
+      <>
+      <Link to='/'></Link>
         <LoginMain 
           closeModal={closeModal} 
           handleResponseSuccess={handleResponseSuccess}
           qrImg={qrImg} 
           qrRequestHandler={qrRequestHandler}
-          userQrRequestHander={userQrRequestHander}
+          setQrImg={setQrImg}
+          userQrRequestHandler={userQrRequestHandler}
           userQrImg={userQrImg}
+          setUserQrImg={setUserQrImg}
         /> 
-      </Link>
+      
+      </>
         :
         <div className="body">
             <div className='logoRender'>

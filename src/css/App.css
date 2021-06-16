@@ -221,7 +221,19 @@
     display: flex;
     justify-content: center;
   }
+  .user-qrRender{
+    position: static;
+    text-align: center;
+    height: 60vh;
+    display: block;
+    margin: 0;
+  }
   
+  .user-center-qr{
+    display: flex;
+    justify-content: center;
+    display: block;
+  }
   
   /* 미현 작업 */
   

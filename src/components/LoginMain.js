@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
+import "../css/App.css";
 
-const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg}) => {
-  const [toggleOn, setToggleOn ] = useState(true);
+const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg, setUserQrImg}) => {
+  const [toggleOn, setToggleOn ] = useState(false);
   const toggleStatus = () => {
     if(toggleOn === true) {
       setToggleOn(false);
@@ -23,8 +24,9 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
           </div>
             {toggleOn ? 
             //토글 켜진 QR
-              <div className="qrRender">
-                <div className='center-qr'>
+            <>
+              <div className="user-qrRender">
+                <div className='user-center-qr'>
                   <img src={userQrImg} alt=''/>
                   <a href='http://www.naver.com' target='_blank'>
                   </a>
@@ -34,10 +36,12 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
                   <i className="fas fa-sync-alt"></i>
                   </button>
                 </div>
-              </div>: 
+              </div>
+              </>: 
           //토글 꺼진 QR
-              <div className="qrRender">
-              <div className='center-qr'>
+          <>
+              <div className="user-qrRender">
+              <div className='user-center-qr'>
                 <img src={qrImg} alt=''/>
                 <a href='http://www.naver.com' target='_blank'>
                 </a>
@@ -48,6 +52,7 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
                 </button>
               </div>
             </div>
+            </>
             }
             
         </div>
