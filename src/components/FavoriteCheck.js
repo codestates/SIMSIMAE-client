@@ -8,7 +8,7 @@ const FavoriteCheck = ({checkedItemHandler}) => {
         console.log('target', target.value)
         checkedItemHandler(target.value, target.checked);
     };
-
+    //db서 가져온 배열 값을 
     return (
         <div>
             <img className='logo' src={logo}/>
