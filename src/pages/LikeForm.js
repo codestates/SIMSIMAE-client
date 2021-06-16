@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import FavoriteCheck from "./FavoriteCheck";
+import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
-
+import {useLocation} from "react-router";
+import logo from '../img/SIMSIMAE-logo.png';
 
 const LikeForm = (props) => {
+
+  const uselocation = useLocation();
+  const { email , password, name, phone } = uselocation.state;  
+  console.log('email, password, name, phone', email, password, name, phone)
+  // console.log('폼', uselocation.state.email)
 
   const [gender , setGender ] = useState(null);
   const [age , setAge ] = useState(null);
@@ -41,23 +47,23 @@ const LikeForm = (props) => {
   console.log('location', location)
   // 회원가입 버튼 클릭 시 서버통신
   const handleSignup = () => {
-    const {email, password, name, phone} = props;
-    console.log('email, password, name, phone', email, password, name, phone)
-
-      axios.post('http://13.209.10.136/user/signup',
-      { email, password, name, phone, gender, age, location, favorite: checkedItems },
-      {'Content-Type':'application/json', withCredentials: true })
-      .then(res => {
-        alert('가입성공!')
-        console.log('완료res:::',res)
-        //this.props.history.push("/");
+    
+    axios.post('http://13.209.10.136/user/signup',
+    { email, password, name, phone, gender, age, location, favorite: checkedItems },
+    {'Content-Type':'application/json', withCredentials: true })
+    .then(res => {
+      alert('가입성공!')
+      console.log('완료res:::',res)
     })
-  
+    
   }
  
   return(
     <div >
       <center>
+        <img className='logo' src={logo}/>
+        <p className='likeTitle'>좋아하는 관심사를 골라주세요</p>
+        <form className='favoriteCheckForm'>
         <FavoriteCheck checkedItemHandler={checkedItemHandler}/>
           <hr></hr>
           <section className='optionSection'>
@@ -106,16 +112,15 @@ const LikeForm = (props) => {
                 <span>해외</span>
               </div>
             </div>
-            
           </section>
-          
           <button
-              className="completeBtn"
-              type='submit'
-              onClick={handleSignup}
+            className="completeBtn"
+            type='submit'
+            onClick={handleSignup}
           >완료</button>
-        
+          </form>
       </center>
+      
     </div>
   )
 }

@@ -1,29 +1,50 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Switch, Route, Link, withRouter, useHistory } from "react-router-dom";
 import { GoogleLogin } from 'react-google-login';
+import Signup from '../pages/Signup'
+import LikeForm from "../pages/LikeForm";
 
 import "../css/modal.css";
 
-
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
-  
+
+  const [googleuseremail, setGoogleuseremail ] = useState('');
+  const [googleusername, setGoogleusername ] = useState('');
+  const [googleaccesstoken, setGoogleaccesstoken ] = useState('');
+
   const [isGoogleLogin, setIsGoogleLogin] = useState(false);
+  const [movePage, setMovePage ] = useState(false);
+
+  let history = useHistory();
+
    // Google Login
    const responseGoogle = (res) => {
     setIsGoogleLogin(true);
     console.log('성공:::',res)
+    setGoogleuseremail(res.profileObj.email)
+    setGoogleusername(res.profileObj.email)
+    setGoogleaccesstoken(res.accessToken)
+    setMovePage(true)
   }
-
-  // Login Fail
+// Login Fail
   const responseFail = (err) => {
     console.error('에러:::',err);
   }
-  
+
   return (
-    
-    <>
-      {isOpen ? (  
-    
+    <> 
+    { movePage ? 
+      <>
+      {history.push({
+        pathname : '/likeform',
+        state : { email : googleuseremail, name : googleusername }
+      })}
+
+      </>
+       : 
+      <>
+       {isOpen ? (
+
         <div className="modal">
           <div>
             <div className="loginModal">
@@ -31,7 +52,6 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
               </span>
               <h1 className="modalContents" >
                 로그인
-
                 <input
                   name="email"
                   className="loginId"
@@ -55,7 +75,7 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                 <button className="loginBtn" onClick={() => loginClickHandler()}>
                   로그인
                 </button>
-                
+
                 <GoogleLogin
                   className='google'
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -76,10 +96,11 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
             </div>
           </div>
         </div>
-      ) : null}
-    </>
+      ) : null} 
+      </>
+  } </>
   );
 }
-  
+
 
 export default withRouter(Login);

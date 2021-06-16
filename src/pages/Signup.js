@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter , Link } from "react-router-dom";
 import logo from '../img/SIMSIMAE-logo.png';
 import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
+import { useHistory } from "react-router";
 
 
 import TermCheck from "../components/TermCheck";
 import axios from "axios";
-import LikeForm from "../components/LikeForm";
+import LikeForm from "../pages/LikeForm";
 
 const Signup = () => {
+  
+  
+  const history = useHistory();
 
   const [email , setEmail ] = useState('');
   const [emailCheck , setEmailCheck ] = useState(false);
@@ -110,8 +114,14 @@ const Signup = () => {
 
   return (
     <>
-    {nextValidChk ? 
-      <LikeForm email={email} password={password} name={name} phone={phone}/>
+    {nextValidChk ?
+      <> 
+       { history.push({
+         pathname : '/likeform',
+         state : {email :email, password :password, name:name, phone:phone}
+       })}
+
+      </>
     :
     <div>
       <center>
