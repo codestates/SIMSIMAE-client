@@ -10,7 +10,7 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
 
   let history = useHistory();
   const logOut = () => {
-    axios.post('http://13.209.10.136/user/logout', 
+    axios.post('http://www.simsimae-server.site/user/logout', 
       { accessToken } ,
       { 'Content-Type':'application/json', withCredentials: true }
     ).then((res) => {

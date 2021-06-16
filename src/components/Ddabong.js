@@ -13,7 +13,6 @@ const Ddabong = ({userinfo, setUserinfo, accessToken}) => {
     const [isUserLike, setIsUserLike ] = useState(false);
     const [isUserDislike, setIsUserDislike ] = useState(false);
     
-    
     const userClickLikeBtn = () => {
         //like 버튼이 눌려있지 않을 때
         if(isUserLike === false) {
@@ -48,20 +47,15 @@ const Ddabong = ({userinfo, setUserinfo, accessToken}) => {
             setIsUserDislike(false);
         }
     }
+
     const getUserInfo = () => {
-      axios.get('http://13.209.10.136/user/info',
-        { headers : {authorization: accessToken , withCredentials: true}
-        })
-        .then(res => {
-            console.log('user 정보 받아오기 성공!!!', res)
-            setUserinfo(res.data.userInfo);
-        }).catch(err => console.log(err));
+      
     }
     
     
     const sendToLikeQr = () => {
         console.log(userinfo);
-        axios.post('http://13.209.10.136/url/like', 
+        axios.post('http://www.simsimae-server.site/url/like', 
             
             { 'Content-Type':'application/json', withCredentials: true }
         ).then((res) => {

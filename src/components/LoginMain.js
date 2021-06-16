@@ -1,17 +1,16 @@
-<<<<<<< HEAD
-import React, {useState} from "react";
-import { withRouter } from "react-router-dom";
-=======
+
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "../css/App.css";
 import Ddabong from "../components/Ddabong"
->>>>>>> d19ca8e518ea79a675c25549c904a4e0972c7723
+import axios from "axios";
+
 
 
 const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, userQrImg, setUserQrImg, userinfo, setUserinfo, accessToken}) => {
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
+  const [user, setUser] = useState([]);
 
   const userClickRefreshBtn = () => {
     setIsRefreshed(true);
@@ -24,10 +23,18 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
     }
   }
 
+  const requestUserInfo = () => {
+    axios.get('http://www.simsimae-server.site/user/info',
+        { headers : {authorization: accessToken , withCredentials: true}
+        })
+        .then(res => {
+            console.log('user 정보 받아오기 성공!!!', res)
+            setUser(res.data.userInfo);
+        }).catch(err => console.log(err));
+  }
 
   closeModal()
   return(
-    
       <div className="body">
           <div className='toggle-div'>
               <input className='toggle-input' type="checkbox" id="switch"/>
@@ -37,13 +44,12 @@ const LoginMain = ({closeModal, qrRequestHandler, qrImg, userQrRequestHandler, u
           
             {toggleOn ? 
             //토글 켜진 QR
-            <>
-                
+            <>               
                   {isRefreshed ? 
                     <>
                       <img src={userQrImg} alt=''/>
                       <div>
-                        <Ddabong/>
+                        <Ddabong user={user} setUser={setUser} accessToken={accessToken} requestUserInfo={requestUserInfo}/>
                       </div>
                     </> : 
                     <>
