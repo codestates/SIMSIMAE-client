@@ -86,7 +86,7 @@ const Account = ({ userinfo }) => {
                   <option value='5'>50대 이상</option>
                 </select>
               </div>
-              <button onClick={() => dropUser()}>회원탈퇴</button>
+              <button className='dropUserBtn' onClick={() => dropUser()}>회원탈퇴</button>
             </div>
           </div>
         </div>

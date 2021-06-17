@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../css/App.css";
-import Ddabong from "../components/Ddabong"
+import Ddabong from "./Ddabong"
 import axios from "axios";
 import { useLocation } from "react-router";
 
-const LoginMain = (props) => {
+const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken}) => {
   
-  const uselocation = useLocation();
-  const {qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, randomurl, email, name} = uselocation.state; 
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
   const [userQrImg, setUserQrImg ] = useState(null);
@@ -81,7 +79,6 @@ const LoginMain = (props) => {
     }).catch((err) => console.log(err))
   }
 
-
   return(
     
     <div className="body">
@@ -97,8 +94,8 @@ const LoginMain = (props) => {
       //토글 꺼진 QR
         <>
         <div className="user-qrRender">
-          <a href={randomurl} target='_blank'>
-            <img src={randomurl} alt=''/>
+          <a target='_blank'>
+            <img src={qrImg} alt=''/>
           </a>
         </div>
         <div className='reBtnDiv'>
@@ -111,8 +108,8 @@ const LoginMain = (props) => {
       toggleOn && !isRefreshed ? // 토글 on, 리프레시 버튼 안눌렀을때
       <div>
         <div className="user-qrRender">
-          <p>리프레시를 눌러주세요!</p>
-          <a href={userQrImg} target='_blank'>
+          <p>리프레시를 눌러주세요</p>
+          <a target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
           <div>
@@ -129,8 +126,8 @@ const LoginMain = (props) => {
       //토글 켜진 QR
       <div>
         <div className="user-qrRender">
-          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요!</p>
-          <a href={userQrImg} target='_blank'>
+          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요</p>
+          <a target='_blank'>
             <img src={`https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=${userQrImg}`} alt=''/>
           </a>
           <div>
