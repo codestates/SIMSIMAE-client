@@ -24,13 +24,17 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
     setGoogleuseremail(res.profileObj.email)
     setGoogleusername(res.profileObj.name)
     setGoogleaccesstoken(res.accessToken)
-  
+
     //setMovePage(true)
     await axios.post('http://www.simsimae-server.site/user/googlelogin', 
       {email: res.profileObj.email, name: res.profileObj.name}
     )
     .then(res => {
       //console.log('DB확인용 응답', res)
+      //로그인 성공시 세션 스토어에 유저 정보를 저장한다. 
+      window.sessionStorage.setItem('email', googleuseremail)
+      window.sessionStorage.setItem('name', googleusername)
+      
       setIsGoogleLogin(true) //loginmain
     })
     .catch(err => {

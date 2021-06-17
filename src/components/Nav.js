@@ -23,7 +23,11 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
     })    
   }
   const clickLogo = () => {
-    window.location.replace("/");
+    if(isLogin === true){
+      history.push("/loginmain")
+    }else{
+      window.location.replace("/");
+    }
   }
   const userClickLogo = () => {
 

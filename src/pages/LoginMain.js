@@ -8,7 +8,7 @@ import { useLocation } from "react-router";
 const LoginMain = (props) => {
   
   const uselocation = useLocation();
-  const {qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, email, name} = uselocation.state; 
+  const {qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, randomurl, email, name} = uselocation.state; 
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
   const [userQrImg, setUserQrImg ] = useState(null);
@@ -98,7 +98,7 @@ const LoginMain = (props) => {
         <>
         <div className="user-qrRender">
           <a href={randomurl} target='_blank'>
-            <img src={qrImg} alt=''/>
+            <img src={randomurl} alt=''/>
           </a>
         </div>
         <div className='reBtnDiv'>

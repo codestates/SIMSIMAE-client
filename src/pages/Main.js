@@ -55,8 +55,9 @@ const Main = () => {
         console.log('로그인성공!!!',res)
         let acTokenPath = res.data.data.accessToken;
         console.log(res.data.data)
+
         setAccessToken(`Bearer ${acTokenPath}`);
-        //window.sessionStorage.setItem("id", true)
+        window.sessionStorage.setItem("accesstoken", res.data.data.accessToken)
         
         setIsLogin(true);
         //getLoginStatus()
@@ -160,7 +161,6 @@ const Main = () => {
         </div>
         : isLogin && !openMypage ?
          <>
-
           { history.push({
             pathname : '/loginmain',
             state : {
@@ -170,7 +170,7 @@ const Main = () => {
               accessToken: accessToken,
               userinfo: userinfo,
               setUserinfo: setUserinfo,
-              setErrorMessage: setErrorMessage
+              setErrorMessage: setErrorMessage,
               randomurl : randomurl
             }
           })}
