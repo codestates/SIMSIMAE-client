@@ -1,0 +1,169 @@
+.likeTitle{
+  font-size: 20px;
+  color: #1b1b1b;
+  margin-bottom: 100px;
+}
+
+.skipBtn {
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 70px;
+  width: 350px;
+  height: 40px;
+  border-radius: 15px;
+  color: var(--black-color);
+  border: 2px solid var(--secondary-color);
+  background-color: var(--white-color-light);
+  margin-bottom: 100px;
+}
+
+.skipBtn:hover{
+  color: var(--black-light);
+  background-color: var(--secondary-color);
+}
+
+.completeBtn{
+  margin-left: 10px;
+  cursor: pointer;
+  width: 350px;
+  height: 40px;
+  border-radius: 15px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-light);
+  margin-bottom: 70px;
+  margin-top: 30px;
+}
+
+.completeBtn:hover{
+  color: var(--white-color-light);
+  background-color: var(--primary-color);
+}
+
+.checkSection1{
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.checkSection2{
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+}
+.interDiv{
+  padding: 10px;
+  align-items: center;
+}
+
+.checkForm{
+  color: #1b1b1b;
+  font-size: 17px;
+}
+
+.likeCheck{
+  display: flex;
+  width: 30px;
+  margin: 5px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  color: #999999;
+  border: 2px solid #999999;
+}
+
+.likeCheck:hover{
+  cursor: pointer;
+  color: var(--black-color);
+  border: 2px solid var(--black-color);
+  background-color: var(--white-color-light);
+
+}
+
+.pickLike {
+  color: var(--black-color);
+  border: 2px solid var(--black-color);
+  background-color: var(--white-color-light);
+}
+
+.optionSection{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 70px;
+  margin-bottom: 30px;
+}
+
+.optionText{
+  font-size: 15px;
+
+}
+.optionCheck{
+  width: 25px;
+  margin-right: 10px;
+  color: #999999;
+  border: 2px solid #999999;
+}
+
+.genderOption{
+  display: flex;
+  margin-bottom: 30px;
+}
+.genderTitle{
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.genderSet{
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+.ageOption{
+  display: flex;
+  margin-bottom: 30px;
+}
+.ageTitle{
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.ageSet{
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.locationOption{
+  display: flex;
+}
+
+.locationTitle{
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.locationSet{
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  align-items: center;
+}
+.leftDiv{
+  display: flex;
+  flex-direction: column;
+}
+.rightDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.favoriteCheckForm{
+  color: #1b1b1b;
+  font-size: 17px;
+  width: 60vw;
+}
+.favoriteCheckDiv{
+  padding-left: 20px;
+  padding-right: 20px;
+}
