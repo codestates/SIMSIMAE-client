@@ -5,6 +5,7 @@ import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
 import Mypage from "../components/Mypage";
+import LoginMain from '../components/LoginMain';
 
 const Main = () => {
   const history = useHistory();
@@ -20,7 +21,6 @@ const Main = () => {
   const [toggleOn, setToggleOn ] = useState();
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
-  const [randomurl , setRandomUrl] = useState('');
   
   // 이메일 상태값 변경
   function emailHandler(e) {
@@ -35,10 +35,6 @@ const Main = () => {
     return axios.get('http://www.simsimae-server.site/url')
     .then((res) => {
       setQrImg(res.data)
-      let qrUrl = res.data;
-      let urlStr = qrUrl.split('chl=');
-      let url = urlStr[1];
-      setRandomUrl(url)
       console.log('뭐야왱')
     })
   }; 
@@ -55,12 +51,9 @@ const Main = () => {
         let acTokenPath = res.data.data.accessToken;
         console.log(res.data.data)
         setAccessToken(`Bearer ${acTokenPath}`);
-        //window.sessionStorage.setItem("id", true)
-        
         setIsLogin(true);
-        //getLoginStatus()
         qrRequestHandler();
-        closeModal()
+        closeModal()      
       })
       .catch(err => {
           const message = '로그인 안됌! 물러나.';
@@ -132,12 +125,6 @@ const Main = () => {
           handleResponseSuccess={handleResponseSuccess}
           />
         </div>
-        {/* <div className='invisible-div'>
-          <Ddabong 
-            
-            
-          />
-        </div> */}
       { 
         !isLogin && !openMypage ?  // 로그인 안했고, 마이페이지 버튼도 안눌렀을때
         <div className="body">
@@ -148,7 +135,7 @@ const Main = () => {
           <div className="qrRender">
             <div className='center-qr'>
               <img src={qrImg} alt=''/>
-              <a href={randomurl} target='_blank'></a>
+              <a target='_blank'></a>
             </div>
           </div>
           <div className='reBtnDiv'>
@@ -157,22 +144,18 @@ const Main = () => {
             </button>
           </div>
         </div>
-        : isLogin && !openMypage ?
+        : isLogin && !openMypage ? // 로그인 안했고, 마이페이지 버튼도 안눌렀을때
          <>
 
-          { history.push({
-            pathname : '/loginmain',
-            state : {
-              qrImg: qrImg,
-              setQrImg: setQrImg,
-              qrRequestHandler: qrRequestHandler,
-              accessToken: accessToken,
-              userinfo: userinfo,
-              setUserinfo: setUserinfo,
-              setErrorMessage: setErrorMessage,
-              randomurl : randomurl
-            }
-          })}
+          <LoginMain 
+            closeModal={closeModal}
+            qrImg={qrImg}
+            setQrImg={setQrImg}
+            qrRequestHandler={qrRequestHandler}
+            accessToken={accessToken}
+            userinfo={userinfo}
+            setUserinfo={setUserinfo}
+           /> 
 
          </>
         : 

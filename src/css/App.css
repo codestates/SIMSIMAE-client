@@ -52,21 +52,21 @@ input::placeholder {
 .invisible-div{
   display: none;
 }
-
 .toggle-input{
   height: 0;
   width: 0;
-}
+  border: none;
 
+}
 .toggle-div{
+  z-index: 0;
   display: flex;
   justify-content: center;
-  margin-left: 150px;
-  margin-bottom: 30px;
+  margin-left: 160px;
 }
-
 .toggle-label {
   cursor: pointer;
+  text-indent: -9999px;
   width: 70px;
   height: 35px;
   background: grey;
@@ -76,6 +76,7 @@ input::placeholder {
 }
 
 .toggle-label:after {
+
   content: '';
   position: absolute;
   top: 5px;
@@ -103,7 +104,6 @@ input::placeholder {
 
   width: 100px;
 }
-  
 
   .logo_image {
     cursor: pointer;
@@ -395,6 +395,21 @@ input::placeholder {
   justify-content: center;
 }
 
+.dropUserBtn{
+  cursor: pointer;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-light);
+  margin-bottom: 100px;
+}
+.dropUserBtn:hover{
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
 /* 반응형 작업 */
 
 /* PC (해상도 1024px)*/
