@@ -21,6 +21,7 @@ const Main = () => {
   const [toggleOn, setToggleOn ] = useState();
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
+  const [randomurl , setRandomUrl] = useState('');
   
   // 이메일 상태값 변경
   function emailHandler(e) {
@@ -32,9 +33,14 @@ const Main = () => {
   };
   // qr요청 핸들러
   const qrRequestHandler = () => {
-    return axios.get('http://13.209.10.136/url')
+    return axios.get('http://www.simsimae-server.site/url')
     .then((res) => {
       setQrImg(res.data)
+      let qrUrl = res.data;
+      let urlStr = qrUrl.split('chl=');
+      let url = urlStr[1];
+      setRandomUrl(url)
+      console.log('뭐야왱')
     })
   }; 
   // 일반 로그인 버튼 클릭 시 로그인
@@ -132,7 +138,7 @@ const Main = () => {
           <div className="qrRender">
             <div className='center-qr'>
               <img src={qrImg} alt=''/>
-              <a href='http://www.naver.com' target='_blank'></a>
+              <a href={randomurl} target='_blank'></a>
             </div>
           </div>
           <div className='reBtnDiv'>
@@ -152,6 +158,7 @@ const Main = () => {
             userinfo={userinfo}
             setUserinfo={setUserinfo}
             setErrorMessage={setErrorMessage}
+            randomurl={randomurl}
            /> 
          </>
         : 
