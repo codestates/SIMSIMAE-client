@@ -4,7 +4,7 @@ import "../css/App.css";
 import Ddabong from "../components/Ddabong"
 import axios from "axios";
 
-const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken}) => {
+const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, randomurl}) => {
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
   const [userQrImg, setUserQrImg ] = useState(null);
@@ -91,7 +91,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       //토글 꺼진 QR
         <>
         <div className="user-qrRender">
-          <a href='http://www.naver.com' target='_blank'>
+          <a href={randomurl} target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
         </div>
@@ -105,8 +105,8 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       toggleOn && !isRefreshed ? // 토글 on, 리프레시 버튼 안눌렀을때
       <div>
         <div className="user-qrRender">
-          <p>리프레시를 눌러주세요</p>
-          <a href='http://www.naver.com' target='_blank'>
+          <p>리프레시를 눌러주세요!</p>
+          <a href={randomurl} target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
           <div>
@@ -123,8 +123,8 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       //토글 켜진 QR
       <div>
         <div className="user-qrRender">
-          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요</p>
-          <a href='http://www.naver.com' target='_blank'>
+          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요!</p>
+          <a href={userQrImg} target='_blank'>
             <img src={`https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=${userQrImg}`} alt=''/>
           </a>
           <div>
