@@ -40,6 +40,10 @@ _"뭐하지?"_
 
 <br>
 
+# [Wiki바로가기](https://github.com/codestates/SIMSIMAE-client/wiki/1.-%5BHome%5D)
+
+<br>
+
 ## 어떤 일을 하였나요?
 
 
