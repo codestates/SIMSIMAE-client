@@ -170,7 +170,7 @@ const Main = () => {
               accessToken: accessToken,
               userinfo: userinfo,
               setUserinfo: setUserinfo,
-              setErrorMessage: setErrorMessage
+              setErrorMessage: setErrorMessage,
               randomurl : randomurl
             }
           })}
