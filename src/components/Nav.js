@@ -24,7 +24,11 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
   }
   // 로고 클릭 시 메인으로 이동
   const clickLogo = () => {
-    window.location.replace("/");
+    if(isLogin === true){
+      history.push("/loginmain")
+    }else{
+      window.location.replace("/");
+    }
   }
 
   return (

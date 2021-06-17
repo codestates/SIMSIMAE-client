@@ -1,19 +1,12 @@
-import React, { useState } from "react";
-import { Link, withRouter, useHistory } from "react-router-dom";
-import { GoogleLogin } from 'react-google-login';
-
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import "../css/modal.css";
+import { useHistory } from "react-router";
+
 const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, loginClickHandler}) => {
-
-  const [googleuseremail, setGoogleuseremail ] = useState('');
-  const [googleusername, setGoogleusername ] = useState('');
-  const [isGoogleLogin, setIsGoogleLogin] = useState(false);
-  const [movePage, setMovePage ] = useState(false);
-
-  let history = useHistory();
-
+  const history = useHistory();
   return (
-    <> 
+    <>
       {isOpen ? (
         <div className="modal">
           <div>
@@ -36,15 +29,12 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                   placeholder="비밀번호"
                   onChange={(e) => passwordHandler(e)}
                 />
-                <div className="loginMid">
-                  <div className="autoLogin">아이디/비밀번호 찾기</div>
-                </div>
                 <button className="loginBtn" onClick={() => loginClickHandler()}>
                   로그인
                 </button>
-                <div className="loginEnd">
-                  <Link to='/signup'>일반 회원가입</Link>
-                </div>
+                <button className="loginEnd" onClick={() => history.push('/signup')}>
+                  회원가입
+                </button>
                 {errorMessage === '' ? <div className="alert-box"></div> :
                   <div className="alert-box">이메일과 비밀번호를 확인해주세요</div>
                   }

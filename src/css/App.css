@@ -306,7 +306,9 @@ input::placeholder {
   background-color: var(--white-color-light);
   margin-bottom: 100px;
 }
+
 .signupBtn:hover,
+.loginEnd:hover,
 .loginBtn:hover {
   color: var(--white-color);
   background-color: var(--primary-color);
