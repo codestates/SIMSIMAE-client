@@ -4,7 +4,7 @@ import FavoriteCheck from "../components/FavoriteCheck";
 import '../css/Like.css';
 import axios from 'axios';
 import logo from '../img/SIMSIMAE-logo.png';
-import { useLocation, useHistory } from "react-router";
+import { useLocation } from "react-router";
 
 const LikeForm = (props) => {
   let history = useHistory();
@@ -17,7 +17,6 @@ const LikeForm = (props) => {
   const [userlocation , setLocation ] = useState(null);
   const [checkedItems, setCheckedItems] = useState(new Set([]));
 
-  let history = useHistory();
 
   const checkedItemHandler = (value, isChecked) => {
     if (isChecked) {
