@@ -1,15 +1,37 @@
+import axios from "axios";
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 
 const Account = ({ userinfo }) => {
- 
+  const history = useHistory();
   const user = userinfo.userInfo;
+
+  //회원 탈퇴 로직
+  const dropUser = () => {
+    const userPsw = prompt('비밀번호를 입력하세요', '');
+    console.log('userPsw', userPsw)
+    axios.post('http://www.simsimae-server.site/user/drop', {
+      email: user.email, password:userPsw
+    })
+    .then(res => {
+      console.log('status', res.status)
+      if(res.status === 200) {
+        alert('회원 탈퇴가 완료되었습니다.')
+        return history.push('/')
+      }
+    })
+    .catch(err => {
+      alert('비밀번호가 일치하지 않습니다.')
+    })
+  }
+
+  //form태그 div로 변경했음
   return(
     <>
     {console.log('userinfo::::',user)}
       <div className='tabForm'>
         <div className='accountDiv'>
-          <form className='disablelForm'>
+          <div className='disablelForm'>
           <h2 className='accountTitle'>내 계정</h2>
             <div className='accountUl'>
               <div className='accountNameLi'>
@@ -64,9 +86,9 @@ const Account = ({ userinfo }) => {
                   <option value='5'>50대 이상</option>
                 </select>
               </div>
-              
+              <button onClick={() => dropUser()}>회원탈퇴</button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
