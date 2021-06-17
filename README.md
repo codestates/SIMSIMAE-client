@@ -1,6 +1,6 @@
 # 프로젝트 소개
 
-# LOGO
+#  🧡  LOGO
 
 <img src = https://user-images.githubusercontent.com/78632904/122333122-a23c1500-cf72-11eb-9ffe-f399adbeba0a.png width="400px">
 
@@ -8,7 +8,7 @@
 
 <br>
 
-# About 
+# 💛 About 
 
 <br>
 
@@ -34,7 +34,7 @@ _"뭐하지?"_
 
 <br>
 
-# 팀 소개 
+# 🐣 팀 소개 
 
 <img src = https://user-images.githubusercontent.com/78632904/121001632-737dac00-c7c6-11eb-809e-bf16ef783799.png width="400px">
 
@@ -44,7 +44,7 @@ _"뭐하지?"_
 
 <br>
 
-## 어떤 일을 하였나요?
+## 💁🏻‍♀️ 어떤 일을 하였나요?
 
 
 
@@ -106,7 +106,7 @@ AWS 배포(공통) (EC2, S3, RDS, Route53)-> 하루에 한번 씩 번갈아가�
 <br>
 <hr>
 
-# 기능구현 시연영상 
+# 👀 기능구현 시연영상 
 
 ## 1. 비회원 유저 랜덤 QR   
 
@@ -135,7 +135,7 @@ https://user-images.githubusercontent.com/78632904/122400204-7773b000-cfb6-11eb-
 <hr>
 
 
-# FlowChart
+# 😎 FlowChart
 
 ![workFlow](https://user-images.githubusercontent.com/78632904/121190319-e578f280-c8a5-11eb-869f-db4071111d01.jpeg)
 
@@ -157,9 +157,10 @@ https://user-images.githubusercontent.com/78632904/122400204-7773b000-cfb6-11eb-
 
 <br>
 
-# Tech Stack(기술 스택)
+# 🛠 Tech Stack(기술 스택)
 
-![unknown](https://user-images.githubusercontent.com/78632904/122419046-9d548100-cfc5-11eb-87fb-678e7555dbd8.png)
+![to](https://user-images.githubusercontent.com/78632904/122420536-b90c5700-cfc6-11eb-869c-cc96be51db8c.png)
+
 
 <br>
 
