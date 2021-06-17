@@ -3,8 +3,12 @@ import { withRouter, useHistory } from "react-router-dom";
 import "../css/App.css";
 import Ddabong from "../components/Ddabong"
 import axios from "axios";
+import { useLocation } from "react-router";
 
-const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken}) => {
+const LoginMain = (props) => {
+  const uselocation = useLocation();
+  const {qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, email, name} = uselocation.state; 
+  
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
   const [userQrImg, setUserQrImg ] = useState(null);
@@ -22,6 +26,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       let qrUrl = res.data;
       let urlStr = qrUrl.split('chl=');
       let url = urlStr[1];
+      
       setUserQrImg(url)
       setIsRefreshed(true)
       console.log('유저용 관심사 qr 얻어오기 핸들러 ::',userQrImg)
@@ -73,7 +78,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     }).catch((err) => console.log(err))
   }
 
-  closeModal()
+
   return(
     
     <div className="body">
