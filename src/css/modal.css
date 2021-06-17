@@ -80,17 +80,22 @@ input::placeholder {
   background-color: #ffffff;
   color: #f57c00;
   line-height: 1px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 12px;
   border-radius: 50px;
 }
 
-.google {
-  justify-content: center;
-}
 
 .loginEnd {
-  margin-top: 50px;
+  border : 2px solid #f57c00;
+  height: 40px;
+  font-size: 14px;
+  padding: 13px 30px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #f57c00;
+  border-radius: 50px;
+  line-height: 1px;
   text-align: center;
   font-size: 15px;
 }

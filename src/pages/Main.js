@@ -50,6 +50,7 @@ const Main = () => {
         console.log('로그인성공!!!',res)
         let acTokenPath = res.data.data.accessToken;
         console.log(res.data.data)
+
         setAccessToken(`Bearer ${acTokenPath}`);
         setIsLogin(true);
         qrRequestHandler();
