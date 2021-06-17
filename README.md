@@ -50,7 +50,7 @@ _"뭐하지?"_
 
 ## 송원준   
 
-Position: Front-end.  
+### Position: Front-end 
 UI design 참고 (1,2,4 페이지) 8페이지는 공통.  
 
 
@@ -59,13 +59,13 @@ UI design 참고 (1,2,4 페이지) 8페이지는 공통.
 
 ## 유나라 (팀장)
 
-Position: Back-end.    
+### Position: Back-end  
 공통작업 : 데이터베이스 구축, sequlize로 스키마 생성 / Front-end : 회원가입 관심사 수집 및 가입, 회원탈퇴   
 개별작업 ; url데이터취합(50개)   
 API작성(개별) : /login , /logout, /signup , /dislike.      
 API작성(공통) : /updateCategory, /updateLikeQr, /userUrl, /url, /drop, /googleLogin.  
 
-배포(공통).     
+AWS 배포(공통) (EC2, S3, RDS, Route53)-> 하루에 한번 씩 번갈아가며 배포 최신화 작업진행       
 
 
 
@@ -74,21 +74,21 @@ API작성(공통) : /updateCategory, /updateLikeQr, /userUrl, /url, /drop, /goog
 
 ## 이혜빈
 
-Position: Back-end.  
+### Position: Back-end
 공통작업 : 데이터베이스 구축, sequlize로 스키마 생성 / Front-end : 회원가입 관심사 수집 및 가입, 회원탈퇴.  
 개별작업 : url데이터취합(50개)   
 API작성(개별) : /refreshToken request, /info, /conflictEmail, /like.  
 API작성(공통) : /updateCategory, /updateLikeQr, /userUrl, /url, /drop, /googleLogin.  
   
 
-배포(공통).  
+AWS 배포(공통) (EC2, S3, RDS, Route53)-> 하루에 한번 씩 번갈아가며 배포 최신화 작업진행        
 
 
 <img src =https://user-images.githubusercontent.com/78632904/122380899-4e95ef80-cfa3-11eb-8a0b-fa73493c4a3a.jpg width="400px">
 
 ## 조미현 
 
-Position: Front-end.   
+### Position: Front-end 
 공통작업 : 회원가입 : 관심사 수집 및 가입, 메인페이지 : 랜덤 QR 및 관심사 QR 렌더링.   
 개별작업 : 전반 html 마크업 및 CSS 작업, 회원가입 : 렌더링/유효성검사, 마이페이지 : 렌더링/내 계정/관심사/관심QR, 메인페이지 : 사용자 관심/비관심 QR 수집, 서버통신.   
 
@@ -130,3 +130,23 @@ https://user-images.githubusercontent.com/78632904/122400204-7773b000-cfb6-11eb-
 <br>
 <hr>
 
+
+# FlowChart
+
+![workFlow](https://user-images.githubusercontent.com/78632904/121190319-e578f280-c8a5-11eb-869f-db4071111d01.jpeg)
+
+<br>
+<hr>
+
+![Mind_Map_1](https://user-images.githubusercontent.com/78632904/122404120-ea325a80-cfb9-11eb-900b-dac9665bc46e.jpg)
+
+
+<br>
+<hr>
+
+
+![Mind_Map](https://user-images.githubusercontent.com/78632904/122404151-f0283b80-cfb9-11eb-80f7-ead8a2627f0c.jpg)
+
+
+<br>
+<hr>
