@@ -123,5 +123,10 @@ https://user-images.githubusercontent.com/78632904/122398741-21523d00-cfb5-11eb-
 
 <br>
 
+## 4. 유저 회원가입 기능   
+
+https://user-images.githubusercontent.com/78632904/122400204-7773b000-cfb6-11eb-926d-4767be718562.mov
+
+<br>
 <hr>
 
