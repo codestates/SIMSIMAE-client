@@ -54,7 +54,10 @@ const Main = () => {
         let acTokenPath = res.data.data.accessToken;
         console.log(res.data.data)
         setAccessToken(`Bearer ${acTokenPath}`);
+        //window.sessionStorage.setItem("id", true)
+        
         setIsLogin(true);
+        //getLoginStatus()
         qrRequestHandler();
       })
     }
@@ -93,9 +96,16 @@ const Main = () => {
   const closeModal = () => {
     setisModalOpen(false);
   };
- 
-
+  // const getLoginStatus = () => {
+  //   if(window.sessionStorage.getItem('id')){
+  //     setIsLogin(true)
+  //   }else{
+  //     setIsLogin(false);
+  //   }
+  // }
+  
   return (
+    
     <div>
       <div className='header'>
         <Nav

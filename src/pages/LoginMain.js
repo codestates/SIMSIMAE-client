@@ -20,8 +20,10 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     { headers : {authorization: accessToken , withCredentials: true}})
     .then((res) => {
       let qrUrl = res.data;
+      setThisUrl(qrUrl)
       let urlStr = qrUrl.split('chl=');
       let url = urlStr[1];
+      console.log(url)
       setUserQrImg(url)
       setIsRefreshed(true)
       console.log('유저용 관심사 qr 얻어오기 핸들러 ::',userQrImg)
@@ -88,7 +90,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       //토글 꺼진 QR
       <div>
         <div className="user-qrRender">
-          <a href='http://www.naver.com' target='_blank'>
+          <a href={userQrImg} target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
         </div>
@@ -113,7 +115,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       <div>
         <div className="user-qrRender">
           <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요!</p>
-          <a href='http://www.naver.com' target='_blank'>
+          <a href={userQrImg} target='_blank'>
             <img src={`https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=${userQrImg}`} alt=''/>
           </a>
           <div>

@@ -105,6 +105,7 @@
 }
   
   .logo_image {
+    cursor: pointer;
     height: 55px;
     width: 55px; 
     margin: 8px;
