@@ -17,8 +17,6 @@ const Main = () => {
   const [errorMessage , setErrorMessage ] = useState('');
   const [isModalOpen , setisModalOpen] = useState(false);
   const [openMypage, setOpenMypage] = useState(false);
-
-  const [toggleOn, setToggleOn ] = useState();
   const [isGoogleLogin, setIsGoogleLogin ] = useState(false);
   const [qrImg , setQrImg ] = useState(null);
   
@@ -35,7 +33,6 @@ const Main = () => {
     return axios.get('http://www.simsimae-server.site/url')
     .then((res) => {
       setQrImg(res.data)
-      console.log('뭐야왱')
     })
   }; 
   // 일반 로그인 버튼 클릭 시 로그인
@@ -47,9 +44,7 @@ const Main = () => {
       { email, password } ,
       {'Content-Type':'application/json', withCredentials: true }
       ).then((res) => {
-        console.log('로그인성공!!!',res)
         let acTokenPath = res.data.data.accessToken;
-        console.log(res.data.data)
         setAccessToken(`Bearer ${acTokenPath}`);
         setIsLogin(true);
         qrRequestHandler();
@@ -63,11 +58,9 @@ const Main = () => {
   }
   // login 후 회원정보 받아오기
   const handleResponseSuccess = () => {
-    console.log(accessToken)
     axios.get('http://www.simsimae-server.site/user/info',
     { headers : {authorization: accessToken , withCredentials: true}})
     .then(res => {
-      console.log('user 정보 받아오기 성공!!!', res)
       if(res.status !== 200) {
         const message = 'access token 만료. refresh token 이용바람';
         return setErrorMessage(message)
@@ -76,9 +69,8 @@ const Main = () => {
       setUserinfo(getData);
       // 마이페이지로 이동
       setOpenMypage(true)
-    }).catch(err => console.log(err));
+    })
   }
-  
   // qr다시 받기 핸들러
   const revealQr = () => {
     $(".logoRender").css('display', 'none');
@@ -95,13 +87,6 @@ const Main = () => {
   const closeModal = () => {
     setisModalOpen(false);
   };
-  // const getLoginStatus = () => {
-  //   if(window.sessionStorage.getItem('id')){
-  //     setIsLogin(true)
-  //   }else{
-  //     setIsLogin(false);
-  //   }
-  // }
   
   return (
     

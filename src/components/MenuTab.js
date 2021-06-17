@@ -21,6 +21,7 @@ const MenuTab = ({userinfo}) => {
   const [itState , setitState] = useState($('.it').is(":checked"));
   const [checkedItems, setCheckedItems] = useState(new Set([]));
 
+  // 체크박스 클릭하면 관심사 배열에 추가
   const checkedItemHandler = (value, isChecked) => {
     if (isChecked) {
       setCheckedItems([...checkedItems, value]);
@@ -31,8 +32,8 @@ const MenuTab = ({userinfo}) => {
       setCheckedItems(copy);
     }
   };
-  console.log('checked', checkedItems)
   
+  // 탭 관심사 눌렀을때 기본 관심사 불러오기
   const clickHandler = (id) => {
     setActiveTab(id)
     if( id === 1 ){
@@ -43,27 +44,15 @@ const MenuTab = ({userinfo}) => {
   // 관심사 수정 버튼 (수정<->취소,완료)
   const updateActivation = () => {
     setUpdate(!update)
-    /*
-    axios.post('http://13.209.10.136/user/updatecategory',
-      {favorite, userId}, { 'Content-Type':'application/json', withCredentials: true }
-      ).then((res) => {
-        console.log('관심QR에 저장했습니다!');
-      }).catch((err) => console.log(err)
-    */
   }
 
   // 불러온 userinfo의 체크 기본 상태 설정
   const defaultCheck = () => {
 
     let favoriteArr = ['food','sports','travel','animals','shopping','game','health','entertainment','love','it']
-    let user = userinfo.favorite; // ['food','sports','travel','animals','shopping']
-    console.log('user!!!!!!:::',user)
+    let user = userinfo.favorite;
       for(let i=0; i<user.length; i++){
-        console.log('i:::',user[i])
-
-        if( favoriteArr.includes(user[i]) ){ // 받아온 관심사에 해당이 될때 
-          // i 의 setState를 true 로 해준다.
-          //target이 food면 setfoodState가 true로
+        if( favoriteArr.includes(user[i]) ){
           switch (user[i]) {
             case 'food' : setfoodState(true)
             break;
@@ -90,12 +79,9 @@ const MenuTab = ({userinfo}) => {
       }
     }
 
-
-  
+  // 타겟에 따라 상태 반대로업데이트 함수
   const checkHandler = ({ target }) => {
     checkedItemHandler(target.value, target.checked)
-    console.log('target', target.value)
-
     switch (target.value) {
       case 'food' : setfoodState(!foodState)
       break;
@@ -149,7 +135,6 @@ const MenuTab = ({userinfo}) => {
         </div>
       </div>
       <div className="contents">
-        {/* {this.state.obj[this.state.activeTab]} */}
         {obj[activeTab]}
       </div>
       

@@ -10,9 +10,7 @@ const LikeQR = ({userinfo}) => {
   // 삭제 버튼 눌렀을 때 
   const handleQrRemove = (e) => {
     let url = e.target.value;
-    let userId = userinfo.userInfo.id
-    console.log(typeof userId)
-    console.log(typeof url)
+    let userId = userinfo.userInfo.id;
     axios.post('http://www.simsimae-server.site/user/updatelikeqr',
     { url, userId },
     {header : {withCredentials: true }})
@@ -20,12 +18,11 @@ const LikeQR = ({userinfo}) => {
       if(res.status === 200) {
         setUserUrl(userUrl.filter(el => el !== e.target.value));
       }
-    }).catch(err => console.log(err))
+    })
     e.preventDefault(); 
   }
   return(
     <>
-    {console.log('LikeQR:::',userUrl)}
       <div className='tabForm'>
         <div className='likeQRDiv'>
           <form className='disablelForm'>

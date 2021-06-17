@@ -10,14 +10,12 @@ const LikeForm = (props) => {
   let history = useHistory();
   const uselocation = useLocation();
   const { email , password, name, phone } = uselocation.state;  
-  console.log('email, password, name, phone', email, password, name, phone)
-
   const [gender , setGender ] = useState(null);
   const [age , setAge ] = useState(null);
   const [userlocation , setLocation ] = useState(null);
   const [checkedItems, setCheckedItems] = useState(new Set([]));
 
-
+  // 체크박스 클릭하면 관심사 배열에 추가
   const checkedItemHandler = (value, isChecked) => {
     if (isChecked) {
       setCheckedItems([...checkedItems, value]);
@@ -28,23 +26,19 @@ const LikeForm = (props) => {
       setCheckedItems(copy);
     }
   };
-  console.log('checked', checkedItems)
 
+  // 성별 얻어오기
   const getGender = (e) => {
-    console.log(e.target.value)
     setGender(e.target.value)
   }
-  console.log('gender', gender)
-
+  // 나이대 얻어오기
   const getAge = (e) => {
     setAge(e.target.value)
   }
-  console.log('age', age)
+  // 지역 얻어오가
   const getLocation = (e) => {
-    //console.dir(e.target)
     setLocation(e.target.value)
   }
-
   // 회원가입 버튼 클릭 시 서버통신
   const handleSignup = () => {
     
@@ -53,7 +47,6 @@ const LikeForm = (props) => {
     {'Content-Type':'application/json', withCredentials: true })
     .then(res => {
       alert('가입성공!')
-      console.log('완료res:::',res)
     }).then(res =>{
       history.push('/')
     })

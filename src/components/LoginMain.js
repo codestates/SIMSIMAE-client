@@ -12,9 +12,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
   const [userQrImg, setUserQrImg ] = useState(null);
   const [isUserLike, setIsUserLike ] = useState(false);
   const [isUserDislike, setIsUserDislike ] = useState(false);
-  const [thisUrl , setThisUrl] = useState('')
-  const [user, setUser] = useState([]);
-
+  const [thisUrl , setThisUrl] = useState('');
 
   // 유저용 관심사 qr 얻어오기 핸들러 
   const userQrRequestHandler = () => {
@@ -30,7 +28,6 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       setIsRefreshed(true)
       setIsUserLike(false)
       setIsUserDislike(false)
-      console.log('유저용 관심사 qr 얻어오기 핸들러 ::',userQrImg)
     })
   }
   // 토글 상태 껐다 켰다 -> 처음 토글 켰을 때 유저 정보 받아오기 
@@ -39,51 +36,40 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     axios.get('http://13.209.10.136/user/info',
     { headers : {authorization: accessToken , withCredentials: true}})
     .then(res => {
-      console.log('user 정보 받아오기 성공!!!', res)
       if(res.status !== 200) {
         const message = 'access token 만료. refresh token 이용바람';
         setErrorMessage(message)
       }
       const getData = res.data;
       setUserinfo(getData);
-     
-    }).catch(err => console.log(err))
+    })
   }
   // like 누른 url 서버로 보내기 
   const likeSelect = () => {
 
     let url = userQrImg;
     let userId = userinfo.userInfo.id;
-    console.log('#@@@url::',url);
-    console.log('#@@@userinfo.userInfo.id::',userId);
     axios.post('http://13.209.10.136/url/like',
     {userId, url},
     { withCredentials: true }
     ).then((res) => {
-      console.log('관심QR에 저장했습니다!')
       setIsUserLike(true);
-    }).catch((err) => console.log(err))
+    })
   }  
-
   // dislike 누른 url 서버로 보내기 
   const dislikeSelect = () => {
     let url = userQrImg;
     let userId = userinfo.userInfo.id;
-    console.log('#@@@userinfo.userInfo.id::',userId);
     axios.post('http://www.simsimae-server.site/url/dislike',
     {userId, url},
     { withCredentials: true }
     ).then((res) => {
-      console.log('관심없는 QR에 저장했습니다!')
       setIsUserDislike(true);
-    }).catch((err) => console.log(err))
+    })
   }
-
   return(
     
     <div className="body">
-      {/* // 토글 부분 */}
-      
         <div className='toggle-div'>
           <input className='toggle-input' type="checkbox" id="switch"/>
           <label className='toggle-label'htmlFor="switch" onClick={() => {toggleStatus()}}></label>
