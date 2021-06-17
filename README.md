@@ -96,4 +96,32 @@ Position: Front-end.
 <br>
 
 ## DB schema
-![unknown](https://user-images.githubusercontent.com/78632904/122345544-edf6ba80-cf82-11eb-83ee-e6ab6031de5f.png)
+![unknown](https://user-images.githubusercontent.com/78632904/122345544-edf6ba80-cf82-11eb-83ee-e6ab6031de5f.png)   
+
+
+<br>
+<hr>
+
+# 기능구현 시연영상 
+
+## 1. 비회원 유저 랜덤 QR   
+
+https://user-images.githubusercontent.com/78632904/122397738-367a9c00-cfb4-11eb-9e0c-26382814106c.mov>
+
+<br>.  
+
+## 2. 회원 유저 랜덤 QR (관심/비관심으로 나누고 좋아요/싫어요로 관심QR 마이페이지에 저장 가능 ).  
+
+
+https://user-images.githubusercontent.com/78632904/122398404-d0424900-cfb4-11eb-8e85-e5aaa75e695d.mov
+
+<br>.   
+
+## 3. 회원 유저 마이페이지 계정 확인 및 관심사 수정 및 좋아요한 관심QR 확인 및 삭제 가능   
+
+https://user-images.githubusercontent.com/78632904/122398741-21523d00-cfb5-11eb-9cb4-e9169f0e0407.mov   
+
+<br>
+
+<hr>
+
