@@ -47,7 +47,8 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
       : isLogin && !openMypage ? 
       <>
         <img className='logo_image' src={logo} alt="center_Logo" sizes="10px" onClick={() => clickLogo()}  />
-        <button onClick={() => handleResponseSuccess()} className='loginModalBtn' >mypage</button>
+        <button onClick={() => handleResponseSuccess()} className='mypageBtn' >mypage</button>
+
         <button onClick={() => logOut()} className='loginModalBtn' >로그아웃</button>
       </>
       : 
