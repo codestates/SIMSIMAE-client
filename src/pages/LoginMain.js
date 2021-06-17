@@ -8,7 +8,7 @@ import { useLocation } from "react-router";
 const LoginMain = (props) => {
   
   const uselocation = useLocation();
-  const {qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, email, name} = uselocation.state; 
+  const {randomurl, qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, email, name} = uselocation.state; 
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
   const [userQrImg, setUserQrImg ] = useState(null);
@@ -111,7 +111,7 @@ const LoginMain = (props) => {
       toggleOn && !isRefreshed ? // 토글 on, 리프레시 버튼 안눌렀을때
       <div>
         <div className="user-qrRender">
-          <p>리프레시를 눌러주세요!</p>
+          <p>리프레시를 눌러주세요</p>
           <a href={userQrImg} target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
@@ -129,7 +129,7 @@ const LoginMain = (props) => {
       //토글 켜진 QR
       <div>
         <div className="user-qrRender">
-          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요!</p>
+          <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요</p>
           <a href={userQrImg} target='_blank'>
             <img src={`https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=${userQrImg}`} alt=''/>
           </a>
