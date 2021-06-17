@@ -154,3 +154,13 @@ https://user-images.githubusercontent.com/78632904/122400204-7773b000-cfb6-11eb-
 
 <br>
 <hr>
+
+<br>
+
+# Tech Stack(기술 스택)
+
+![unknown](https://user-images.githubusercontent.com/78632904/122419046-9d548100-cfc5-11eb-87fb-678e7555dbd8.png)
+
+<br>
+
+<hr>
