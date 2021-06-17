@@ -1,11 +1,9 @@
-import React ,{ useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 
 
-const Interest = ({checkHandler, updateActivation, update,
-  foodState, sportsState,travelState,animalsState, shoppingState, gameState,healthState
-  ,entertainmentState,loveState,itState
-}) => {
+const Interest = ({checkHandler, updateActivation, update, foodState, sportsState,travelState, animalsState,
+   shoppingState, gameState,healthState, entertainmentState,loveState,itState }) => {
 
   // form태그 새로고침 방지 함수
   const handleSubmit = (e)=>  {

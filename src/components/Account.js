@@ -9,12 +9,10 @@ const Account = ({ userinfo }) => {
   //회원 탈퇴 로직
   const dropUser = () => {
     const userPsw = prompt('비밀번호를 입력하세요', '');
-    console.log('userPsw', userPsw)
     axios.post('http://www.simsimae-server.site/user/drop', {
       email: user.email, password:userPsw
     })
     .then(res => {
-      console.log('status', res.status)
       if(res.status === 200) {
         alert('회원 탈퇴가 완료되었습니다.')
         return history.push('/')
@@ -25,10 +23,8 @@ const Account = ({ userinfo }) => {
     })
   }
 
-  //form태그 div로 변경했음
   return(
     <>
-    {console.log('userinfo::::',user)}
       <div className='tabForm'>
         <div className='accountDiv'>
           <div className='disablelForm'>

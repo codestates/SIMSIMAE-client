@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom";
 
 const FavoriteCheck = ({checkedItemHandler}) => {
 
+// 선택한 도큐먼트 타겟 값 가져오기
 const checkHandler = ({ target }) => {
-  console.log('target', target.value)
   checkedItemHandler(target.value, target.checked);
 };
 

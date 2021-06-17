@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter , Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import logo from '../img/SIMSIMAE-logo.png';
 import { isEmail, isPassword, isName, isPhone } from '../js/regExp';
 import { useHistory } from "react-router";
@@ -10,10 +10,8 @@ import axios from "axios";
 import LikeForm from "../pages/LikeForm";
 
 const Signup = () => {
-  
-  
-  const history = useHistory();
 
+  const history = useHistory();
   const [email , setEmail ] = useState('');
   const [emailCheck , setEmailCheck ] = useState(false);
   const [password , setPassword ] = useState('');
@@ -49,16 +47,13 @@ const Signup = () => {
       {'Content-Type':'application/json', withCredentials: true })
       .then(res => {
         alert('사용가능한 이메일 입니다.')
-        console.log('중복체크 res:::',res)
         setEmailCheck(true)
       }).catch(err => {
         alert('이미 존재하는 이메일 입니다.')
-        console.log('에러:::',err)
         setEmailCheck(false)
       })
     }else {
       alert('사용할 이메일을 입력해주세요.')
-      console.log('잉?')
     }
   }
 

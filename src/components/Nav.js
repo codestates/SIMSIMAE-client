@@ -11,17 +11,18 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
 
   let history = useHistory();
   
+  // 로그아웃 핸들러
   const logOut = () => {
     axios.post('http://www.simsimae-server.site/user/logout', 
       { accessToken } ,
       { 'Content-Type':'application/json', withCredentials: true }
     ).then((res) => {
-      console.log('로그아웃성공:::')
       setIsLogin(false);
       setUserinfo(null);
       history.push("/")
     })    
   }
+  // 로고 클릭 시 메인으로 이동
   const clickLogo = () => {
     if(isLogin === true){
       history.push("/loginmain")
@@ -29,16 +30,6 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
       window.location.replace("/");
     }
   }
-  const userClickLogo = () => {
-
-  }
-
-  // 구글로그아웃
-  const googleLogout = () => {
-    setIsGoogleLogin(false);
-    console.log('로그아웃성공:::')
-  }
-
 
   return (
     <>
@@ -60,15 +51,6 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
       </>
       }
       
-      {/* <button onClick={() => logOut()} className='logoutBtn' >로그아웃</button> 
-      isGoogleLogin ?
-          
-        <GoogleLogout
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Logout"
-          onLogoutSuccess={googleLogout}
-        /> :<button onClick={() => openModal()} className='loginModalBtn' >로그인</button> */}
-      
       <Login isOpen={isModalOpen} 
         close={closeModal} 
         setIsGoogleLogin={setIsGoogleLogin}
@@ -77,8 +59,7 @@ const Nav = ({setUserinfo, openMypage, errorMessage, emailHandler, passwordHandl
         passwordHandler={passwordHandler} 
         loginClickHandler={loginClickHandler}
         errorMessage={errorMessage} />
-
-    </>
+      </>
   )
 }
  

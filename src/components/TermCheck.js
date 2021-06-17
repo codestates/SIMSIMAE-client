@@ -1,9 +1,8 @@
-import React, { useState,  } from "react";
-import { withRouter, useHistory  } from "react-router-dom";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 
 
 const TermCheck = (props) => {
-  let history = useHistory();
   const [allCheck , setAllcheck] = useState(false);
   const [requierCheck1 , setRequierCheck1] = useState(false);
   const [requierCheck2 , setRequierCheck2] = useState(false);
@@ -28,6 +27,7 @@ const TermCheck = (props) => {
  
   };
 
+  // 약관 동의 체크 1
   const check1Handler = () => {
     setRequierCheck1(!requierCheck1)
     if(requierCheck1){
@@ -35,6 +35,7 @@ const TermCheck = (props) => {
     }
   }
 
+  // 약관 동의 체크 2
   const check2Handler = () => {
     setRequierCheck2(!requierCheck2)
     if(requierCheck2){
@@ -42,6 +43,7 @@ const TermCheck = (props) => {
     }
   }
 
+   // 약관 동의 체크 3
   const optionCheckHandler = () => {
     setOptionCheck(!optionCheck)
     if(optionCheck){
@@ -49,6 +51,7 @@ const TermCheck = (props) => {
     }
   }
   
+  // 다음으로 넘어가는 버튼
   const handleNextBtn = () => {
     //this.props.history.push("/likeForm");
     if(!props.isValidEmail || !props.isValidPassword || !props.isPwdDoubleCk || !props.isValidName || !props.isValidPhone ) {
