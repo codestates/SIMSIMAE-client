@@ -104,7 +104,7 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                   <Link to='/signup'>일반 회원가입</Link>
                 </div>
                 {errorMessage === '' ? <div className="alert-box"></div> :
-                  <div className="alert-box">이메일과 비밀번호를 입력하세요</div>
+                  <div className="alert-box">이메일과 비밀번호를 확인해주세요</div>
                   }
               </h1>
             </div>
