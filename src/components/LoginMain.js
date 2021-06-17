@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../css/App.css";
-import Ddabong from "../components/Ddabong"
+import Ddabong from "./Ddabong"
 import axios from "axios";
 import { useLocation } from "react-router";
 
-const LoginMain = (props) => {
+const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken}) => {
   
-  const uselocation = useLocation();
-  const {randomurl, qrImg, qrRequestHandler, setErrorMessage, closeModal, userinfo, setUserinfo, accessToken, email, name} = uselocation.state; 
   const [toggleOn, setToggleOn ] = useState(false);
   const [isRefreshed, setIsRefreshed] = useState(false);
   const [userQrImg, setUserQrImg ] = useState(null);
@@ -81,7 +79,6 @@ const LoginMain = (props) => {
     }).catch((err) => console.log(err))
   }
 
-
   return(
     
     <div className="body">
@@ -97,7 +94,7 @@ const LoginMain = (props) => {
       //토글 꺼진 QR
         <>
         <div className="user-qrRender">
-          <a href={randomurl} target='_blank'>
+          <a target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
         </div>
@@ -112,7 +109,7 @@ const LoginMain = (props) => {
       <div>
         <div className="user-qrRender">
           <p>리프레시를 눌러주세요</p>
-          <a href={userQrImg} target='_blank'>
+          <a target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
           <div>
@@ -130,7 +127,7 @@ const LoginMain = (props) => {
       <div>
         <div className="user-qrRender">
           <p>좋아요 or 싫어요 누른 후 리프레시를 눌러주세요</p>
-          <a href={userQrImg} target='_blank'>
+          <a target='_blank'>
             <img src={`https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=${userQrImg}`} alt=''/>
           </a>
           <div>
