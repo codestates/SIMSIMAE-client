@@ -20,34 +20,51 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
 
    // Google Login
    const responseGoogle = async (res) => {
-    setIsGoogleLogin(true);
-    console.log('성공:::',res)
+    //console.log('성공:::',res)
     setGoogleuseremail(res.profileObj.email)
-    setGoogleusername(res.profileObj.email)
+    setGoogleusername(res.profileObj.name)
     setGoogleaccesstoken(res.accessToken)
+  
+    //setMovePage(true)
     await axios.post('http://www.simsimae-server.site/user/googlelogin', 
-      
+      {email: res.profileObj.email, name: res.profileObj.name}
     )
-    setMovePage(true)
+    .then(res => {
+      //console.log('DB확인용 응답', res)
+      setIsGoogleLogin(true) //loginmain
+    })
+    .catch(err => {
+      setMovePage(true) //likeform 
+    })
   }
-// Login Fail
+  console.log('movePage', movePage)
+  console.log('isGoogle', isGoogleLogin)
+  // Login Fail
   const responseFail = (err) => {
     console.error('에러:::',err);
   }
 
   return (
     <> 
-    { movePage ? 
+    { movePage && !isGoogleLogin ? 
       <>
       { history.push({
          pathname : '/likeform',
          state : {email: googleuseremail, name: googleusername}
        })}
       </>
-       : 
+      : 
       <>
-       {isOpen ? (
-
+      {isGoogleLogin && !movePage ? 
+        <>
+        { history.push({
+           pathname : '/loginmain',
+           state : {email: googleuseremail, name: googleusername}
+         })}
+        </>   
+      : 
+      <>
+      {isOpen ? (
         <div className="modal">
           <div>
             <div className="loginModal">
@@ -62,7 +79,6 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                   placeholder="아이디"
                   onChange={(e) => emailHandler(e)}
                 />
-
                 <input
                   name="password"
                   className="loginPw"
@@ -70,15 +86,12 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                   placeholder="비밀번호"
                   onChange={(e) => passwordHandler(e)}
                 />
-
                 <div className="loginMid">
                   <div className="autoLogin">아이디/비밀번호 찾기</div>
                 </div>
-
                 <button className="loginBtn" onClick={() => loginClickHandler()}>
                   로그인
                 </button>
-
                 <GoogleLogin
                   className='google'
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -87,11 +100,9 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
                   onFailure={responseFail}
                   cookiePolicy={'single_host_origin'}
                 />
-
                 <div className="loginEnd">
                   <Link to='/signup'>일반 회원가입</Link>
                 </div>
-
                 {errorMessage === '' ? <div className="alert-box"></div> :
                   <div className="alert-box">이메일과 비밀번호를 입력하세요</div>
                   }
@@ -99,11 +110,18 @@ const Login = ({errorMessage, isOpen, close, emailHandler, passwordHandler, logi
             </div>
           </div>
         </div>
-      ) : null} 
+      ) 
+      : 
+      null} 
       </>
-  } </>
+      }
+      </> 
+    }
+
+    </>
   );
 }
+
 
 
 export default withRouter(Login);

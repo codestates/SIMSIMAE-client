@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import Nav from '../components/Nav';
 import LoginMain from './LoginMain'
 import logo from '../img/simsimae_logo.png';
@@ -8,7 +8,7 @@ import axios from 'axios';
 import Mypage from "../components/Mypage";
 
 const Main = () => {
-  
+  const history = useHistory();
   const [email , setEmail ] = useState('');
   const [password , setPassword ] = useState('');
   const [accessToken , setAccessToken] = useState('');
@@ -53,10 +53,6 @@ const Main = () => {
       {'Content-Type':'application/json', withCredentials: true }
       ).then((res) => {
         console.log('로그인성공!!!',res)
-        if(res.status !== 200) {
-          const message = '로그인 안됌! 물러나.';
-          return setErrorMessage(message)
-        }
         let acTokenPath = res.data.data.accessToken;
         console.log(res.data.data)
         setAccessToken(`Bearer ${acTokenPath}`);
@@ -65,6 +61,11 @@ const Main = () => {
         setIsLogin(true);
         //getLoginStatus()
         qrRequestHandler();
+        closeModal()
+      })
+      .catch(err => {
+          const message = '로그인 안됌! 물러나.';
+          return setErrorMessage(message)
       })
     }
   }
@@ -159,17 +160,21 @@ const Main = () => {
         </div>
         : isLogin && !openMypage ?
          <>
-          <LoginMain 
-            closeModal={closeModal}
-            qrImg={qrImg}
-            setQrImg={setQrImg}
-            qrRequestHandler={qrRequestHandler}
-            accessToken={accessToken}
-            userinfo={userinfo}
-            setUserinfo={setUserinfo}
-            setErrorMessage={setErrorMessage}
-            randomurl={randomurl}
-           /> 
+
+          { history.push({
+            pathname : '/loginmain',
+            state : {
+              qrImg: qrImg,
+              setQrImg: setQrImg,
+              qrRequestHandler: qrRequestHandler,
+              accessToken: accessToken,
+              userinfo: userinfo,
+              setUserinfo: setUserinfo,
+              setErrorMessage: setErrorMessage
+              randomurl : randomurl
+            }
+          })}
+
          </>
         : 
          <Mypage userinfo={userinfo} /> 
