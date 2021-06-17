@@ -104,12 +104,258 @@ input::placeholder {
   width: 100px;
 }
   
-.logo_image {
-  height: 55px;
-  width: 55px; 
-  margin: 8px;
-  margin-left: 12px;
-}
+
+  .logo_image {
+    cursor: pointer;
+    height: 55px;
+    width: 55px; 
+    margin: 8px;
+    margin-left: 12px;
+  }
+  
+  /* .loginBtnwrap{
+    width: 20%;
+    right: 0%;
+    position: absolute;
+    float: right;
+  } */
+  .logoutBtn{
+    cursor: pointer;
+    height: 20px;
+    width: 70px;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    background-color: var(--white-color-light);
+  }
+  .logoutBtn:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .loginModalBtn{ 
+    cursor: pointer;
+    height: 20px;
+    width: 70px;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    background-color: var(--white-color-light);
+  }
+  
+  .loginModalBtn:hover {
+    color: var(--black-color);
+    background-color: var(--secondary-color);
+  }
+  
+  .header{
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .body{
+    margin-top: 200px;
+    position: static;
+    text-align: center;
+    height: 60vh;
+  }
+  
+  .center-logo{
+    height: 200px;
+    width: 200px;
+  }
+  
+  .qrBtn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+  }
+  .qrBtn:hover{
+    cursor: pointer;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .copyright{
+    color: #999999;
+    font-size: 12px;
+  }
+  
+  .qrRender{
+    position: static;
+    text-align: center;
+    height: 60vh;
+    display: none;
+    margin: 0;
+  }
+  
+  .center-qr{
+    display: flex;
+    justify-content: center;
+    display: none;
+  }
+  
+  .user-refreshBtn{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+  }
+  .user-refreshBtn:hover{
+    cursor: pointer;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .user-reBtnDiv {
+    display: flex;
+    justify-content: center;
+  }
+  .refreshBtn{
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+  }
+  .refreshBtn:hover{
+    cursor: pointer;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .reBtnDiv {
+    display: flex;
+    justify-content: center;
+  }
+  .user-qrRender{
+    position: static;
+    text-align: center;
+    height: 60vh;
+    display: block;
+    margin: 0;
+  }
+  
+  .user-center-qr{
+    display: flex;
+    justify-content: center;
+    display: block;
+  }
+  
+  /* 미현 작업 */
+  
+  .logo {
+    margin-top: 70px;
+    width: 100px;
+  }
+  
+  .signForm {
+    display: flex;
+    flex-direction: column;
+    color: #1b1b1b;
+    font-weight: var(--font-size-700);
+    font-size: 17px;
+    width: 400px;
+  }
+  
+  .signTitle{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  .signupBtn {
+    cursor: pointer;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color-light);
+    margin-bottom: 100px;
+  }
+  .signupBtn:hover,
+  .loginBtn:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+  
+  .termForm {
+    color: #1b1b1b;
+    font-weight: var(--font-size-400);
+    font-size: 15px;
+  }
+  
+  .termsCheckbox{
+    margin-right: 10px;
+    width: 20px;
+  }
+  
+  .termDiv {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+  }
+  
+  .allCheck{
+    margin-top: 20px;
+    font-weight: var(--font-size-700);
+    font-size: 17px;
+  }
+  
+  .footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .warning{
+    border: 2px solid red;
+  }
+  .pass {
+    border : 2px solid green;
+  }
+  
+  .emailDoubleCheck{
+    margin-left: 5px;
+    width: 80px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+  .emailBox{
+    display: flex;
+  }
+  .emailDoubleCheck:hover{
+    cursor: pointer;
+    background-color: #f57c00;
+    color: #ffffff;
+    border: 1px solid #f57c00;
+  }
+
   
 /* .loginBtnwrap{
   width: 20%;

@@ -20,8 +20,10 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     { headers : {authorization: accessToken , withCredentials: true}})
     .then((res) => {
       let qrUrl = res.data;
+      setThisUrl(qrUrl)
       let urlStr = qrUrl.split('chl=');
       let url = urlStr[1];
+      console.log(url)
       setUserQrImg(url)
       setIsRefreshed(true)
       setIsUserLike(false)
@@ -106,7 +108,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       <div>
         <div className="user-qrRender">
           <p>리프레시를 눌러주세요!</p>
-          <a href={randomurl} target='_blank'>
+          <a href={userQrImg} target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
           <div>
