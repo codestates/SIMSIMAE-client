@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import Nav from '../components/Nav';
-import LoginMain from './LoginMain'
 import logo from '../img/simsimae_logo.png';
 import $ from "jquery";
 import axios from 'axios';
