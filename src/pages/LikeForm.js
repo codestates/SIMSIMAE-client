@@ -62,7 +62,7 @@ const LikeForm = (props) => {
  
   return(
     <div >
-      <center>
+      <center className='likecenter'>
         <img className='logo' src={logo}/>
         <p className='likeTitle'>좋아하는 관심사를 골라주세요</p>
         <div className='favoriteCheckForm'>

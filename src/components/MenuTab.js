@@ -43,6 +43,13 @@ const MenuTab = ({userinfo}) => {
   // 관심사 수정 버튼 (수정<->취소,완료)
   const updateActivation = () => {
     setUpdate(!update)
+    /*
+    axios.post('http://13.209.10.136/user/updatecategory',
+      {favorite, userId}, { 'Content-Type':'application/json', withCredentials: true }
+      ).then((res) => {
+        console.log('관심QR에 저장했습니다!');
+      }).catch((err) => console.log(err)
+    */
   }
 
   // 불러온 userinfo의 체크 기본 상태 설정
