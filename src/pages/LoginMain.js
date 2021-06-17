@@ -24,6 +24,8 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
       let url = urlStr[1];
       setUserQrImg(url)
       setIsRefreshed(true)
+      setIsUserLike(false)
+      setIsUserDislike(false)
       console.log('유저용 관심사 qr 얻어오기 핸들러 ::',userQrImg)
     })
   }
@@ -55,7 +57,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     { withCredentials: true }
     ).then((res) => {
       console.log('관심QR에 저장했습니다!')
-      setIsUserLike(!isUserLike);
+      setIsUserLike(true);
     }).catch((err) => console.log(err))
   }  
 
@@ -69,7 +71,7 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     { withCredentials: true }
     ).then((res) => {
       console.log('관심없는 QR에 저장했습니다!')
-      setIsUserDislike(!isUserDislike);
+      setIsUserDislike(true);
     }).catch((err) => console.log(err))
   }
 
@@ -78,22 +80,27 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
     
     <div className="body">
       {/* // 토글 부분 */}
-      <div className='toggle-div'>
-        <input className='toggle-input' type="checkbox" id="switch"/>
-        <label className='toggle-label'htmlFor="switch" onClick={() => {toggleStatus()}}></label>
-      </div>
+      
+        <div className='toggle-div'>
+          <input className='toggle-input' type="checkbox" id="switch"/>
+          <label className='toggle-label'htmlFor="switch" onClick={() => {toggleStatus()}}></label>
+        </div>
 
       { 
         !toggleOn ? 
       //토글 꺼진 QR
-      <div>
+        <>
         <div className="user-qrRender">
           <a href={randomurl} target='_blank'>
             <img src={qrImg} alt=''/>
           </a>
         </div>
-        <button onClick={() => qrRequestHandler()} className="user-refreshBtn" />
-      </div>
+        <div className='reBtnDiv'>
+          <button onClick={() => qrRequestHandler()} className="user-refreshBtn">
+          <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
+        </>
       : 
       toggleOn && !isRefreshed ? // 토글 on, 리프레시 버튼 안눌렀을때
       <div>
@@ -106,7 +113,11 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
             <Ddabong likeSelect={likeSelect} dislikeSelect={dislikeSelect} />
           </div>
         </div>
-        <button onClick={() => userQrRequestHandler()} className="user-refreshBtn" />
+        <div className='reBtnDiv'>
+          <button onClick={() => userQrRequestHandler()} className="user-refreshBtn">
+          <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
       </div>
       :
       //토글 켜진 QR
@@ -120,7 +131,11 @@ const LoginMain = ({qrImg, qrRequestHandler, setErrorMessage, closeModal, userin
             <Ddabong isUserLike={isUserLike} isUserDislike={isUserDislike} likeSelect={likeSelect} dislikeSelect={dislikeSelect} />
           </div>
         </div>
-        <button onClick={() => userQrRequestHandler()} className="user-refreshBtn"></button>
+        <div className='reBtnDiv'>
+          <button onClick={() => userQrRequestHandler()} className="user-refreshBtn">
+          <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
       </div>
       }
     </div>

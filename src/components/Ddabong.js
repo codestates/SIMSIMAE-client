@@ -1,10 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import '../css/Like.css';
-import like_btn from '../img/like_btn.png';
-import like_btn_filled from '../img/like_btn_filled.png';
-import dislike_btn from '../img/dislike_btn.png';
-import dislike_btn_filled from '../img/dislike_btn_filled.png';
 
 const Ddabong = ({isUserLike, isUserDislike, dislikeSelect, likeSelect}) => {
 

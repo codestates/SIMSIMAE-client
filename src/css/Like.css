@@ -25,14 +25,14 @@
 .completeBtn{
   margin-left: 10px;
   cursor: pointer;
-  margin-top: 70px;
   width: 350px;
   height: 40px;
   border-radius: 15px;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
   background-color: var(--white-color-light);
-  margin-bottom: 100px;
+  margin-bottom: 70px;
+  margin-top: 30px;
 }
 
 .completeBtn:hover{
@@ -88,7 +88,8 @@
   display: flex;
   flex-direction: column;
   margin-top: 30px;
-  justify-content: center;
+  margin-left: 70px;
+  margin-bottom: 30px;
 }
 
 .optionText{
@@ -160,6 +161,7 @@
 .favoriteCheckForm{
   color: #1b1b1b;
   font-size: 17px;
+  width: 60vw;
 }
 .favoriteCheckDiv{
   padding-left: 20px;
