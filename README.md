@@ -52,7 +52,7 @@ _"뭐하지?"_
 
 <img src = https://user-images.githubusercontent.com/78632904/122373637-9bc29300-cf9c-11eb-94a9-d2866cd28757.jpg width="400px" >
 
-## 송원준   
+## 송원준 <a href="https://github.com/zdtfcx/" target="_blank"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 
 ### Position: Front-end 
 UI design 참고 (1,2,4 페이지) 8페이지는 공통.  
@@ -61,7 +61,7 @@ UI design 참고 (1,2,4 페이지) 8페이지는 공통.
 
 <img src = https://user-images.githubusercontent.com/78632904/122373465-7897e380-cf9c-11eb-8e0b-12e21a5253a4.jpg width="400px">
 
-## 유나라 (팀장)
+## 유나라 (팀장) <a href="https://github.com/narayoo" target="_blank"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 
 ### Position: Back-end  
 공통작업 : 데이터베이스 구축, sequlize로 스키마 생성 / Front-end : 회원가입 관심사 수집 및 가입, 회원탈퇴   
@@ -76,7 +76,7 @@ AWS 배포(공통) (EC2, S3, RDS, Route53)-> 하루에 한번 씩 번갈아가�
 
 <img src = https://user-images.githubusercontent.com/78632904/122377998-894a5880-cfa0-11eb-9862-8c4ad85a62fc.jpg width="400px">
 
-## 이혜빈
+## 이혜빈 <a href="https://github.com/bining93" target="_blank"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 
 ### Position: Back-end
 공통작업 : 데이터베이스 구축, sequlize로 스키마 생성 / Front-end : 회원가입 관심사 수집 및 가입, 회원탈퇴.  
@@ -90,7 +90,7 @@ AWS 배포(공통) (EC2, S3, RDS, Route53)-> 하루에 한번 씩 번갈아가�
 
 <img src =https://user-images.githubusercontent.com/78632904/122380899-4e95ef80-cfa3-11eb-8a0b-fa73493c4a3a.jpg width="400px">
 
-## 조미현 
+## 조미현 <a href="https://github.com/hold1593" target="_blank"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 
 ### Position: Front-end 
 공통작업 : 회원가입 : 관심사 수집 및 가입, 메인페이지 : 랜덤 QR 및 관심사 QR 렌더링.   
