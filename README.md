@@ -54,10 +54,9 @@ _"뭐하지?"_
 
 ## 송원준 <a href="https://github.com/zdtfcx/" target="_blank"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 
-### Position: Front-end 
-UI design 참고 (1,2,4 페이지) 8페이지는 공통.  
-
-
+### Position: Front-end  
+공통작업 : 회원가입 : 관심사 수집 및 가입, 메인페이지 : 랜덤 QR 및 관심사 QR 렌더링, state관리
+개별작업 : 토글스위치버튼 on/off, 버튼 기능화
 
 <img src = https://user-images.githubusercontent.com/78632904/122373465-7897e380-cf9c-11eb-8e0b-12e21a5253a4.jpg width="400px">
 
